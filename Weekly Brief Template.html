@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Brief — End of Week Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #273349;
+    --navy-deep: #1a2435;
+    --ink: #333333;
+    --ink-muted: #5f6671;
+    --ink-faint: #8b919c;
+    --paper: #ffffff;
+    --panel: #f0f0f0;
+    --copper: #B08D57;
+    --copper-bright: #c9a572;
+    --copper-deep: #8f6f3f;
+    --rust: #8b3a1f;
+    --border: #e5e5e5;
+    --border-soft: #eeeeee;
+
+    --font-display: 'Oswald', sans-serif;
+    --font-body: 'Source Sans 3', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-soft: cubic-bezier(0.33, 0.8, 0.4, 1);
+    --maxw: 940px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ============ SHARED HEADING SYSTEM ============ */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--copper);
+    font-weight: 500;
+  }
+
+  .label-underline::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--copper);
+    margin-top: 14px;
+  }
+
+  /* ============ SCROLL PROGRESS ============ */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px; width: 0%;
+    background: var(--copper);
+    z-index: 200;
+    transition: width 0.12s linear;
+  }
+
+  /* ============ MASTHEAD ============ */
+  .masthead {
+    background: var(--navy);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: -30%; right: -10%;
+    width: 620px; height: 620px;
+    background: radial-gradient(circle, rgba(176,141,87,0.20) 0%, transparent 62%);
+    pointer-events: none;
+  }
+
+  .masthead::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 56px 56px;
+    pointer-events: none;
+  }
+
+  .masthead .wrap {
+    position: relative;
+    z-index: 1;
+    padding-top: 78px;
+    padding-bottom: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .masthead-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--copper-bright);
+    margin-bottom: 28px;
+  }
+  .masthead-eyebrow::before {
+    content: '';
+    width: 28px; height: 1px;
+    background: var(--copper);
+  }
+
+  .masthead-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(54px, 9vw, 104px);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .masthead-title .underbar {
+    display: block;
+    width: 92px; height: 5px;
+    background: var(--copper);
+    margin-top: 26px;
+  }
+
+  .masthead-meta {
+    text-align: right;
+    padding-bottom: 6px;
+  }
+  .masthead-meta .m-date {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .masthead-meta .m-line {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.9;
+  }
+  .masthead-meta .m-line strong {
+    color: rgba(255,255,255,0.92);
+    font-weight: 500;
+  }
+
+  /* ============ STICKY TABS ============ */
+  .tabbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .tabbar .wrap {
+    display: flex;
+    gap: 4px;
+  }
+  .tab-btn {
+    appearance: none;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding: 22px 4px 19px;
+    margin-right: 36px;
+    cursor: pointer;
+    transition: color 0.3s var(--ease-soft), border-color 0.3s var(--ease-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .tab-btn:hover { color: var(--navy); }
+  .tab-btn.active {
+    color: var(--navy);
+    border-bottom-color: var(--copper);
+  }
+  .tab-btn .badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--copper-deep);
+  }
+  .tab-btn.active .badge {
+    background: rgba(176,141,87,0.14);
+    color: var(--copper-deep);
+  }
+
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ============ SECTIONS ============ */
+  main { padding-top: 18px; }
+
+  section.report-section {
+    padding: 46px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  section.report-section:last-child { border-bottom: none; }
+
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 14px;
+  }
+  .section-eyebrow .num { color: var(--copper-deep); }
+  .section-eyebrow .slash { opacity: 0.45; margin: 0 8px; }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.04;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 22px;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 40px; height: 3px;
+    background: var(--copper);
+    margin-top: 16px;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-muted);
+    max-width: 70ch;
+    margin-bottom: 22px;
+  }
+  .lead strong { color: var(--navy); font-weight: 600; }
+
+  p { margin-bottom: 14px; }
+  p strong { color: var(--navy); font-weight: 600; }
+
+  /* ============ BULLET LIST ============ */
+  ul.brief-list {
+    list-style: none;
+    margin: 8px 0 4px;
+  }
+  ul.brief-list li {
+    padding: 13px 0 13px 28px;
+    position: relative;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--ink);
+    transition: transform 0.4s var(--ease-soft);
+  }
+  ul.brief-list li:last-child { border-bottom: none; }
+  ul.brief-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 22px;
+    width: 14px; height: 2px;
+    background: var(--copper);
+    transition: width 0.4s var(--ease-soft);
+  }
+  ul.brief-list li:hover { transform: translateX(4px); }
+  ul.brief-list li:hover::before { width: 22px; }
+  ul.brief-list li b,
+  ul.brief-list li strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ============ STATUS PILLS ============ */
+  .pill {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+  .pill.on-track {
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--navy);
+  }
+  .pill.live {
+    background: var(--copper);
+    color: #fff;
+  }
+  .pill.action {
+    background: var(--rust);
+    color: #fff;
+  }
+  .pill.done {
+    background: var(--panel);
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
+  }
+
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 4px 0 6px;
+  }
+  .pill-row .pill { margin-left: 0; }
+
+  /* ============ DATA TABLE ============ */
+  .table-wrap {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 10px 0 20px;
+  }
+  .table-head {
+    background: var(--navy);
+    color: #fff;
+    padding: 16px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .table-head .th-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .table-head .th-sub {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--copper-bright);
+  }
+
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  table.data thead th {
+    text-align: left;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    padding: 13px 18px;
+    background: rgba(176,141,87,0.09);
+    border-bottom: 1px solid var(--border);
+  }
+  table.data th.num, table.data td.num { text-align: center; }
+  table.data tbody td {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--ink);
+    vertical-align: middle;
+  }
+  table.data tbody tr:last-child td { border-bottom: none; }
+  table.data tbody tr:hover td { background: rgba(176,141,87,0.04); }
+  .row-name { font-weight: 600; color: var(--navy); }
+
+  .net-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .net-tag.in { color: var(--navy); border: 1px solid var(--navy); }
+  .net-tag.out { color: var(--rust); background: rgba(139,58,31,0.08); border: 1px solid rgba(139,58,31,0.3); }
+  .net-tag.review { color: var(--copper-deep); background: rgba(176,141,87,0.12); border: 1px solid rgba(176,141,87,0.4); }
+
+  .pct { font-family: var(--font-mono); font-weight: 500; font-size: 13px; }
+  .pct.good { color: var(--navy); }
+  .pct.warn { color: var(--copper-deep); }
+  .pct.bad  { color: var(--rust); }
+
+  /* ============ DASHBOARD CTA ============ */
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin: 6px 0 4px;
+  }
+  .dash-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px 24px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: transparent;
+    border: 1.5px solid var(--navy);
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.4s var(--ease-soft), background 0.4s var(--ease-soft), border-color 0.4s var(--ease-soft);
+  }
+  .dash-btn svg { width: 13px; height: 13px; transition: transform 0.4s var(--ease-soft); }
+  .dash-btn:hover {
+    background: var(--copper);
+    border-color: var(--copper);
+    color: #fff;
+  }
+  .dash-btn:hover svg { transform: translate(3px, -3px); }
+
+  .pw-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+    background: var(--panel);
+    border-radius: 4px;
+  }
+  .pw-chip .pw-label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 9.5px;
+    color: var(--copper-deep);
+    font-weight: 500;
+  }
+  .pw-chip strong { color: var(--navy); font-weight: 600; user-select: all; }
+
+  /* ============ KPI BLOCK ============ */
+  .kpi-block {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 42px 46px;
+    position: relative;
+    overflow: hidden;
+    margin: 8px 0 10px;
+  }
+  .kpi-block::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -8%;
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, rgba(176,141,87,0.16) 0%, transparent 62%);
+    pointer-events: none;
+  }
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .kpi { position: relative; padding-bottom: 14px; }
+  .kpi::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 32px; height: 2px;
+    background: var(--copper);
+  }
+  .kpi-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--copper-bright);
+    margin-bottom: 12px;
+  }
+  .kpi-value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 58px;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--copper-bright);
+    display: flex;
+    align-items: baseline;
+  }
+  .kpi-value .unit {
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    margin-left: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .kpi-breakdown {
+    border-top: 1px solid rgba(255,255,255,0.13);
+    padding-top: 26px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    position: relative;
+    z-index: 1;
+  }
+  .bd-count {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 28px;
+    color: #fff;
+    line-height: 1;
+  }
+  .bd-track {
+    height: 4px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 3px;
+    margin: 11px 0 10px;
+    overflow: hidden;
+  }
+  .bd-fill {
+    height: 100%;
+    background: var(--copper);
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.6s var(--ease-smooth) 0.3s;
+  }
+  .bd-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .micro-note {
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 12px;
+  }
+
+  /* ============ VENDOR CARDS ============ */
+  .vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 10px 0 8px;
+  }
+  .vendor-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy);
+    border-radius: 6px;
+    padding: 26px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s var(--ease-soft), box-shadow 0.5s var(--ease-soft);
+  }
+  .vendor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px -22px rgba(39,51,73,0.35);
+  }
+  .vendor-card.recommended {
+    border-top-color: var(--copper);
+    box-shadow: 0 14px 34px -20px rgba(176,141,87,0.5);
+  }
+  .vendor-card.recommended::after {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: 16px; right: -42px;
+    background: var(--copper);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    padding: 4px 48px;
+    transform: rotate(40deg);
+    font-weight: 500;
+  }
+  .vendor-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .vendor-meta {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .vendor-card ul {
+    list-style: none;
+    margin-bottom: 16px;
+  }
+  .vendor-card ul li {
+    font-size: 13.5px;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    color: var(--ink-muted);
+  }
+  .vendor-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 13px;
+    width: 9px; height: 2px;
+    background: var(--copper);
+  }
+  .vendor-price {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: 0.01em;
+    color: var(--navy);
+  }
+  .vendor-price .per {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  /* ============ MY READ CALLOUT ============ */
+  .callout {
+    background: var(--panel);
+    border-left: 4px solid var(--copper);
+    padding: 24px 28px;
+    border-radius: 0 6px 6px 0;
+    margin: 18px 0 4px;
+  }
+  .callout-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--copper-deep);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .callout p {
+    font-size: 15.5px;
+    color: var(--ink);
+    margin: 0;
+  }
+  .callout .hl {
+    background: linear-gradient(180deg, transparent 58%, rgba(176,141,87,0.32) 58%);
+    padding: 0 2px;
+  }
+
+  /* ============ NEXT WEEK ============ */
+  .next-week {
+    background: var(--navy-deep);
+    color: #fff;
+    border-radius: 8px;
+    padding: 48px 46px;
+    position: relative;
+    overflow: hidden;
+  }
+  .next-week::before {
+    content: attr(data-wk);
+    position: absolute;
+    top: 50%; right: 30px;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(110px, 20vw, 230px);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: rgba(176,141,87,0.07);
+    pointer-events: none;
+  }
+  .next-week .section-eyebrow { color: var(--copper-bright); }
+  .next-week .section-title { color: #fff; position: relative; z-index: 1; }
+  .nw-list { position: relative; z-index: 1; margin-top: 6px; }
+  .nw-item {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 22px;
+    align-items: start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+    transition: transform 0.4s var(--ease-soft);
+  }
+  .nw-item:last-child { border-bottom: none; }
+  .nw-item:hover { transform: translateX(6px); }
+  .nw-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1;
+    color: var(--copper);
+  }
+  .nw-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .nw-desc {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.55;
+  }
+
+  /* ============ OPEN DECISIONS ============ */
+  .decisions {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--copper);
+    border-radius: 6px;
+    padding: 30px 34px;
+    margin-top: 6px;
+  }
+  ol.decision-list {
+    list-style: none;
+    counter-reset: dec;
+  }
+  ol.decision-list li {
+    counter-increment: dec;
+    padding: 16px 0 16px 50px;
+    position: relative;
+    border-bottom: 1px dashed var(--border);
+    transition: transform 0.4s var(--ease-soft);
+  }
+  ol.decision-list li:last-child { border-bottom: none; }
+  ol.decision-list li:hover { transform: translateX(4px); }
+  ol.decision-list li::before {
+    content: counter(dec, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 15px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--copper);
+    line-height: 1;
+  }
+  ol.decision-list li b { color: var(--navy); font-weight: 700; }
+
+  /* ============ SIGNOFF ============ */
+  .signoff {
+    text-align: center;
+    padding: 40px 0 56px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--copper-deep);
+  }
+
+  /* ============ SCOPE / BUDGET ============ */
+  .scope-banner {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 32px 38px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .scope-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -6%;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(176,141,87,0.16) 0%, transparent 62%);
+  }
+  .scope-banner .sb-left { position: relative; z-index: 1; }
+  .sb-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--copper-bright);
+    margin-bottom: 8px;
+  }
+  .sb-value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(48px, 8vw, 72px);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--copper-bright);
+  }
+  .sb-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.6);
+    position: relative;
+    z-index: 1;
+    text-align: right;
+    line-height: 1.9;
+  }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .scope-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--navy);
+    border-radius: 6px;
+    padding: 22px 24px;
+    transition: transform 0.5s var(--ease-soft), box-shadow 0.5s var(--ease-soft);
+  }
+  .scope-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px -22px rgba(39,51,73,0.3);
+  }
+  .scope-card.lead-item { border-left-color: var(--copper); }
+  .scope-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 13px;
+    margin-bottom: 13px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .scope-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  .scope-price {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--copper-deep);
+    white-space: nowrap;
+  }
+  .scope-card ul { list-style: none; }
+  .scope-card ul li {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    padding: 5px 0 5px 18px;
+    position: relative;
+  }
+  .scope-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px;
+    width: 8px; height: 2px;
+    background: var(--copper);
+  }
+
+  /* ============ REVEAL ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s var(--ease-smooth), transform 0.9s var(--ease-smooth);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 860px) {
+    .wrap { padding: 0 28px; }
+    .masthead .wrap { padding-top: 56px; padding-bottom: 56px; align-items: flex-start; }
+    .masthead-meta { text-align: left; }
+    .vendor-grid { grid-template-columns: 1fr; }
+    .kpi-row { grid-template-columns: 1fr; gap: 22px; }
+    .kpi-breakdown { grid-template-columns: 1fr 1fr; gap: 22px; }
+    .scope-grid { grid-template-columns: 1fr; }
+    .table-wrap { overflow-x: auto; }
+    table.data { min-width: 620px; }
+    .kpi-block, .next-week { padding: 32px 26px; }
+    .tabbar .wrap { overflow-x: auto; }
+    .tab-btn { white-space: nowrap; }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 20px; }
+    .kpi-breakdown { grid-template-columns: 1fr; }
+    .scope-banner { flex-direction: column; }
+    .sb-meta { text-align: left; }
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .scroll-progress, .tabbar { display: none; }
+    .tab-pane { display: block !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .masthead, .kpi-block, .next-week, .scope-banner, .table-head {
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    section.report-section { break-inside: avoid; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <div class="wrap">
+      <div class="masthead-head">
+        <div class="masthead-eyebrow eyebrow" id="mhEyebrow">End of Week Report · Volume 23</div>
+        <h1 class="masthead-title">
+          Weekly<br>Brief
+          <span class="underbar"></span>
+        </h1>
+      </div>
+      <div class="masthead-meta">
+        <div class="m-date" id="mhDate">Friday, May 29, 2026</div>
+        <div class="m-line">Prepared by <strong id="mhPrepared">Joshua Moon</strong></div>
+        <div class="m-line">For <strong id="mhFor">Friend</strong></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ STICKY TABS ============ -->
+  <nav class="tabbar" role="tablist">
+    <div class="wrap">
+      <button class="tab-btn active" data-tab="brief" role="tab" aria-selected="true">Weekly Brief</button>
+      <button class="tab-btn" data-tab="budget" role="tab" aria-selected="false">
+        Budget Snapshot <span class="badge">$58K</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+  <!-- ============ TAB: WEEKLY BRIEF ============ -->
+  <div class="tab-pane active" id="tab-brief" role="tabpanel">
+
+    <!-- 01 / INSURANCE -->
+    <section class="report-section reveal">
+      <div class="wrap">
+        <div class="section-eyebrow"><span class="num">01</span><span class="slash">/</span>Insurance</div>
+        <h2 class="section-title">Careington &amp; EOB Tracking</h2>
+        <p class="lead">New wins this week: <strong>MetLife and UHC PPO EOBs are now repricing under Careington</strong>, and the EOB tool caught a <strong>$3,500 resubmission</strong> on a single patient. Carrier counts continue to grow, with two new <strong>"needs review"</strong> lines surfaced — MetLife FEDVIP (40% in-net while routing settles) and Cigna Dental paying to Friend Bechtel personally.</p>
+
+        <div class="pill-row">
+          <span class="pill on-track">On Track</span>
+          <span class="pill live">Live</span>
+          <span class="pill action">Action</span>
+          <span class="pill done">Done</span>
+        </div>
+
+        <div class="table-wrap">
+          <div class="table-head">
+            <div class="th-title">Careington Carrier Network Tracker</div>
+            <div class="th-sub">Live EOB line counts per carrier · last updated <span class="wk-ref">WK 23</span></div>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th>Carrier</th>
+                <th>Status</th>
+                <th class="num">Lines</th>
+                <th class="num">In-Net</th>
+                <th class="num">OON</th>
+                <th class="num">% In-Net</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-name">Humana — Commercial (Care Platinum PPO)</td>
+                <td><span class="net-tag in">In-Network</span></td>
+                <td class="num">12</td><td class="num">11</td><td class="num">0</td>
+                <td class="num"><span class="pct good">91.7%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Anthem — Dental Complete (Careington)</td>
+                <td><span class="net-tag in">In-Network</span></td>
+                <td class="num">23</td><td class="num">21</td><td class="num">0</td>
+                <td class="num"><span class="pct good">91.3%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">MetLife — FEDVIP (via Careington)</td>
+                <td><span class="net-tag in">In-Network</span></td>
+                <td class="num">5</td><td class="num">2</td><td class="num">3</td>
+                <td class="num"><span class="pct warn">40.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Cigna Dental — Paid to Friend Bechtel</td>
+                <td><span class="net-tag review">Needs Review</span></td>
+                <td class="num">16</td><td class="num">4</td><td class="num">10</td>
+                <td class="num"><span class="pct warn">25.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Anthem — Dental Prime</td>
+                <td><span class="net-tag out">Out of Network</span></td>
+                <td class="num">7</td><td class="num">0</td><td class="num">3</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Anthem — KEHP (Kentucky State Exchange)</td>
+                <td><span class="net-tag out">Out of Network</span></td>
+                <td class="num">2</td><td class="num">0</td><td class="num">2</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Humana — Medicare (CI-3 reprice)</td>
+                <td><span class="net-tag out">Out of Network</span></td>
+                <td class="num">41</td><td class="num">0</td><td class="num">32</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Anthem — Paid to Neil Rush (old solo contract)</td>
+                <td><span class="net-tag review">Needs Review</span></td>
+                <td class="num">4</td><td class="num">0</td><td class="num">0</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">BCBS FEP — Paid to Wm Faulkner</td>
+                <td><span class="net-tag review">Needs Review</span></td>
+                <td class="num">3</td><td class="num">0</td><td class="num">0</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Humana — Paid to Wm Faulkner</td>
+                <td><span class="net-tag review">Needs Review</span></td>
+                <td class="num">14</td><td class="num">0</td><td class="num">0</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">BCBS Illinois — Commercial PPO (non-Careington)</td>
+                <td><span class="net-tag out">Out of Network</span></td>
+                <td class="num">3</td><td class="num">0</td><td class="num">3</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Cigna Dental — Paid to Neil Rush (old solo contract)</td>
+                <td><span class="net-tag review">Needs Review</span></td>
+                <td class="num">5</td><td class="num">0</td><td class="num">0</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Humana — Medicare (strict in-network, OON denied)</td>
+                <td><span class="net-tag out">Out of Network</span></td>
+                <td class="num">4</td><td class="num">0</td><td class="num">0</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cta-row">
+          <a class="dash-btn" href="#" target="_blank" rel="noopener noreferrer">
+            <span>Open Careington EOB Dashboard</span>
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9 L9 3"/><path d="M4 3 L9 3 L9 8"/>
+            </svg>
+          </a>
+          <div class="pw-chip"><span class="pw-label">Password</span> <strong>Practice2026!Demo</strong></div>
+        </div>
+
+        <ul class="brief-list">
+          <li><strong>$3,500 catch.</strong> The EOB tool surfaced a resubmission on a single patient — confirms the workflow is paying for itself. <span class="pill done">Recovered</span></li>
+          <li><strong>MetLife &amp; UHC PPO.</strong> Both now coming back and repricing in-network under Careington; MetLife FEDVIP at 40% pickup as routing settles. <span class="pill live">New In-Net</span></li>
+          <li><strong>Anthem &amp; Humana commercial.</strong> Holding strong — Dental Complete 91.3% (23 lines) and Care Platinum PPO 91.7% (12 lines).</li>
+          <li><strong>Humana Medicare.</strong> CI-3 reprice climbed to 41 lines this week — still our largest out-of-network bleed. <span class="pill action">Action</span></li>
+          <li><strong>Cigna Dental.</strong> 16 lines paying to Friend Bechtel personally and 5 to Neil Rush's old solo contract — payee correction needed at the carrier. <span class="pill action">Action</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 02 / OPERATIONS -->
+    <section class="report-section reveal">
+      <div class="wrap">
+        <div class="section-eyebrow"><span class="num">02</span><span class="slash">/</span>Operations</div>
+        <h2 class="section-title">Insurance Verification</h2>
+        <p>Overjet rollout scheduled for <strong>June 4</strong> — Cynthiana first. Monitoring the verification workflow live across the trial window so we can decide <strong>subscribe vs. build in-house</strong> at the end. <span class="pill on-track">Launch 6/4</span></p>
+      </div>
+    </section>
+
+    <!-- 03 / PATIENT FEEDBACK -->
+    <section class="report-section reveal">
+      <div class="wrap">
+        <div class="section-eyebrow"><span class="num">03</span><span class="slash">/</span>Patient Feedback</div>
+        <h2 class="section-title">Live Satisfaction</h2>
+        <p class="lead">Week of May 25–31: every measured dimension at <strong>100% positive</strong> and a perfect <strong>5.00 avg</strong>, with the biggest gain on <strong>"no pressure felt"</strong> (+17 vs. last week).</p>
+
+        <div class="kpi-block">
+          <div class="kpi-row">
+            <div class="kpi">
+              <div class="kpi-label">Responses</div>
+              <div class="kpi-value"><span class="counter" data-target="4">0</span></div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Avg Rating</div>
+              <div class="kpi-value"><span class="counter" data-target="50" data-decimal="10">0</span><span class="unit">/ 5</span></div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Callbacks</div>
+              <div class="kpi-value"><span class="counter" data-target="0">0</span></div>
+            </div>
+          </div>
+          <div class="kpi-breakdown">
+            <div class="bd">
+              <div class="bd-count"><span class="counter" data-target="100" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="100"></div></div>
+              <div class="bd-label">Communication</div>
+            </div>
+            <div class="bd">
+              <div class="bd-count"><span class="counter" data-target="100" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="100"></div></div>
+              <div class="bd-label">Intake Reasonable</div>
+            </div>
+            <div class="bd">
+              <div class="bd-count"><span class="counter" data-target="100" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="100"></div></div>
+              <div class="bd-label">Financial Clarity</div>
+            </div>
+            <div class="bd">
+              <div class="bd-count"><span class="counter" data-target="100" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="100"></div></div>
+              <div class="bd-label">No Pressure</div>
+            </div>
+          </div>
+        </div>
+        <p class="micro-note">Response volume dropped vs. last week (29 → 4) — partly the incomplete reporting window, partly worth confirming the post-visit survey trigger is firing on every completed appointment.</p>
+      </div>
+    </section>
+
+    <!-- 04 / TEAM -->
+    <section class="report-section reveal">
+      <div class="wrap">
+        <div class="section-eyebrow"><span class="num">04</span><span class="slash">/</span>Team</div>
+        <h2 class="section-title">Team Feedback</h2>
+        <p class="lead">Three submissions this round — one blank, two substantive. Culture scores are solid; the actionable signals cluster around consistency of instruction and a couple of training items.</p>
+
+        <ul class="brief-list">
+          <li><strong>Lisa Preston · 5/20 · blank submission.</strong> Submitted entirely blank — no responses recorded. Worth a quiet check-in to confirm the form worked and she felt able to respond. <span class="pill action">Check-in</span></li>
+          <li><strong>Ruby Blackburn · 5/22 · culture 8/10.</strong> Self-identifies a computer-skills gap ("my computer skills are lacking but I'm trying to learn"). Low-cost win — targeted OpenDental training.</li>
+          <li><strong>Victoria Gasser · 5/22 · culture 7/10.</strong> Two themes: conflicting instructions from different levels of management, and uneven workload — team members repeatedly redoing tasks for the same individual despite repeated training. <span class="pill action">Action</span></li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-label">My Read</div>
+          <p>Culture is net-positive — both responding staff flagged improvement over last week and felt supported by leadership. The clearest actionable theme is a <span class="hl">single source of truth per workflow</span>; Victoria's "different instructions" comment ties directly to the SOP effort. The repeat-correction pattern is a one-on-one performance item, not a culture-wide one.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / MARKETING -->
+    <section class="report-section reveal">
+      <div class="wrap">
+        <div class="section-eyebrow"><span class="num">05</span><span class="slash">/</span>Marketing</div>
+        <h2 class="section-title">STS Landing Page</h2>
+        <p class="lead">The first draft of the new STS landing page is built and live for review. We're <strong>proceeding to build it out in-house</strong> rather than paying the <strong>$1,500</strong> Market My Market quoted for this scope — same result, no outside spend, and full control of the page. <span class="pill done">Draft Live</span></p>
+
+        <div class="cta-row">
+          <a class="dash-btn" href="https://sts-claude-design-concept.vercel.app/#" target="_blank" rel="noopener noreferrer">
+            <span>Review the STS Page</span>
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9 L9 3"/><path d="M4 3 L9 3 L9 8"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="callout">
+          <div class="callout-label">My Read</div>
+          <p>The in-house build matches the scope MMM quoted at $1,500 and keeps every iteration in our hands. Recommend we <span class="hl">walk the draft together</span>, lock copy and imagery, then take it live.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT WEEK -->
+    <section class="report-section reveal">
+      <div class="wrap">
+        <div class="next-week" id="nextWeek" data-wk="WK 23">
+          <div class="section-eyebrow"><span class="num">06</span><span class="slash">/</span>Forward</div>
+          <h2 class="section-title">Next Week Focus</h2>
+          <div class="nw-list">
+            <div class="nw-item">
+              <div class="nw-num">01</div>
+              <div>
+                <div class="nw-title">Overjet rollout &amp; monitoring</div>
+                <div class="nw-desc">Go live June 4 at Cynthiana and monitor the verification workflow live to inform the subscribe-vs-build decision.</div>
+              </div>
+            </div>
+            <div class="nw-item">
+              <div class="nw-num">02</div>
+              <div>
+                <div class="nw-title">Call Rail monitoring</div>
+                <div class="nw-desc">Ongoing lead monitoring and cross-reference tracking against form submissions and referral tags in OpenDental.</div>
+              </div>
+            </div>
+            <div class="nw-item">
+              <div class="nw-num">03</div>
+              <div>
+                <div class="nw-title">EOB tracking</div>
+                <div class="nw-desc">Continue carrier reprice tracking and push the payee corrections on the "needs review" lines.</div>
+              </div>
+            </div>
+            <div class="nw-item">
+              <div class="nw-num">04</div>
+              <div>
+                <div class="nw-title">STS landing page live</div>
+                <div class="nw-desc">Take the STS site live now that the first draft is complete and the $1,500 landing-page scope is confirmed.</div>
+              </div>
+            </div>
+            <div class="nw-item">
+              <div class="nw-num">05</div>
+              <div>
+                <div class="nw-title">Renovation budget finalized</div>
+                <div class="nw-desc">Lock the Phase 2 number once the open RoofCred change-order and tech quotes come back.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN DECISIONS -->
+    <section class="report-section reveal">
+      <div class="wrap">
+        <div class="section-eyebrow"><span class="num">07</span><span class="slash">/</span>Asks</div>
+        <h2 class="section-title">Open Decisions</h2>
+        <div class="decisions">
+          <ol class="decision-list">
+            <li><b>STS site.</b> The first draft is live (linked above) — let's walk it together, lock copy and imagery, and green-light taking it live.</li>
+            <li><b>Phase 2 budget.</b> Let's review the budget together to lock the final scope in an upcoming session.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div class="signoff" id="signoff">FDC Cynthiana · WK 23 · 2026</div>
+
+  </div><!-- /tab-brief -->
+
+  <!-- ============ TAB: BUDGET SNAPSHOT ============ -->
+  <div class="tab-pane" id="tab-budget" role="tabpanel">
+    <section class="report-section">
+      <div class="wrap">
+        <div class="section-eyebrow"><span class="num">P2</span><span class="slash">/</span>Budget</div>
+        <h2 class="section-title">Phase 2 Snapshot</h2>
+        <p class="lead">Phase 2 lands at <strong>$58,074</strong> against a cap of <strong>$59,968.51</strong> — a <strong>$1,895 buffer</strong>. RoofCred is ~69% of total Phase 2 spend; the remaining 31% funds non-RoofCred scope plus a 7% contingency reserve.</p>
+
+        <div class="scope-banner">
+          <div class="sb-left">
+            <div class="sb-label">Phase 2 Total</div>
+            <div class="sb-value">$58,074</div>
+          </div>
+          <div class="sb-meta">Cap $59,968.51<br>Buffer $1,895<br>Snapshot <span class="wk-ref">WK 23</span></div>
+        </div>
+
+        <div class="scope-grid">
+          <div class="scope-card lead-item">
+            <div class="scope-head">
+              <div class="scope-name">RoofCred — Active</div>
+              <div class="scope-price">$39,800</div>
+            </div>
+            <ul>
+              <li>Painting — $8,640</li>
+              <li>Intake buildout — $19,860</li>
+              <li>Checkout buildout — $11,300</li>
+              <li>Back walls ($3,420) deferred from Quote #633 ($43,220)</li>
+            </ul>
+          </div>
+          <div class="scope-card lead-item">
+            <div class="scope-head">
+              <div class="scope-name">Other Renovation</div>
+              <div class="scope-price">$10,000</div>
+            </div>
+            <ul>
+              <li>Sterilization buildout — $2,800</li>
+              <li>Light fixtures — $2,400</li>
+              <li>Furniture &amp; décor — $4,800</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Infrastructure</div>
+              <div class="scope-price">$1,325</div>
+            </div>
+            <ul>
+              <li>Admin / front-area outlets — $850 (change-order pending)</li>
+              <li>HVAC scent diffuser — $475</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Technology</div>
+              <div class="scope-price">$3,150</div>
+            </div>
+            <ul>
+              <li>3 monitors — $750</li>
+              <li>2 PCs — $1,800</li>
+              <li>IT install — $600</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Contingency</div>
+              <div class="scope-price">$3,799</div>
+            </div>
+            <ul>
+              <li>7% reserve against scope creep and unplanned items</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Deferred</div>
+              <div class="scope-price">—</div>
+            </div>
+            <ul>
+              <li>Front-area glue-down flooring — ~$1,700</li>
+              <li>Espresso bar counter + machine — ~$2,400</li>
+              <li>Coffee machine plumber — ~$425</li>
+              <li>Operatory back walls / HEX — ~$3,420</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-label">Open items to confirm</div>
+          <p>Change-order for the admin / front-area outlets ($850 placeholder), RoofCred to confirm the licensed-electrician scope on file, and technology allowances ($250/monitor, $900/PC, $600 IT install) to be replaced with actual quotes. <span class="hl">Goal: lock the final number next week.</span></p>
+        </div>
+      </div>
+    </section>
+  </div><!-- /tab-budget -->
+
+  </main>
+
+  <script>
+    // Scroll progress
+    const progress = document.getElementById('scrollProgress');
+    const updateProgress = () => {
+      const h = document.documentElement;
+      progress.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // Reveal on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); revealObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Counters
+    const animateCounter = (el) => {
+      const target = parseInt(el.dataset.target, 10);
+      const decimal = el.dataset.decimal ? parseInt(el.dataset.decimal, 10) : 0;
+      const suffix = el.dataset.suffix || '';
+      const duration = 1500;
+      const start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+        let val = target * eased;
+        if (decimal) { el.textContent = (val / decimal).toFixed(1) + suffix; }
+        else { el.textContent = Math.round(val) + suffix; }
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { animateCounter(e.target); counterObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+    // Bar fills
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.style.width = e.target.dataset.fill + '%'; barObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.bd-fill').forEach(el => barObserver.observe(el));
+
+    // Tabs
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        tabBtns.forEach(b => {
+          const on = b === btn;
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on);
+        });
+        tabPanes.forEach(p => p.classList.toggle('active', p.id === 'tab-' + target));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

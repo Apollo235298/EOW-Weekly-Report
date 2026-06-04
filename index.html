@@ -266,6 +266,18 @@
     margin-top: 16px;
   }
 
+  .section-subtitle {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 28px 0 12px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border-soft);
+  }
+
   .lead {
     font-size: 18px;
     line-height: 1.55;
@@ -583,6 +595,48 @@
     color: var(--ink-faint);
     margin-top: 12px;
   }
+
+  /* ============ STAT STRIP ============ */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 10px 0 20px;
+  }
+  .stat-cell {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--copper);
+    border-radius: 6px;
+    padding: 22px 22px 20px;
+    background: var(--paper);
+    transition: transform 0.5s var(--ease-soft), box-shadow 0.5s var(--ease-soft);
+  }
+  .stat-cell:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px -22px rgba(39,51,73,0.3);
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--navy);
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--copper-deep);
+    margin-top: 11px;
+  }
+  .stat-sub {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin-top: 4px;
+  }
+  @media (max-width: 860px) { .stat-strip { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .stat-strip { grid-template-columns: 1fr; } }
 
   /* ============ VENDOR CARDS ============ */
   .vendor-grid {
@@ -911,6 +965,193 @@
     background: var(--copper);
   }
 
+  /* ============ SECTION COMMENTS ============ */
+  .cmt-block {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px dashed var(--border);
+  }
+  .cmt-toggle {
+    appearance: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--copper-deep);
+    font-weight: 500;
+    padding: 0;
+  }
+  .cmt-toggle:hover { color: var(--copper); }
+  .cmt-toggle svg {
+    width: 14px; height: 14px;
+    transition: transform 0.3s var(--ease-soft);
+  }
+  .cmt-toggle.open svg { transform: rotate(180deg); }
+  .cmt-toggle .cmt-count-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--copper-deep);
+  }
+  .cmt-toggle .cmt-count-badge.has {
+    background: var(--copper);
+    color: #fff;
+  }
+
+  .cmt-panel {
+    display: none;
+    margin-top: 18px;
+  }
+  .cmt-panel.open { display: block; }
+
+  .cmt-list { margin-bottom: 18px; }
+  .cmt-empty {
+    font-size: 13.5px;
+    color: var(--ink-faint);
+    font-style: italic;
+    padding: 6px 0 14px;
+  }
+  .cmt-item {
+    border-left: 3px solid var(--copper);
+    background: var(--panel);
+    border-radius: 0 6px 6px 0;
+    padding: 13px 18px;
+    margin-bottom: 10px;
+  }
+  .cmt-item-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+  .cmt-author {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--navy);
+  }
+  .cmt-time {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+  }
+  .cmt-body {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .cmt-composer {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    background: var(--paper);
+  }
+  .cmt-who {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .cmt-who-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--copper-deep);
+    margin-right: 4px;
+  }
+  .cmt-chip {
+    appearance: none;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--paper);
+    color: var(--ink-muted);
+    transition: all 0.25s var(--ease-soft);
+  }
+  .cmt-chip:hover { border-color: var(--copper); color: var(--copper-deep); }
+  .cmt-chip.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #fff;
+  }
+  .cmt-name-input {
+    font-family: var(--font-body);
+    font-size: 13px;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--ink);
+    min-width: 130px;
+    outline: none;
+  }
+  .cmt-name-input:focus { border-color: var(--copper); }
+  .cmt-textarea {
+    width: 100%;
+    min-height: 76px;
+    resize: vertical;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink);
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.25s var(--ease-soft);
+  }
+  .cmt-textarea:focus { border-color: var(--copper); }
+  .cmt-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .cmt-status {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-right: auto;
+  }
+  .cmt-post {
+    appearance: none;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--navy);
+    border: 1.5px solid var(--navy);
+    border-radius: 999px;
+    padding: 11px 24px;
+    transition: background 0.3s var(--ease-soft), border-color 0.3s var(--ease-soft);
+  }
+  .cmt-post:hover { background: var(--copper); border-color: var(--copper); }
+  .cmt-post:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  @media print { .cmt-block { display: none; } }
+
   /* ============ REVEAL ============ */
   .reveal {
     opacity: 0;
@@ -965,14 +1206,14 @@
   <header class="masthead">
     <div class="wrap">
       <div class="masthead-head">
-        <div class="masthead-eyebrow eyebrow" id="mhEyebrow">End of Week Report · Volume 23</div>
+        <div class="masthead-eyebrow eyebrow" id="mhEyebrow">End of Week Report · Volume 24</div>
         <h1 class="masthead-title">
           Weekly<br>Brief
           <span class="underbar"></span>
         </h1>
       </div>
       <div class="masthead-meta">
-        <div class="m-date" id="mhDate">Friday, May 29, 2026</div>
+        <div class="m-date" id="mhDate">Friday, June 5, 2026</div>
         <div class="m-line">Prepared by <strong id="mhPrepared">Joshua Moon</strong></div>
         <div class="m-line">For <strong id="mhFor">Friend</strong></div>
       </div>
@@ -984,7 +1225,7 @@
     <div class="wrap">
       <button class="tab-btn active" data-tab="brief" role="tab" aria-selected="true">Weekly Brief</button>
       <button class="tab-btn" data-tab="budget" role="tab" aria-selected="false">
-        Budget Snapshot <span class="badge">$58K</span>
+        Budget Snapshot <span class="badge">$56K</span>
       </button>
     </div>
   </nav>
@@ -995,11 +1236,12 @@
   <div class="tab-pane active" id="tab-brief" role="tabpanel">
 
     <!-- 01 / INSURANCE -->
-    <section class="report-section reveal">
+    <section class="report-section reveal" data-section="insurance">
       <div class="wrap">
+        <!-- DATA: 01 Insurance -->
         <div class="section-eyebrow"><span class="num">01</span><span class="slash">/</span>Insurance</div>
         <h2 class="section-title">Careington &amp; EOB Tracking</h2>
-        <p class="lead">New wins this week: <strong>MetLife and UHC PPO EOBs are now repricing under Careington</strong>, and the EOB tool caught a <strong>$3,500 resubmission</strong> on a single patient. Carrier counts continue to grow, with two new <strong>"needs review"</strong> lines surfaced — MetLife FEDVIP (40% in-net while routing settles) and Cigna Dental paying to Friend Bechtel personally.</p>
+        <p class="lead">Two carrier-side moves this week: the <strong>UHC PPO cancellation for Rush is submitted</strong> (awaiting reply), and we're <strong>scaffolding the Careington EOB tool for Nellie at Dry Ridge</strong>. The line counts hold steady — Anthem Dental Complete and Humana Care Platinum still anchor in-network above 91%, while <strong>Humana Medicare (CI-3 reprice) remains the largest out-of-network bleed at 41 lines</strong> and the Cigna / "paid-to-individual" payee corrections stay open.</p>
 
         <div class="pill-row">
           <span class="pill on-track">On Track</span>
@@ -1011,7 +1253,7 @@
         <div class="table-wrap">
           <div class="table-head">
             <div class="th-title">Careington Carrier Network Tracker</div>
-            <div class="th-sub">Live EOB line counts per carrier · last updated <span class="wk-ref">WK 23</span></div>
+            <div class="th-sub">Live EOB line counts per carrier · last updated <span class="wk-ref">WK 24</span></div>
           </div>
           <table class="data">
             <thead>
@@ -1118,40 +1360,44 @@
         </div>
 
         <ul class="brief-list">
-          <li><strong>$3,500 catch.</strong> The EOB tool surfaced a resubmission on a single patient — confirms the workflow is paying for itself. <span class="pill done">Recovered</span></li>
-          <li><strong>MetLife &amp; UHC PPO.</strong> Both now coming back and repricing in-network under Careington; MetLife FEDVIP at 40% pickup as routing settles. <span class="pill live">New In-Net</span></li>
+          <li><strong>UHC PPO — Rush cancellation submitted.</strong> Filed this week; waiting to hear back from the carrier. <span class="pill action">Awaiting Reply</span></li>
+          <li><strong>EOB tool for Nellie (Dry Ridge).</strong> Scaffolding the Careington tracking tool for her use — see the AI &amp; Tools section for the build options. <span class="pill on-track">In Progress</span></li>
           <li><strong>Anthem &amp; Humana commercial.</strong> Holding strong — Dental Complete 91.3% (23 lines) and Care Platinum PPO 91.7% (12 lines).</li>
-          <li><strong>Humana Medicare.</strong> CI-3 reprice climbed to 41 lines this week — still our largest out-of-network bleed. <span class="pill action">Action</span></li>
+          <li><strong>Humana Medicare.</strong> CI-3 reprice at 41 lines — still our largest out-of-network bleed. <span class="pill action">Action</span></li>
           <li><strong>Cigna Dental.</strong> 16 lines paying to Friend Bechtel personally and 5 to Neil Rush's old solo contract — payee correction needed at the carrier. <span class="pill action">Action</span></li>
         </ul>
+        <!-- /DATA -->
       </div>
     </section>
 
     <!-- 02 / OPERATIONS -->
-    <section class="report-section reveal">
+    <section class="report-section reveal" data-section="operations">
       <div class="wrap">
+        <!-- DATA: 02 Operations -->
         <div class="section-eyebrow"><span class="num">02</span><span class="slash">/</span>Operations</div>
         <h2 class="section-title">Insurance Verification</h2>
-        <p>Overjet rollout scheduled for <strong>June 4</strong> — Cynthiana first. Monitoring the verification workflow live across the trial window so we can decide <strong>subscribe vs. build in-house</strong> at the end. <span class="pill on-track">Launch 6/4</span></p>
+        <p>Overjet rollout slipped to <strong>June 8</strong> — Cynthiana first. Setup is taking longer than expected, but once live we'll monitor the verification workflow across the trial window so we can decide <strong>subscribe vs. build in-house</strong> at the end. <span class="pill on-track">Launch 6/8</span></p>
+        <!-- /DATA -->
       </div>
     </section>
 
     <!-- 03 / PATIENT FEEDBACK -->
-    <section class="report-section reveal">
+    <section class="report-section reveal" data-section="patient">
       <div class="wrap">
+        <!-- DATA: 03 Patient Feedback -->
         <div class="section-eyebrow"><span class="num">03</span><span class="slash">/</span>Patient Feedback</div>
         <h2 class="section-title">Live Satisfaction</h2>
-        <p class="lead">Week of May 25–31: every measured dimension at <strong>100% positive</strong> and a perfect <strong>5.00 avg</strong>, with the biggest gain on <strong>"no pressure felt"</strong> (+17 vs. last week).</p>
+        <p class="lead">Week of Jun 1–7: volume rebounded to <strong>17 responses</strong> (+13) at a <strong>4.88 avg</strong>. Communication clear held at <strong>100%</strong>, but <strong>"no pressure felt" dropped to 76%</strong> (↓ 24 pts) — the one dimension to watch. NPS reads <strong>-100</strong>, an artifact of the small sample (a single 3-star response swings it).</p>
 
         <div class="kpi-block">
           <div class="kpi-row">
             <div class="kpi">
               <div class="kpi-label">Responses</div>
-              <div class="kpi-value"><span class="counter" data-target="4">0</span></div>
+              <div class="kpi-value"><span class="counter" data-target="17">0</span></div>
             </div>
             <div class="kpi">
               <div class="kpi-label">Avg Rating</div>
-              <div class="kpi-value"><span class="counter" data-target="50" data-decimal="10">0</span><span class="unit">/ 5</span></div>
+              <div class="kpi-value"><span class="counter" data-target="488" data-decimal="100" data-places="2">0</span><span class="unit">/ 5</span></div>
             </div>
             <div class="kpi">
               <div class="kpi-label">Callbacks</div>
@@ -1165,52 +1411,92 @@
               <div class="bd-label">Communication</div>
             </div>
             <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="100" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="100"></div></div>
+              <div class="bd-count"><span class="counter" data-target="94" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="94"></div></div>
               <div class="bd-label">Intake Reasonable</div>
             </div>
             <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="100" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="100"></div></div>
+              <div class="bd-count"><span class="counter" data-target="94" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="94"></div></div>
               <div class="bd-label">Financial Clarity</div>
             </div>
             <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="100" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="100"></div></div>
+              <div class="bd-count"><span class="counter" data-target="76" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="76"></div></div>
               <div class="bd-label">No Pressure</div>
             </div>
           </div>
         </div>
-        <p class="micro-note">Response volume dropped vs. last week (29 → 4) — partly the incomplete reporting window, partly worth confirming the post-visit survey trigger is firing on every completed appointment.</p>
+        <p class="micro-note">"No pressure felt" slid to 76% (13/17) — worth a quick look at how treatment options are framed at the chair. Intake reasonable and financial clarity each eased to 94% (16/17). Communication and volume are both healthy.</p>
+        <!-- /DATA -->
       </div>
     </section>
 
     <!-- 04 / TEAM -->
-    <section class="report-section reveal">
+    <section class="report-section reveal" data-section="team">
       <div class="wrap">
+        <!-- DATA: 04 Team -->
         <div class="section-eyebrow"><span class="num">04</span><span class="slash">/</span>Team</div>
         <h2 class="section-title">Team Feedback</h2>
-        <p class="lead">Three submissions this round — one blank, two substantive. Culture scores are solid; the actionable signals cluster around consistency of instruction and a couple of training items.</p>
+        <p class="lead">Strong turnout this round — <strong>7 responses</strong>, week of June 1, averaging <strong>7.4 / 10</strong> on culture. Most of the team is positive across the board; the actionable signal is a <strong>leadership-support gap from the two lowest scorers</strong>, plus a recurring ask for OpenDental training.</p>
 
         <ul class="brief-list">
-          <li><strong>Lisa Preston · 5/20 · blank submission.</strong> Submitted entirely blank — no responses recorded. Worth a quiet check-in to confirm the form worked and she felt able to respond. <span class="pill action">Check-in</span></li>
-          <li><strong>Ruby Blackburn · 5/22 · culture 8/10.</strong> Self-identifies a computer-skills gap ("my computer skills are lacking but I'm trying to learn"). Low-cost win — targeted OpenDental training.</li>
-          <li><strong>Victoria Gasser · 5/22 · culture 7/10.</strong> Two themes: conflicting instructions from different levels of management, and uneven workload — team members repeatedly redoing tasks for the same individual despite repeated training. <span class="pill action">Action</span></li>
+          <li><strong>Mary Kate · 10/10.</strong> Positive on every measure — skills, coworkers, improvement, communication, and leadership support.</li>
+          <li><strong>Mariah Gaunce · 9/10.</strong> All positive across the board.</li>
+          <li><strong>Heather Morris · 8/10.</strong> All positive across the board.</li>
+          <li><strong>Ruby Blackburn · 8/10.</strong> Confident chairside; wants to close a self-identified computer-skills gap. Low-cost win — targeted OpenDental training.</li>
+          <li><strong>Lisa Preston · 8/10.</strong> Would like more OpenDental training ("you don't know what you don't know") and flags that some staff are taking on extra duties — hopes they're equally compensated. <span class="pill action">Note</span></li>
+          <li><strong>Victoria Gasser · 5/10.</strong> Answered <strong>No</strong> on feeling supported by leadership. <span class="pill action">Check-in</span></li>
+          <li><strong>Cindy Switzer · 4/10.</strong> Also answered <strong>No</strong> on leadership support — lowest culture score this round. <span class="pill action">Check-in</span></li>
         </ul>
 
         <div class="callout">
           <div class="callout-label">My Read</div>
-          <p>Culture is net-positive — both responding staff flagged improvement over last week and felt supported by leadership. The clearest actionable theme is a <span class="hl">single source of truth per workflow</span>; Victoria's "different instructions" comment ties directly to the SOP effort. The repeat-correction pattern is a one-on-one performance item, not a culture-wide one.</p>
+          <p>Culture is net-positive overall, but the two lowest scorers — Victoria (5) and Cindy (4) — <span class="hl">both answered "No" on leadership support</span>. That's the clearest signal to act on: a couple of direct, low-pressure check-ins. The repeated <span class="hl">OpenDental training</span> ask (Lisa and Ruby) is a cheap, high-trust win, and Lisa's duty/compensation-equity point is worth a quiet look.</p>
         </div>
+        <!-- /DATA -->
       </div>
     </section>
 
     <!-- 05 / MARKETING -->
-    <section class="report-section reveal">
+    <section class="report-section reveal" data-section="marketing">
       <div class="wrap">
+        <!-- DATA: 05 Marketing -->
         <div class="section-eyebrow"><span class="num">05</span><span class="slash">/</span>Marketing</div>
-        <h2 class="section-title">STS Landing Page</h2>
-        <p class="lead">The first draft of the new STS landing page is built and live for review. We're <strong>proceeding to build it out in-house</strong> rather than paying the <strong>$1,500</strong> Market My Market quoted for this scope — same result, no outside spend, and full control of the page. <span class="pill done">Draft Live</span></p>
+        <h2 class="section-title">Marketing &amp; Growth</h2>
+        <p class="lead">Cross-referenced the Market My Market leads report (Apr 21–May 22) against booked patients. <strong>Cynthiana is converting at 13–17%</strong> vs. <strong>Dry Ridge at 55–65%</strong> — the gap is the clearest growth lever. To tighten it, I built a <strong>CallRail logging SOP + video tutorial on 6.01</strong> and walked Heather and Mary through phone verbiage (sent to Sarah and Simone).</p>
+
+        <div class="stat-strip">
+          <div class="stat-cell">
+            <div class="stat-num"><span class="counter" data-target="48">0</span></div>
+            <div class="stat-label">Marketing Leads</div>
+            <div class="stat-sub">41 calls · 7 forms</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num"><span class="counter" data-target="19">0</span></div>
+            <div class="stat-label">Confident Conversions</div>
+            <div class="stat-sub">16 Dry Ridge · 3 Cynthiana</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num"><span class="counter" data-target="20">0</span></div>
+            <div class="stat-label">New Cynthiana Patients</div>
+            <div class="stat-sub">13 friends/family · 6 online · 1 Cedar Ridge</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num"><span class="counter" data-target="31">0</span></div>
+            <div class="stat-label">Recaptured in May</div>
+            <div class="stat-sub">reactivated lapsed patients</div>
+          </div>
+        </div>
+
+        <ul class="brief-list">
+          <li><strong>Conversion gap.</strong> Cynthiana 13–17% vs. Dry Ridge 55–65% — the CallRail SOP and phone-verbiage training target exactly this. <span class="pill action">Focus</span></li>
+          <li><strong>New-patient mix (Cynthiana).</strong> 13 friends/family, 6 online/Google, 1 Cedar Ridge — word-of-mouth is doing the heavy lifting; paid/online has room to grow.</li>
+          <li><strong>CallRail SOP live.</strong> Logging SOP + video tutorial created 6.01; Heather and Mary trained on verbiage; shared with Sarah and Simone. <span class="pill done">Done</span></li>
+        </ul>
+
+        <h3 class="section-subtitle">STS Landing Page</h3>
+        <p>The new STS landing page draft is built and live for review, and the <strong>post-op patient feedback form is built</strong>. Both still need <strong>DNS access to wire up</strong> to the live domain. We're building in-house rather than paying the $1,500 Market My Market quoted for this scope. <span class="pill done">Draft Live</span> <span class="pill action">Needs DNS</span></p>
 
         <div class="cta-row">
           <a class="dash-btn" href="https://sts-claude-design-concept.vercel.app/#" target="_blank" rel="noopener noreferrer">
@@ -1219,174 +1505,229 @@
               <path d="M3 9 L9 3"/><path d="M4 3 L9 3 L9 8"/>
             </svg>
           </a>
+          <a class="dash-btn" href="https://post-op-check-in.lovable.app" target="_blank" rel="noopener noreferrer">
+            <span>Review the Post-Op Form</span>
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9 L9 3"/><path d="M4 3 L9 3 L9 8"/>
+            </svg>
+          </a>
         </div>
 
         <div class="callout">
           <div class="callout-label">My Read</div>
-          <p>The in-house build matches the scope MMM quoted at $1,500 and keeps every iteration in our hands. Recommend we <span class="hl">walk the draft together</span>, lock copy and imagery, then take it live.</p>
+          <p>The STS draft and post-op form are ready — the blocker is purely <span class="hl">DNS access to wire them to the live domain</span>. If you have verbiage notes, send them and I'll fold them in before we take it live.</p>
         </div>
+        <!-- /DATA -->
+      </div>
+    </section>
+
+    <!-- 06 / AI & TOOLS -->
+    <section class="report-section reveal" data-section="ai-tools">
+      <div class="wrap">
+        <!-- DATA: 06 AI & Tools -->
+        <div class="section-eyebrow"><span class="num">06</span><span class="slash">/</span>AI &amp; Tools</div>
+        <h2 class="section-title">AI &amp; Internal Tools</h2>
+        <p class="lead">The <strong>HIPAA-compliant AWS server is set up</strong> — the secure foundation for any internal tool that touches PHI. First request in the queue: Nellie wants the <strong>EOB tracking tool in Dry Ridge</strong>. Two ways to deliver it, summarized below.</p>
+
+        <div class="vendor-grid">
+          <div class="vendor-card">
+            <div class="vendor-name">Option A</div>
+            <div class="vendor-meta">Claude Scaffold</div>
+            <ul>
+              <li>Quick to stand up</li>
+              <li>Skills folder lives off her local machine</li>
+              <li>Uses a Claude account for her</li>
+              <li>No code ownership</li>
+            </ul>
+            <div class="vendor-price">$100<span class="per"> / mo</span></div>
+          </div>
+          <div class="vendor-card recommended">
+            <div class="vendor-name">Option B</div>
+            <div class="vendor-meta">In-House Build</div>
+            <ul>
+              <li>More dev time up front</li>
+              <li>We own the code</li>
+              <li>~$25/mo, token-based pay-per-use</li>
+              <li>Could resell to other practices or offer pro-bono</li>
+            </ul>
+            <div class="vendor-price">~$25<span class="per"> / mo</span></div>
+          </div>
+        </div>
+
+        <ul class="brief-list">
+          <li><strong>Post-op patient feedback form — live.</strong> Built and running; needs DNS access to wire to the live domain (linked in Marketing above). <span class="pill action">Needs DNS</span></li>
+          <li><strong>FEMA.</strong> Signed by Friend and sent back to Landry — refund can take up to 30 days to arrive. <span class="pill done">Submitted</span></li>
+        </ul>
+        <!-- /DATA -->
       </div>
     </section>
 
     <!-- NEXT WEEK -->
-    <section class="report-section reveal">
+    <section class="report-section reveal" data-section="forward">
       <div class="wrap">
-        <div class="next-week" id="nextWeek" data-wk="WK 23">
-          <div class="section-eyebrow"><span class="num">06</span><span class="slash">/</span>Forward</div>
+        <!-- DATA: 07 Forward -->
+        <div class="next-week" id="nextWeek" data-wk="WK 24">
+          <div class="section-eyebrow"><span class="num">07</span><span class="slash">/</span>Forward</div>
           <h2 class="section-title">Next Week Focus</h2>
           <div class="nw-list">
             <div class="nw-item">
               <div class="nw-num">01</div>
               <div>
-                <div class="nw-title">Overjet rollout &amp; monitoring</div>
-                <div class="nw-desc">Go live June 4 at Cynthiana and monitor the verification workflow live to inform the subscribe-vs-build decision.</div>
+                <div class="nw-title">UHC PPO — cancel Rush contract</div>
+                <div class="nw-desc">Follow the submitted cancellation through to confirmation, and stand up UHC Medicaid for Thomas (Christina confirmed we can backdate those).</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">02</div>
               <div>
-                <div class="nw-title">Call Rail monitoring</div>
-                <div class="nw-desc">Ongoing lead monitoring and cross-reference tracking against form submissions and referral tags in OpenDental.</div>
+                <div class="nw-title">EOB Careington tool scaffold</div>
+                <div class="nw-desc">Decide Option A vs. B and scaffold the EOB tracking tool for Nellie at Dry Ridge.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">03</div>
               <div>
-                <div class="nw-title">EOB tracking</div>
-                <div class="nw-desc">Continue carrier reprice tracking and push the payee corrections on the "needs review" lines.</div>
+                <div class="nw-title">STS page &amp; patient survey live</div>
+                <div class="nw-desc">Get DNS access and take the STS landing page and the post-op patient survey page live.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">04</div>
               <div>
-                <div class="nw-title">STS landing page live</div>
-                <div class="nw-desc">Take the STS site live now that the first draft is complete and the $1,500 landing-page scope is confirmed.</div>
+                <div class="nw-title">Google Ads — verification update</div>
+                <div class="nw-desc">Update Google Ads to reflect the new insurance-verification workflow.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">05</div>
               <div>
-                <div class="nw-title">Renovation budget finalized</div>
-                <div class="nw-desc">Lock the Phase 2 number once the open RoofCred change-order and tech quotes come back.</div>
+                <div class="nw-title">Refine staff feedback survey</div>
+                <div class="nw-desc">Tighten the staff survey — particularly around the leadership-support signal that surfaced this week.</div>
               </div>
             </div>
           </div>
         </div>
+        <!-- /DATA -->
       </div>
     </section>
 
     <!-- OPEN DECISIONS -->
-    <section class="report-section reveal">
+    <section class="report-section reveal" data-section="asks">
       <div class="wrap">
-        <div class="section-eyebrow"><span class="num">07</span><span class="slash">/</span>Asks</div>
+        <!-- DATA: 08 Asks -->
+        <div class="section-eyebrow"><span class="num">08</span><span class="slash">/</span>Asks</div>
         <h2 class="section-title">Open Decisions</h2>
         <div class="decisions">
           <ol class="decision-list">
-            <li><b>STS site.</b> The first draft is live (linked above) — let's walk it together, lock copy and imagery, and green-light taking it live.</li>
-            <li><b>Phase 2 budget.</b> Let's review the budget together to lock the final scope in an upcoming session.</li>
+            <li><b>EOB tracking tool — Option A vs. B.</b> Fast Claude scaffold at $100/mo, or in-house build at ~$25/mo where we own the code and could resell it? My lean is the in-house build.</li>
+            <li><b>STS page &amp; post-op form go-live.</b> Both drafts are ready — I need DNS access to wire them to the live domain. Any verbiage notes, send them over.</li>
+            <li><b>Green-light renovation start.</b> Scope is revised tighter and under budget (sterilization kept as-is, laundry → storage, lab → lab cases). I recommend we start — I have a few specific questions to finalize.</li>
+            <li><b>Staff survey follow-up.</b> Okay to do quiet check-ins with the two team members who flagged leadership support, and to revisit the duty/compensation-equity note?</li>
           </ol>
         </div>
+        <!-- /DATA -->
       </div>
     </section>
 
-    <div class="signoff" id="signoff">FDC Cynthiana · WK 23 · 2026</div>
+    <div class="signoff" id="signoff">FDC Cynthiana · WK 24 · 2026</div>
 
   </div><!-- /tab-brief -->
 
   <!-- ============ TAB: BUDGET SNAPSHOT ============ -->
   <div class="tab-pane" id="tab-budget" role="tabpanel">
-    <section class="report-section">
+    <section class="report-section" data-section="budget">
       <div class="wrap">
+        <!-- DATA: Budget Snapshot -->
         <div class="section-eyebrow"><span class="num">P2</span><span class="slash">/</span>Budget</div>
         <h2 class="section-title">Phase 2 Snapshot</h2>
-        <p class="lead">Phase 2 lands at <strong>$58,074</strong> against a cap of <strong>$59,968.51</strong> — a <strong>$1,895 buffer</strong>. RoofCred is ~69% of total Phase 2 spend; the remaining 31% funds non-RoofCred scope plus a 7% contingency reserve.</p>
+        <p class="lead">Revised tighter this week (RoofCred rev. 6/03 + sterilization deferred): Phase 2 now lands at <strong>$55,720</strong> against a cap of <strong>$59,968.51</strong> — a <strong>$4,249 buffer (7.1%)</strong>, up from last week. RoofCred Quote #633 (revised) is the largest single line at <strong>$40,400</strong>; five items were pushed to a future phase to stay comfortably under cap.</p>
 
         <div class="scope-banner">
           <div class="sb-left">
             <div class="sb-label">Phase 2 Total</div>
-            <div class="sb-value">$58,074</div>
+            <div class="sb-value">$55,720</div>
           </div>
-          <div class="sb-meta">Cap $59,968.51<br>Buffer $1,895<br>Snapshot <span class="wk-ref">WK 23</span></div>
+          <div class="sb-meta">Cap $59,968.51<br>Buffer $4,249 · 7.1%<br>Snapshot <span class="wk-ref">WK 24</span></div>
         </div>
 
         <div class="scope-grid">
           <div class="scope-card lead-item">
             <div class="scope-head">
-              <div class="scope-name">RoofCred — Active</div>
-              <div class="scope-price">$39,800</div>
+              <div class="scope-name">Renovation &amp; Construction</div>
+              <div class="scope-price">$47,510</div>
             </div>
             <ul>
-              <li>Painting — $8,640</li>
-              <li>Intake buildout — $19,860</li>
-              <li>Checkout buildout — $11,300</li>
-              <li>Back walls ($3,420) deferred from Quote #633 ($43,220)</li>
-            </ul>
-          </div>
-          <div class="scope-card lead-item">
-            <div class="scope-head">
-              <div class="scope-name">Other Renovation</div>
-              <div class="scope-price">$10,000</div>
-            </div>
-            <ul>
-              <li>Sterilization buildout — $2,800</li>
-              <li>Light fixtures — $2,400</li>
-              <li>Furniture &amp; décor — $4,800</li>
+              <li>RoofCred Quote #633 (rev. 6/03) — $40,400</li>
+              <li>Other finishes &amp; buildout — ~$7,110</li>
+              <li>5 items deferred to a future phase (see Deferred)</li>
             </ul>
           </div>
           <div class="scope-card">
             <div class="scope-head">
-              <div class="scope-name">Infrastructure</div>
+              <div class="scope-name">Contingency (7%)</div>
+              <div class="scope-price">$3,645</div>
+            </div>
+            <ul>
+              <li>Reserve against scope creep and unplanned items</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Infrastructure Compliance</div>
               <div class="scope-price">$1,325</div>
             </div>
             <ul>
-              <li>Admin / front-area outlets — $850 (change-order pending)</li>
-              <li>HVAC scent diffuser — $475</li>
+              <li>Admin / front-area outlets (change-order pending)</li>
+              <li>HVAC scent diffuser</li>
             </ul>
           </div>
           <div class="scope-card">
             <div class="scope-head">
               <div class="scope-name">Technology</div>
-              <div class="scope-price">$3,150</div>
+              <div class="scope-price">$1,150</div>
             </div>
             <ul>
-              <li>3 monitors — $750</li>
-              <li>2 PCs — $1,800</li>
-              <li>IT install — $600</li>
+              <li>Monitors, PCs &amp; IT install (allowance — quotes pending)</li>
             </ul>
           </div>
           <div class="scope-card">
             <div class="scope-head">
-              <div class="scope-name">Contingency</div>
-              <div class="scope-price">$3,799</div>
+              <div class="scope-name">Cost Basis</div>
+              <div class="scope-price">—</div>
             </div>
             <ul>
-              <li>7% reserve against scope creep and unplanned items</li>
+              <li>Estimated (vendor working quotes) — $47,600</li>
+              <li>Allowance (TBD / placeholder) — $8,120</li>
+              <li>Confirmed (signed) — $0</li>
             </ul>
           </div>
           <div class="scope-card">
             <div class="scope-head">
               <div class="scope-name">Deferred</div>
-              <div class="scope-price">—</div>
+              <div class="scope-price">$0</div>
             </div>
             <ul>
-              <li>Front-area glue-down flooring — ~$1,700</li>
-              <li>Espresso bar counter + machine — ~$2,400</li>
-              <li>Coffee machine plumber — ~$425</li>
-              <li>Operatory back walls / HEX — ~$3,420</li>
+              <li>Front-area flooring</li>
+              <li>Espresso bar counter + machine</li>
+              <li>Coffee machine plumber</li>
+              <li>Operatory back walls / HEX</li>
+              <li>Sterilization area buildout</li>
             </ul>
           </div>
         </div>
 
         <div class="callout">
-          <div class="callout-label">Open items to confirm</div>
-          <p>Change-order for the admin / front-area outlets ($850 placeholder), RoofCred to confirm the licensed-electrician scope on file, and technology allowances ($250/monitor, $900/PC, $600 IT install) to be replaced with actual quotes. <span class="hl">Goal: lock the final number next week.</span></p>
+          <div class="callout-label">Context &amp; open items</div>
+          <p>Phase 2 draws from the <strong>$295,000</strong> operations budget — the $59,968.51 cap is what remains after Phase 1. Nothing is signed yet ($0 confirmed): estimates are vendor working quotes (final could move ±10–20%) and allowances are placeholders. <span class="hl">Goal: green-light the start and lock the final number next week.</span></p>
         </div>
+        <!-- /DATA -->
       </div>
     </section>
   </div><!-- /tab-budget -->
 
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     // Scroll progress
     const progress = document.getElementById('scrollProgress');
@@ -1409,6 +1750,7 @@
     const animateCounter = (el) => {
       const target = parseInt(el.dataset.target, 10);
       const decimal = el.dataset.decimal ? parseInt(el.dataset.decimal, 10) : 0;
+      const places = el.dataset.places ? parseInt(el.dataset.places, 10) : 1;
       const suffix = el.dataset.suffix || '';
       const duration = 1500;
       const start = performance.now();
@@ -1416,7 +1758,7 @@
         const p = Math.min((now - start) / duration, 1);
         const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
         let val = target * eased;
-        if (decimal) { el.textContent = (val / decimal).toFixed(1) + suffix; }
+        if (decimal) { el.textContent = (val / decimal).toFixed(places) + suffix; }
         else { el.textContent = Math.round(val) + suffix; }
         if (p < 1) requestAnimationFrame(step);
       };
@@ -1452,6 +1794,217 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
+
+    /* =====================================================================
+       SECTION COMMENTS  (shared via Supabase)
+       ---------------------------------------------------------------------
+       SETUP (one-time): create a free Supabase project, run the SQL in
+       UPDATE_GUIDE.md, then paste your Project URL + anon public key below.
+       Bump REPORT_ID each week so every report keeps its own comment thread.
+       Leave the URL/key blank to ship the report with comments turned off.
+       ===================================================================== */
+    const REPORT_ID = "wk24";
+    const SUPABASE_URL = "https://lpsfjyveqikhtwjkayqu.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxwc2ZqeXZlcWlraHR3amtheXF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODQ0NTcsImV4cCI6MjA5NjE2MDQ1N30.r_xSQmipSJCtWcjoDx2He0ZjfM4OLoKXd2ZTDtmn1jI";  // anon / public key (safe to commit; RLS-limited)
+
+    // Friendly names for each section (keyed by data-section)
+    const SECTION_LABELS = {
+      insurance: "Insurance",
+      operations: "Operations",
+      patient: "Patient Feedback",
+      team: "Team Feedback",
+      marketing: "Marketing & Growth",
+      "ai-tools": "AI & Tools",
+      forward: "Next Week Focus",
+      asks: "Open Decisions",
+      budget: "Budget Snapshot"
+    };
+    const PRESET_AUTHORS = ["Joshua Moon", "Dr. Friend"];
+
+    (function initComments() {
+      const sections = Array.from(document.querySelectorAll('[data-section]'));
+      if (!sections.length) return;
+
+      // Graceful degradation: no backend configured -> no comment UI.
+      if (!SUPABASE_URL || !SUPABASE_ANON_KEY || !window.supabase) {
+        if (!window.supabase && SUPABASE_URL) {
+          console.warn('Comments: Supabase library failed to load.');
+        }
+        return;
+      }
+
+      const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      const threads = {}; // sectionId -> { listEl, countEl, items: [] }
+
+      const escapeHTML = (s) => s.replace(/[&<>"']/g, c => (
+        { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]
+      ));
+
+      const relTime = (iso) => {
+        const then = new Date(iso).getTime();
+        const diff = Math.max(0, Date.now() - then);
+        const m = Math.round(diff / 60000);
+        if (m < 1) return 'just now';
+        if (m < 60) return m + 'm ago';
+        const h = Math.round(m / 60);
+        if (h < 24) return h + 'h ago';
+        const d = Math.round(h / 24);
+        if (d < 7) return d + 'd ago';
+        return new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+      };
+
+      const getAuthor = () => localStorage.getItem('eow_author') || '';
+      const setAuthor = (name) => localStorage.setItem('eow_author', name);
+
+      const renderList = (sectionId) => {
+        const t = threads[sectionId];
+        if (!t) return;
+        const items = t.items;
+        const hasAny = items.length > 0;
+        t.countEl.textContent = hasAny ? items.length : '0';
+        t.countEl.classList.toggle('has', hasAny);
+        if (!hasAny) {
+          t.listEl.innerHTML = '<div class="cmt-empty">No comments yet — be the first to leave one.</div>';
+          return;
+        }
+        t.listEl.innerHTML = items.map(c => (
+          '<div class="cmt-item">' +
+            '<div class="cmt-item-head">' +
+              '<span class="cmt-author">' + escapeHTML(c.author) + '</span>' +
+              '<span class="cmt-time" title="' + escapeHTML(c.created_at) + '">' + relTime(c.created_at) + '</span>' +
+            '</div>' +
+            '<div class="cmt-body">' + escapeHTML(c.body) + '</div>' +
+          '</div>'
+        )).join('');
+      };
+
+      const buildThread = (section) => {
+        const sectionId = section.dataset.section;
+        const wrap = section.querySelector('.wrap') || section;
+        const label = SECTION_LABELS[sectionId] || 'this section';
+
+        const block = document.createElement('div');
+        block.className = 'cmt-block';
+        block.innerHTML =
+          '<button class="cmt-toggle" type="button" aria-expanded="false">' +
+            '<span>Comments</span>' +
+            '<span class="cmt-count-badge">0</span>' +
+            '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4 L6 8 L10 4"/></svg>' +
+          '</button>' +
+          '<div class="cmt-panel">' +
+            '<div class="cmt-list"></div>' +
+            '<div class="cmt-composer">' +
+              '<div class="cmt-who">' +
+                '<span class="cmt-who-label">Posting as</span>' +
+                PRESET_AUTHORS.map(n => '<button type="button" class="cmt-chip" data-name="' + escapeHTML(n) + '">' + escapeHTML(n) + '</button>').join('') +
+                '<input class="cmt-name-input" type="text" placeholder="or type your name" maxlength="60">' +
+              '</div>' +
+              '<textarea class="cmt-textarea" placeholder="Leave a comment on ' + escapeHTML(label) + '…" maxlength="2000"></textarea>' +
+              '<div class="cmt-actions">' +
+                '<span class="cmt-status"></span>' +
+                '<button type="button" class="cmt-post">Post Comment</button>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        wrap.appendChild(block);
+
+        const toggle = block.querySelector('.cmt-toggle');
+        const panel = block.querySelector('.cmt-panel');
+        const listEl = block.querySelector('.cmt-list');
+        const countEl = block.querySelector('.cmt-count-badge');
+        const nameInput = block.querySelector('.cmt-name-input');
+        const chips = Array.from(block.querySelectorAll('.cmt-chip'));
+        const textarea = block.querySelector('.cmt-textarea');
+        const postBtn = block.querySelector('.cmt-post');
+        const statusEl = block.querySelector('.cmt-status');
+
+        threads[sectionId] = { listEl, countEl, items: [] };
+        renderList(sectionId);
+
+        toggle.addEventListener('click', () => {
+          const open = panel.classList.toggle('open');
+          toggle.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', open);
+        });
+
+        const syncAuthorUI = () => {
+          const current = getAuthor();
+          chips.forEach(c => c.classList.toggle('active', c.dataset.name === current));
+          if (current && !PRESET_AUTHORS.includes(current)) nameInput.value = current;
+        };
+        chips.forEach(chip => chip.addEventListener('click', () => {
+          setAuthor(chip.dataset.name);
+          nameInput.value = '';
+          syncAuthorUI();
+        }));
+        nameInput.addEventListener('input', () => {
+          setAuthor(nameInput.value.trim());
+          chips.forEach(c => c.classList.remove('active'));
+        });
+        syncAuthorUI();
+
+        postBtn.addEventListener('click', async () => {
+          const author = getAuthor().trim();
+          const body = textarea.value.trim();
+          if (!author) { statusEl.textContent = 'Pick or type your name first.'; return; }
+          if (!body) { statusEl.textContent = 'Write something to post.'; return; }
+          postBtn.disabled = true;
+          statusEl.textContent = 'Posting…';
+          const { error } = await db.from('comments').insert({
+            report_id: REPORT_ID, section_id: sectionId, author, body
+          });
+          postBtn.disabled = false;
+          if (error) {
+            statusEl.textContent = 'Could not post — try again.';
+            console.error('Comment insert failed:', error);
+            return;
+          }
+          textarea.value = '';
+          statusEl.textContent = '';
+          await loadAll(); // ensure consistency even if realtime is off
+        });
+
+        // open the panel automatically if it already has comments after load
+        threads[sectionId]._toggle = toggle;
+        threads[sectionId]._panel = panel;
+      };
+
+      const loadAll = async () => {
+        const { data, error } = await db
+          .from('comments')
+          .select('*')
+          .eq('report_id', REPORT_ID)
+          .order('created_at', { ascending: true });
+        if (error) { console.error('Comment load failed:', error); return; }
+        Object.keys(threads).forEach(id => { threads[id].items = []; });
+        (data || []).forEach(c => {
+          if (threads[c.section_id]) threads[c.section_id].items.push(c);
+        });
+        Object.keys(threads).forEach(renderList);
+      };
+
+      sections.forEach(buildThread);
+      loadAll();
+
+      // Live updates via Supabase realtime (falls back to focus/interval refetch)
+      db.channel('comments-' + REPORT_ID)
+        .on('postgres_changes',
+          { event: 'INSERT', schema: 'public', table: 'comments', filter: 'report_id=eq.' + REPORT_ID },
+          (payload) => {
+            const c = payload.new;
+            const t = threads[c.section_id];
+            if (!t || t.items.some(x => x.id === c.id)) return;
+            t.items.push(c);
+            renderList(c.section_id);
+          })
+        .subscribe();
+
+      let lastRefetch = Date.now();
+      window.addEventListener('focus', () => {
+        if (Date.now() - lastRefetch > 5000) { lastRefetch = Date.now(); loadAll(); }
+      });
+      setInterval(() => { lastRefetch = Date.now(); loadAll(); }, 30000);
+    })();
   </script>
 </body>
 </html>

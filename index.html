@@ -791,6 +791,67 @@
     padding: 0 2px;
   }
 
+  /* ---- Skill output example ---- */
+  .skill-demo {
+    margin: 26px 0 8px;
+  }
+  .skill-demo-cap {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--copper-deep);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .skill-demo-cap strong { color: var(--ink); font-weight: 600; }
+  .skill-term {
+    background: var(--navy);
+    border: 1px solid var(--navy-deep);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px -18px rgba(39,51,73,0.55);
+  }
+  .skill-term-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 11px 16px;
+    background: var(--navy-deep);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .skill-term-bar i {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    display: inline-block;
+  }
+  .skill-term-bar span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.04em;
+    margin-left: 8px;
+  }
+  .skill-term pre {
+    margin: 0;
+    padding: 20px 22px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.86);
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: auto;
+  }
+  .skill-term .k { color: var(--copper-bright); }
+  .skill-term .flag { color: #e8b24a; }
+  .skill-term .warn { color: #e8b24a; font-weight: 600; }
+  .skill-demo-note {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 10px 0 0;
+  }
+
   /* ============ NEXT WEEK ============ */
   .next-week {
     background: var(--navy-deep);
@@ -1578,6 +1639,7 @@
             <div class="vendor-meta">Claude Scaffold</div>
             <ul>
               <li>Quick to stand up</li>
+              <li>Build an unlimited number of customized skills for Nellie — e.g. a skill that reads EOBs and maps them</li>
               <li>Skills folder lives off her local machine</li>
               <li>Uses a Claude account for her</li>
               <li>No code ownership</li>
@@ -1591,9 +1653,29 @@
               <li>More dev time up front</li>
               <li>We own the code</li>
               <li>~$25/mo, token-based pay-per-use</li>
+              <li>Scoped to start, but can later reach into OpenDental to complete tasks directly</li>
             </ul>
             <div class="vendor-price">~$25<span class="per"> / mo</span></div>
           </div>
+        </div>
+
+        <div class="skill-demo">
+          <div class="skill-demo-cap">Live example · <strong>a custom EOB-reading skill (Option A)</strong></div>
+          <div class="skill-term">
+            <div class="skill-term-bar"><i></i><i></i><i></i><span>careington-eob-reconcile</span></div>
+<pre><span class="k">CAREINGTON EOB RECONCILIATION</span> — Anthem BCBS of KY — 2026-04-20
+Plan path resolved:   NOT a Careington product → DIRECT-CONTRACT-OVERRIDE <span class="warn">⚠</span>
+Billing entity:       NEIL C RUSH (personal) → Expected FDC CYNTHIANA LLC <span class="warn">⚠</span>
+MISMATCH
+
+Totals:  billed $3,511 | allowed $28 | paid $28 | patient $0 | network savings $67
+
+Flags:
+  A. <span class="k">Amount:</span>    ZERO-PAYMENT 2 (both crowns, denied)   PAID 2 ($28 total)
+  B. <span class="k">Routing:</span>   DIRECT-CONTRACT-OVERRIDE 4   (CP-60 cross-ref N/A)
+  C. <span class="k">Entity:</span>    WRONG-TIN/ENTITY 4   WRONG-BILLING-PROVIDER 2</pre>
+          </div>
+          <p class="skill-demo-note">A single skill ingests a raw EOB, resolves the plan path, reconciles totals, and surfaces routing/entity mismatches automatically — the kind of custom tool we can stand up for Nellie under Option A.</p>
         </div>
 
         <ul class="brief-list">

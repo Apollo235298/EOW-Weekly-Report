@@ -52,18 +52,37 @@ Then edit `index.html`. Every editable region is wrapped in HTML comments so it'
 **Section-by-section** — fill each `<!-- DATA -->` block from the data folder:
 
 - **01 Insurance** — refresh the lead + bullet list; update the Careington table rows if line
-  counts changed (from `Careington EOB Tracking data.png`).
+  counts changed (from the EOB dashboard weekly summary).
 - **02 Operations** — Overjet / verification status.
-- **03 Patient Feedback** — update the KPI `data-target`s (Responses, Avg = `data-target="488"
+- **03 Renovation** — Phase 2 status bullets + the photo gallery (see "Photos & the assets
+  folder" below).
+- **04 Patient Feedback** — update the KPI `data-target`s (Responses, Avg = `data-target="488"
   data-decimal="100" data-places="2"` for 4.88), the four breakdown bars' `data-target` **and**
-  `data-fill`, and the lead/micro-note (from the Patient Survey screenshots).
-- **04 Team** — rewrite the list + "My Read" from `Staff.Survey Responses.csv`.
-- **05 Marketing** — update the four `.stat-strip` numbers + bullets + STS status (from
-  `EOW Notes.txt`).
-- **06 AI & Tools** — AWS / internal-tool updates, the option cards, FEMA line.
-- **07 Forward** / **08 Asks** — next-week items and open decisions.
+  `data-fill`, and the lead/micro-note (from the Patient Survey analysis).
+- **05 Team** — rewrite the list + "My Read" from the Staff Pulse summary.
+- **06 Marketing** — leads + campaign status + STS/DNS status (from `EOW Notes.txt`).
+- **07 AI & Tools** — internal-tool updates and the EOB dashboard phase roadmap.
+- **08 Forward** / **09 Asks** — next-week items and open decisions.
 - **Budget tab** — banner total, cap, buffer, the six scope cards, and the context callout
-  (from `Budget Renovation Phase 2.png`).
+  (from the Phase 2 budget xlsx, Executive Summary sheet).
+
+### Photos & the assets folder
+
+Deployable images live in the tracked **`assets/`** folder (the weekly data folders are
+git-ignored and never deploy, so anything the page references must be copied there).
+Process new photos with `sips` before copying — keep the page light:
+
+```
+# concepts/photos → JPEG, max 1600px
+sips -s format jpeg -s formatOptions 80 -Z 1600 "Source.png" --out assets/slug-name.jpg
+# line art (floor plans) → keep PNG
+sips -Z 1600 "Floor Plan.png" --out assets/floor-plan.png
+```
+
+Reference them with relative paths (`assets/foo.jpg`), give every `<img>` a real `alt` and
+`loading="lazy"`, and wrap it in `<a href="assets/foo.jpg" target="_blank" rel="noopener">`
+so clicking opens the full image. The gallery markup is the `.photo-grid` block in
+**03 Renovation** (`.photo-card.wide` = full-row, uncropped — used for the floor plan).
 
 ## 3. Publish
 

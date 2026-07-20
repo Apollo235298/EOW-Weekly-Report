@@ -556,6 +556,9 @@
     position: relative;
     z-index: 1;
   }
+  .kpi-row.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
   .kpi { position: relative; padding-bottom: 14px; }
   .kpi::after {
     content: '';
@@ -1309,7 +1312,7 @@
     .masthead .wrap { padding-top: 56px; padding-bottom: 56px; align-items: flex-start; }
     .masthead-meta { text-align: left; }
     .vendor-grid { grid-template-columns: 1fr; }
-    .kpi-row { grid-template-columns: 1fr; gap: 22px; }
+    .kpi-row, .kpi-row.cols-4 { grid-template-columns: 1fr; gap: 22px; }
     .kpi-breakdown { grid-template-columns: 1fr 1fr; gap: 22px; }
     .scope-grid { grid-template-columns: 1fr; }
     .table-wrap { overflow-x: auto; }
@@ -1355,14 +1358,14 @@
     </div>
     <div class="wrap">
       <div class="masthead-head">
-        <div class="masthead-eyebrow eyebrow" id="mhEyebrow">End of Week Report · Volume 27</div>
+        <div class="masthead-eyebrow eyebrow" id="mhEyebrow">End of Week Report · Volume 30</div>
         <h1 class="masthead-title">
           Weekly<br>Brief
           <span class="underbar"></span>
         </h1>
       </div>
       <div class="masthead-meta">
-        <div class="m-date" id="mhDate">Friday, June 26, 2026</div>
+        <div class="m-date" id="mhDate">Friday, July 17, 2026</div>
         <div class="m-line">Prepared by <strong id="mhPrepared">Joshua Moon</strong></div>
         <div class="m-line">For <strong id="mhFor">Friend</strong></div>
       </div>
@@ -1373,8 +1376,8 @@
   <nav class="tabbar" role="tablist">
     <div class="wrap">
       <button class="tab-btn active" data-tab="brief" role="tab" aria-selected="true">Weekly Brief</button>
-      <button class="tab-btn" data-tab="budget" role="tab" aria-selected="false">
-        Budget Snapshot <span class="badge">$57K</span>
+      <button class="tab-btn" data-tab="routing" role="tab" aria-selected="false">
+        Routing Detail <span class="badge">144</span>
       </button>
     </div>
   </nav>
@@ -1384,43 +1387,67 @@
   <!-- ============ TAB: WEEKLY BRIEF ============ -->
   <div class="tab-pane active" id="tab-brief" role="tabpanel">
 
-    <!-- WINS STRIP -->
-    <section class="report-section reveal">
-      <div class="wrap">
-        <!-- DATA: Wins -->
-        <div class="callout">
-          <div class="callout-label">Three Wins This Week</div>
-          <p><span class="hl">Every chair and equipment issue is fixed and back in working order</span> — OP 6 chair moved back 8&Prime;, a washer on the arm swing, the electric-handpiece lights working again (I showed Tori and Cindy the fix), Op 4 motherboard swapped (per Neil), and the Op 2 Cavitron repaired — plus a printed chair-issue sheet so Cindy can log anything new for me to review. <span class="hl">Amazon Prime saved us $1,360</span> on the Phase 2 equipment, lifting the contingency reserve to a healthy <strong>16% ($11,449)</strong>. And the <span class="hl">Delta Dental contracts for Bowling Green and Somerset are submitted</span>. Also wrapped: the STSurgery.com copy edits, and I picked up the ACLS/BLS course (bundled with PALS) through ProMed.</p>
-        </div>
-        <!-- /DATA -->
-      </div>
-    </section>
-
     <!-- 01 / INSURANCE -->
     <section class="report-section reveal" data-section="insurance">
       <div class="wrap">
         <!-- DATA: 01 Insurance -->
         <div class="section-eyebrow"><span class="num">01</span><span class="slash">/</span>Insurance</div>
-        <h2 class="section-title">Careington &amp; EOB Tracking</h2>
-        <p class="lead">No new EOB batch landed this week, so the tracker below is <strong>carried from the last reconciliation</strong> and the open routing/payee items still stand. On the contracting side, the <strong>Delta Dental paperwork for Bowling Green and Somerset is submitted</strong>. Next week I'm following up on the <strong>UHC legacy contract</strong> and running an <strong>EOB review</strong> with Nellie and Heather. The proof the routing works is unchanged: <strong>UHC Commercial, Humana Commercial, Anthem Dental Complete, and MetLife all land 77–100% in-network</strong> where the plan is set up right.</p>
+        <h2 class="section-title">Routing &amp; Fee Evidence — Quick Overview</h2>
+        <p class="lead">The tracker now scores the full <strong>144-carrier roster</strong> against every EOB line since 5/1 through two lenses: what gets <strong>classified in-network</strong>, and whether the money actually <strong>landed on the contracted schedule</strong>.</p>
 
-        <div class="pill-row">
-          <span class="pill on-track">On Track</span>
-          <span class="pill live">Live</span>
-          <span class="pill action">Action</span>
-          <span class="pill done">Done</span>
+        <div class="kpi-block">
+          <div class="kpi-row cols-4">
+            <div class="kpi">
+              <div class="kpi-label">Carriers Tracked</div>
+              <div class="kpi-value"><span class="counter" data-target="144">0</span></div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Lines Scored</div>
+              <div class="kpi-value"><span class="counter" data-target="1859">0</span></div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Classified In-Net</div>
+              <div class="kpi-value"><span class="counter" data-target="68">0</span><span class="unit">%</span></div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Paid at Contract</div>
+              <div class="kpi-value"><span class="counter" data-target="60">0</span><span class="unit">%</span></div>
+            </div>
+          </div>
+          <div class="kpi-breakdown">
+            <div class="bd">
+              <div class="bd-count"><span class="counter" data-target="97" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="97"></div></div>
+              <div class="bd-label">Delta Dental · 828/851 · Direct Contract</div>
+            </div>
+            <div class="bd">
+              <div class="bd-count"><span class="counter" data-target="96" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="96"></div></div>
+              <div class="bd-label">UHC Medicaid · 337/351 · Direct Contract</div>
+            </div>
+            <div class="bd">
+              <div class="bd-count"><span class="counter" data-target="34" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="34"></div></div>
+              <div class="bd-label">Anthem · 63/188 · Via Careington</div>
+            </div>
+            <div class="bd">
+              <div class="bd-count"><span class="counter" data-target="27" data-suffix="%">0</span></div>
+              <div class="bd-track"><div class="bd-fill" data-fill="27"></div></div>
+              <div class="bd-label">Humana Commercial · 13/49 · Via Careington</div>
+            </div>
+          </div>
         </div>
 
         <div class="table-wrap">
           <div class="table-head">
-            <div class="th-title">Careington Carrier Network Tracker</div>
-            <div class="th-sub">Live EOB line counts per carrier · last updated <span class="wk-ref">WK 27</span></div>
+            <div class="th-title">Carrier Roster — Lines by Network Result</div>
+            <div class="th-sub">DOS 2026-05-01 → today · 144 carriers tracked · last EOB 2026-07-15 · <span class="wk-ref">WK 30</span></div>
           </div>
           <table class="data">
             <thead>
               <tr>
                 <th>Carrier</th>
-                <th>Status</th>
+                <th>Expected Status</th>
                 <th class="num">Lines</th>
                 <th class="num">In-Net</th>
                 <th class="num">OON</th>
@@ -1429,328 +1456,149 @@
             </thead>
             <tbody>
               <tr>
-                <td class="row-name">UHC — Commercial (→ Friendly Dental Co)</td>
-                <td><span class="net-tag in">In-Network</span></td>
+                <td class="row-name">Delta Dental — Delta Premier</td>
+                <td><span class="net-tag in">Direct Contract</span></td>
+                <td class="num">851</td><td class="num">828</td><td class="num">15</td>
+                <td class="num"><span class="pct good">97.3%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Medicaid UHC (partial: UCR, billed)</td>
+                <td><span class="net-tag in">Direct Contract</span></td>
+                <td class="num">351</td><td class="num">337</td><td class="num">11</td>
+                <td class="num"><span class="pct good">96.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Anthem (partial: CP-60)</td>
+                <td><span class="net-tag in">In-Network (expected)</span></td>
+                <td class="num">188</td><td class="num">63</td><td class="num">103</td>
+                <td class="num"><span class="pct bad">33.5%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">MetLife (partial: CP-60)</td>
+                <td><span class="net-tag in">In-Network (expected)</span></td>
+                <td class="num">63</td><td class="num">2</td><td class="num">48</td>
+                <td class="num"><span class="pct bad">3.2%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Cigna — Zelis (partial: UCR, billed)</td>
+                <td><span class="net-tag review">34 Lines in Review</span></td>
+                <td class="num">62</td><td class="num">2</td><td class="num">26</td>
+                <td class="num"><span class="pct bad">3.2%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">UHC Optum Dental (partial: UCR, billed)</td>
+                <td><span class="net-tag in">In-Network (expected)</span></td>
+                <td class="num">50</td><td class="num">9</td><td class="num">26</td>
+                <td class="num"><span class="pct bad">18.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Humana — Commercial (Care Platinum PPO, CP-60)</td>
+                <td><span class="net-tag in">In-Network (expected)</span></td>
+                <td class="num">49</td><td class="num">13</td><td class="num">33</td>
+                <td class="num"><span class="pct bad">26.5%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Aetna Commercial (billed, UCR)</td>
+                <td><span class="net-tag in">In-Network (expected)</span></td>
+                <td class="num">13</td><td class="num">0</td><td class="num">4</td>
+                <td class="num"><span class="pct bad">0.0%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">United HealthCare Commercial (partial: CP-60)</td>
+                <td><span class="net-tag in">In-Network (expected)</span></td>
+                <td class="num">8</td><td class="num">3</td><td class="num">5</td>
+                <td class="num"><span class="pct warn">37.5%</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Beam Dental</td>
+                <td><span class="net-tag in">In-Network (expected)</span></td>
                 <td class="num">4</td><td class="num">4</td><td class="num">0</td>
                 <td class="num"><span class="pct good">100%</span></td>
               </tr>
               <tr>
-                <td class="row-name">Humana — Commercial (Care Platinum PPO)</td>
-                <td><span class="net-tag in">In-Network</span></td>
-                <td class="num">12</td><td class="num">11</td><td class="num">0</td>
-                <td class="num"><span class="pct good">91.7%</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Anthem — Dental Complete (Careington)</td>
-                <td><span class="net-tag in">In-Network</span></td>
-                <td class="num">23</td><td class="num">21</td><td class="num">0</td>
-                <td class="num"><span class="pct good">91.3%</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">MetLife — FEDVIP (via Careington)</td>
-                <td><span class="net-tag in">In-Network</span></td>
-                <td class="num">13</td><td class="num">10</td><td class="num">3</td>
-                <td class="num"><span class="pct warn">76.9%</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">BCBS FEP — Paid to Neil Rush (personal)</td>
-                <td><span class="net-tag review">Needs Review</span></td>
-                <td class="num">27</td><td class="num">0</td><td class="num">0</td>
+                <td class="row-name">AARP Dental Insurance Plan</td>
+                <td><span class="net-tag out">Out (not via Careington)</span></td>
+                <td class="num">4</td><td class="num">0</td><td class="num">2</td>
                 <td class="num"><span class="pct bad">0.0%</span></td>
               </tr>
               <tr>
-                <td class="row-name">UHC — Medicare, Paid to Neil Rush (personal)</td>
-                <td><span class="net-tag review">Needs Review</span></td>
-                <td class="num">15</td><td class="num">0</td><td class="num">0</td>
-                <td class="num"><span class="pct bad">0.0%</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Humana — Paid to Wm Faulkner (210 E Pike St)</td>
-                <td><span class="net-tag review">Needs Review</span></td>
-                <td class="num">14</td><td class="num">0</td><td class="num">0</td>
-                <td class="num"><span class="pct bad">0.0%</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Cigna Dental — Paid to Friend Bechtel</td>
-                <td><span class="net-tag review">Needs Review</span></td>
-                <td class="num">21</td><td class="num">4</td><td class="num">10</td>
-                <td class="num"><span class="pct warn">19.0%</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Cigna / Anthem — Paid to Neil Rush (old solo contract)</td>
-                <td><span class="net-tag review">Needs Review</span></td>
-                <td class="num">9</td><td class="num">0</td><td class="num">0</td>
-                <td class="num"><span class="pct bad">0.0%</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Delta Dental — Direct contract (Jun 8, uncategorized)</td>
-                <td><span class="net-tag review">Reconcile</span></td>
-                <td class="num">23</td><td class="num">—</td><td class="num">—</td>
+                <td class="row-name">Aegis Administrative Services</td>
+                <td><span class="net-tag review">Confirm w/ Aleksey</span></td>
+                <td class="num">—</td><td class="num">—</td><td class="num">—</td>
                 <td class="num"><span class="pct">—</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Humana — Medicare (CI-3 reprice, CarePPO)</td>
-                <td><span class="net-tag out">Out of Network</span></td>
-                <td class="num">41</td><td class="num">0</td><td class="num">32</td>
-                <td class="num"><span class="pct bad">0.0%</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Anthem — Dental Prime (not via Careington)</td>
-                <td><span class="net-tag out">Out of Network</span></td>
-                <td class="num">7</td><td class="num">0</td><td class="num">3</td>
-                <td class="num"><span class="pct bad">0.0%</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Humana — Medicare (strict in-network, OON denied)</td>
-                <td><span class="net-tag out">Out of Network</span></td>
-                <td class="num">4</td><td class="num">0</td><td class="num">0</td>
-                <td class="num"><span class="pct bad">0.0%</span></td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="cta-row">
-          <a class="dash-btn" href="https://careington-shareable.netlify.app" target="_blank" rel="noopener noreferrer">
-            <span>Open Careington EOB Dashboard</span>
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 9 L9 3"/><path d="M4 3 L9 3 L9 8"/>
-            </svg>
-          </a>
-          <div class="pw-chip"><span class="pw-label">Password</span> <strong>FDCcyn2026!Test</strong></div>
-        </div>
-
         <ul class="brief-list">
-          <li><strong>BCBS FEP → Neil Rush — 27 lines.</strong> The single biggest open item; confirm routing to FDC Cynthiana LLC. <span class="pill action">Action</span></li>
-          <li><strong>Cigna → Friend Bechtel — 21 lines.</strong> Only 19% in-network with 10 OON despite being an expected in-network plan — investigate the OON lines. <span class="pill action">Action</span></li>
-          <li><strong>Entity/payee buckets — ~63 lines.</strong> EOBs paying individuals (Neil Rush, Wm Faulkner, Friend Bechtel) instead of FDC Cynthiana LLC; the dashboard shows them as in-network, but the payee question isn't closed. <span class="pill action">Action</span></li>
-          <li><strong>Delta Dental — 23 lines.</strong> Newest EOB (Jun 8), still uncategorized — run through reconciliation. <span class="pill on-track">Queued</span></li>
-          <li><strong>CP-60 proof points.</strong> UHC Commercial 100%, Humana Commercial 91.7%, Anthem Dental Complete 91.3%, MetLife FEDVIP 76.9% — routing works where the plan is set up right. <span class="pill done">Working</span></li>
+          <li><strong>The two direct contracts are the only clean books.</strong> Delta Premier runs 97.3% in-network across 851 lines with allowed amounts tracking the contracted schedule (265 of 279 checks fully clean). UHC Medicaid runs 96.0% across 351. Everything leased through Careington sits between 3% and 34%.</li>
+          <li><strong>Humana Medicare still isn't repricing.</strong> 0 of 155 lines paid at CI-3 — across all six providers, no exceptions. That pattern is carrier-level, not provider-level, and it hasn't moved.</li>
+          <li><strong>The tool now sorts to provider level, not just entity.</strong> Every line is scored against the rendering provider's own NPI, so what used to read as one FDC Cynthiana number now resolves to a named doctor. The full per-provider breakdown is on the <strong>Routing Detail</strong> tab. <span class="pill done">New</span></li>
         </ul>
         <!-- /DATA -->
       </div>
     </section>
 
-    <!-- 02 / OPERATIONS -->
-    <section class="report-section reveal" data-section="operations">
+    <!-- 02 / MASTER FILES -->
+    <section class="report-section reveal" data-section="master-files">
       <div class="wrap">
-        <!-- DATA: 02 Operations -->
-        <div class="section-eyebrow"><span class="num">02</span><span class="slash">/</span>Operations</div>
-        <h2 class="section-title">Insurance Verification</h2>
-        <p><strong>OverJet is cancelled.</strong> At <strong>$359/mo</strong> the cost/benefit wasn't there — it pulled insurance verification into the patient portal and did nothing beyond that, and the free trial was effectively spent before the portal even arrived (June 10) with the vendor unwilling to move the timeline. Christina agreed it wasn't worth the spend, so this is closed out. <span class="pill done">Cancelled</span></p>
+        <!-- DATA: 02 Master Files -->
+        <div class="section-eyebrow"><span class="num">02</span><span class="slash">/</span>Master Files</div>
+        <h2 class="section-title">Master Crucial-Data Files</h2>
+        <p class="lead">Both master files are uploaded to the Drive and roughly <strong>90% built</strong> against your 7/13 directive — one authoritative file per business.</p>
+        <ul class="brief-list">
+          <li><strong>STS Master File.</strong> Uploaded, ~90% complete. <span class="pill on-track">On Track</span></li>
+          <li><strong>FDC Cynthiana Master File.</strong> Uploaded, ~90% complete. <span class="pill on-track">On Track</span></li>
+          <li><strong>What's left.</strong> A line-by-line accuracy review, not more building. These become the single source of truth for entity, credentialing and billing data — so they don't go final on a skim. Targeting close next week.</li>
+        </ul>
         <!-- /DATA -->
       </div>
     </section>
 
-    <!-- 03 / RENOVATION -->
+    <!-- 03 / BLUE BOOK -->
+    <section class="report-section reveal" data-section="blue-book">
+      <div class="wrap">
+        <!-- DATA: 03 Blue Book -->
+        <div class="section-eyebrow"><span class="num">03</span><span class="slash">/</span>Open Dental</div>
+        <h2 class="section-title">Open Dental — Insurance Blue Book</h2>
+        <p class="lead">Open Dental has a native feature that builds a fee schedule out of our <strong>actual out-of-network EOB history</strong> instead of guessing at checkout. I think this is a real one.</p>
+        <ul class="brief-list">
+          <li><strong>What it does.</strong> Reads what each carrier has historically allowed on our own posted EOBs and turns that history into a carrier-specific schedule inside Open Dental — so OON estimates come off evidence rather than a UCR guess.</li>
+          <li><strong>Why it matters now.</strong> The tracker just flagged four carriers pricing off billed fees with no contracted schedule behind them. Those are precisely the carriers where we have EOB history and no schedule — the exact case Blue Book was built for.</li>
+          <li><strong>Status.</strong> Investigating with Nellie. Enabling is a settings change under Setup &gt; Family/Insurance, not a build. <span class="pill action">Needs Green Light</span></li>
+        </ul>
+        <!-- /DATA -->
+      </div>
+    </section>
+
+    <!-- 04 / STS -->
+    <section class="report-section reveal" data-section="sts">
+      <div class="wrap">
+        <!-- DATA: 04 STS -->
+        <div class="section-eyebrow"><span class="num">04</span><span class="slash">/</span>STS</div>
+        <h2 class="section-title">Southern Travel Surgery</h2>
+        <ul class="brief-list">
+          <li><strong>Google Business Profile.</strong> Set up and submitted — now sitting in Google's verification queue on a 4–7 day window. Once it clears, STS has its own review pathway, fully separate from FDC. <span class="pill live">In Queue</span></li>
+          <li><strong>RFA grant.</strong> Materials updated inside the STS folder following our 7/16 conversation. <span class="pill done">Updated</span></li>
+        </ul>
+        <!-- /DATA -->
+      </div>
+    </section>
+
+    <!-- 05 / RENOVATION -->
     <section class="report-section reveal" data-section="renovation">
       <div class="wrap">
-        <!-- DATA: 03 Renovation -->
-        <div class="section-eyebrow"><span class="num">03</span><span class="slash">/</span>Renovation</div>
-        <h2 class="section-title">Phase 2 — 218 S Main Street</h2>
-        <p class="lead">Phase 2 scope is <strong>~90% defined</strong> and the v15 budget is set. The build is <strong>slated to start July 10, opening with patient check-in</strong>, then working one area per weekend through July and August. Roofcred's Quote #633 (rev. 6/16) holds at <strong>$45,000</strong> and is awaiting signature; <strong>Brian (IT) and Dwayne (electrician)</strong> have both given a verbal yes, with $2,000 placeholders held in the budget until their written quotes land. Below — the AI design concepts and the floor plan for the <strong>4,049 sq ft</strong> space. The numbers live in the <strong>Budget Snapshot</strong> tab: <strong>$57,221</strong> against the <strong>$68,669.94</strong> cap, now with a <strong>16.7% buffer</strong>.</p>
-
-        <div class="pill-row">
-          <span class="pill done">Scope ~90% Defined</span>
-          <span class="pill on-track">July 10 Start · Check-In First</span>
-          <span class="pill action">Quotes Pending · Brian + Dwayne</span>
-        </div>
-
-        <div class="photo-grid">
-          <figure class="photo-card">
-            <a href="assets/front-desk-concept.jpg" target="_blank" rel="noopener">
-              <img src="assets/front-desk-concept.jpg" alt="Front desk — AI design concept" loading="lazy">
-            </a>
-            <figcaption>Front Desk · AI Concept</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <a href="assets/seating-area-concept.jpg" target="_blank" rel="noopener">
-              <img src="assets/seating-area-concept.jpg" alt="Waiting room seating area — AI design concept" loading="lazy">
-            </a>
-            <figcaption>Seating Area · AI Concept</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <a href="assets/fireplace-concept.jpg" target="_blank" rel="noopener">
-              <img src="assets/fireplace-concept.jpg" alt="Fireplace lounge — AI design concept" loading="lazy">
-            </a>
-            <figcaption>Fireplace Lounge · AI Concept</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <a href="assets/checkout-concept.jpg" target="_blank" rel="noopener">
-              <img src="assets/checkout-concept.jpg" alt="Checkout area — AI design concept" loading="lazy">
-            </a>
-            <figcaption>Checkout · AI Concept</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <a href="assets/patient-coordinating-room.jpg" target="_blank" rel="noopener">
-              <img src="assets/patient-coordinating-room.jpg" alt="Patient coordinating room — AI design concept" loading="lazy">
-            </a>
-            <figcaption>Patient Coordinating Room · AI Concept</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <a href="assets/walled-desk-area.jpg" target="_blank" rel="noopener">
-              <img src="assets/walled-desk-area.jpg" alt="Walled-off desk area — AI design concept" loading="lazy">
-            </a>
-            <figcaption>Walled-Off Desk Area · AI Concept</figcaption>
-          </figure>
-          <figure class="photo-card wide">
-            <a href="assets/floor-plan-218-s-main.png" target="_blank" rel="noopener">
-              <img src="assets/floor-plan-218-s-main.png" alt="218 S Main Street first-floor plan, 4,049 sq ft" loading="lazy">
-            </a>
-            <figcaption>Floor Plan · 218 S Main St · 4,049 Sq Ft</figcaption>
-          </figure>
-        </div>
-
-        <h3 class="section-subtitle">July–August Build · Weekends Only</h3>
+        <!-- DATA: 05 Renovation -->
+        <div class="section-eyebrow"><span class="num">05</span><span class="slash">/</span>Renovation</div>
+        <h2 class="section-title">Phase 2 Renovations</h2>
+        <p class="lead">Checkout build is targeting <strong>7/31</strong>, and <strong>all contractors are available that date</strong>. The GC bid is the gating item — everything else is sequenced behind it.</p>
         <ul class="brief-list">
-          <li><strong>Pre-construction (now → Jul 9).</strong> Sign Roofcred, lock written quotes from Brian &amp; Dwayne, pre-template and order the quartz, and stage dust and temporary-sterilization protection.</li>
-          <li><strong>Jul 10–12 · Check-in.</strong> New door and ~16 ft intake counter, data drops and front-desk PCs before the walls close, pre-fabbed quartz top — operational Monday.</li>
-          <li><strong>Jul 17–19 · Checkout.</strong> Two checkout sections, quartz tops, lattice + LED, and seating.</li>
-          <li><strong>Jul 24–26 · Sterilization / back area.</strong> Reframing and door reconfig, running on a temporary autoclave plan.</li>
-          <li><strong>Jul 31–Aug 2 · Storage / middle room.</strong></li>
-          <li><strong>Aug 7–9 · Waiting room + fireplace.</strong> Outlets and TV-mount power, stone veneer, paint, light fixtures, and seating.</li>
-          <li><strong>Aug 14–16 · Doctor rooms.</strong> Relocate cabinets, cut the closet opening, frame and finish the wall, and mount patient-room TVs — then an <strong>Aug 21–23 buffer</strong> for punch-list, final trade checks, and any weather slips.</li>
-        </ul>
-
-        <ul class="brief-list">
-          <li><strong>Roofcred Quote #633 (rev. 6/16) — $45,000.</strong> Received and reviewed; awaiting signature before the schedule locks.</li>
-          <li><strong>Trades — Brian &amp; Dwayne.</strong> Both gave a verbal yes; getting written confirmation and quotes to firm up the $2,000 IT and $2,000 electrical placeholders. <span class="pill on-track">Verbal Yes</span></li>
-          <li><strong>Staff communication.</strong> The team had flagged feeling in the dark on renovation timing; now that the July schedule is set, there's a concrete timeline to share once the contract firms up.</li>
-        </ul>
-        <!-- /DATA -->
-      </div>
-    </section>
-
-    <!-- 04 / PATIENT FEEDBACK -->
-    <section class="report-section reveal" data-section="patient">
-      <div class="wrap">
-        <!-- DATA: 04 Patient Feedback -->
-        <div class="section-eyebrow"><span class="num">04</span><span class="slash">/</span>Patient Feedback</div>
-        <h2 class="section-title">Live Satisfaction</h2>
-        <p class="lead">Week of Jun 22–28: <strong>9 responses</strong> at a <strong>3.89 avg</strong>, essentially flat on last week's 3.90. The bright spot — <strong>"no pressure felt" rebounded to 89% (+29)</strong>, turning last week's soft spot into this week's strongest question. The drag is a single <strong>1★ response that answered "No" to everything and requested a callback</strong>; on a 9-response week that one detractor pulls <strong>intake to 78% (−22)</strong>, communication to 78% (−12), and financial clarity to 67% (−3). <strong>1 callback request</strong>, already flagged for follow-up.</p>
-
-        <div class="kpi-block">
-          <div class="kpi-row">
-            <div class="kpi">
-              <div class="kpi-label">Responses</div>
-              <div class="kpi-value"><span class="counter" data-target="9">0</span></div>
-            </div>
-            <div class="kpi">
-              <div class="kpi-label">Avg Rating</div>
-              <div class="kpi-value"><span class="counter" data-target="389" data-decimal="100" data-places="2">0</span><span class="unit">/ 5</span></div>
-            </div>
-            <div class="kpi">
-              <div class="kpi-label">Callbacks</div>
-              <div class="kpi-value"><span class="counter" data-target="1">0</span></div>
-            </div>
-          </div>
-          <div class="kpi-breakdown">
-            <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="78" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="78"></div></div>
-              <div class="bd-label">Communication</div>
-            </div>
-            <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="78" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="78"></div></div>
-              <div class="bd-label">Intake Reasonable</div>
-            </div>
-            <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="67" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="67"></div></div>
-              <div class="bd-label">Financial Clarity</div>
-            </div>
-            <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="89" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="89"></div></div>
-              <div class="bd-label">No Pressure</div>
-            </div>
-          </div>
-        </div>
-        <p class="micro-note">All-time across <strong>81 responses</strong> the picture holds up: communication and intake both sit at <strong>94% positive</strong>, financial clarity at <strong>88%</strong>, and "no pressure" at <strong>80%</strong> — that last one is the persistent soft spot, so this week's 89% is a real step up rather than noise. With only 9 responses this week, a single detractor swings every number, so the communication/intake dips read more as small-sample volatility than a trend. (The dashboard's <strong>NPS −100</strong> is a known scale artifact on tiny samples, not a loyalty signal.)</p>
-        <!-- /DATA -->
-      </div>
-    </section>
-
-    <!-- 05 / TEAM -->
-    <section class="report-section reveal" data-section="team">
-      <div class="wrap">
-        <!-- DATA: 05 Team -->
-        <div class="section-eyebrow"><span class="num">05</span><span class="slash">/</span>Team</div>
-        <h2 class="section-title">Team Feedback</h2>
-        <p class="lead">Light on volume — <strong>2 of 17 responded</strong> (Mariah Gaunce, Mary Kate) — but the <strong>culture score averaged 9.0</strong>, with <strong>skills/training and patient-communication both at 100%</strong>. The split questions — <strong>coworkers pulling equal weight, "this week improved over last," and leadership support — each came in at 50%</strong>, all from the same response. The headline this week isn't a number, though; it's a safety flag raised in one of the responses.</p>
-
-        <ul class="brief-list">
-          <li><strong>Scores.</strong> Mariah Gaunce 8/10, all yes. Mary Kate 10/10 on culture, but "No" on coworkers pulling equal weight, the week improving ("getting better"), communicating with patients like family, and leadership support — the detail behind that sits in the safety flag below.</li>
-          <li><strong>A patient threatened a staff member's life.</strong> Mary Kate reported that a patient sent a threatening text: <em>"I'm going to find your house and murder you,"</em> followed by a devil emoji. When she raised it, she says it was laughed off. She described it as terroristic threatening, noted that staff regularly absorb verbal abuse from patients, and — with most of the staff having children at home — said a credible threat against anyone in the office shouldn't be treated as routine.</li>
-        </ul>
-        <!-- /DATA -->
-      </div>
-    </section>
-
-    <!-- 06 / MARKETING -->
-    <section class="report-section reveal" data-section="marketing">
-      <div class="wrap">
-        <!-- DATA: 06 Marketing -->
-        <div class="section-eyebrow"><span class="num">06</span><span class="slash">/</span>Marketing</div>
-        <h2 class="section-title">Marketing &amp; Growth</h2>
-        <p class="lead">The <strong>STS site copy edits are done</strong> — last week's outstanding revisions are wrapped. <strong>www.stsurgery.com</strong> is finalized with intake routing to <strong>dental@stsurgery.com</strong>, and <strong>forms.stsurgery.com</strong> keeps collecting submissions on its backend dashboard. Next step on this front: <strong>standing up a Google Business account</strong> for STS so it surfaces in local search and maps. <span class="pill done">Edits Done</span></p>
-
-        <div class="cta-row">
-          <a class="dash-btn" href="https://www.stsurgery.com" target="_blank" rel="noopener noreferrer">
-            <span>Visit stsurgery.com</span>
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 9 L9 3"/><path d="M4 3 L9 3 L9 8"/>
-            </svg>
-          </a>
-          <a class="dash-btn" href="https://forms.stsurgery.com" target="_blank" rel="noopener noreferrer">
-            <span>Open the Submissions Form</span>
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 9 L9 3"/><path d="M4 3 L9 3 L9 8"/>
-            </svg>
-          </a>
-        </div>
-
-        <h3 class="section-subtitle">Google Ads</h3>
-        <p>The campaign converted <strong>three new patients</strong> from its leads between June 1 and June 11. It keeps running and lead-quality review continues. <span class="pill on-track">Monitoring</span></p>
-
-        <!-- /DATA -->
-      </div>
-    </section>
-
-    <!-- 07 / AI & TOOLS -->
-    <section class="report-section reveal" data-section="ai-tools">
-      <div class="wrap">
-        <!-- DATA: 07 AI & Tools -->
-        <div class="section-eyebrow"><span class="num">07</span><span class="slash">/</span>AI &amp; Tools</div>
-        <h2 class="section-title">AI &amp; Internal Tools</h2>
-        <p class="lead">No new tooling shipped this week — the <strong>EOB dashboard stays live and running with Heather</strong>. As a reminder of what's in production: a <strong>Claude skill file</strong> that scans and downloads EOBs on any account, plus a <strong>dashboard synced into Open Dental</strong> that runs locally so PHI stays off outside servers, matching each payout to the correct fee schedule and bucketing the unmatched lines to build the schedule. Next up here is a deeper EOB review with Nellie.</p>
-
-        <div class="skill-demo">
-          <div class="skill-demo-cap">Live example · <strong>the shipped EOB-reconciliation skill</strong></div>
-          <div class="skill-term">
-            <div class="skill-term-bar"><i></i><i></i><i></i><span>careington-eob-reconcile</span></div>
-<pre><span class="k">CAREINGTON EOB RECONCILIATION</span> — Anthem BCBS of KY — 2026-04-20
-Plan path resolved:   NOT a Careington product → DIRECT-CONTRACT-OVERRIDE <span class="warn">⚠</span>
-Billing entity:       NEIL C RUSH (personal) → Expected FDC CYNTHIANA LLC <span class="warn">⚠</span>
-MISMATCH
-
-Totals:  billed $3,511 | allowed $28 | paid $28 | patient $0 | network savings $67
-
-Flags:
-  A. <span class="k">Amount:</span>    ZERO-PAYMENT 2 (both crowns, denied)   PAID 2 ($28 total)
-  B. <span class="k">Routing:</span>   DIRECT-CONTRACT-OVERRIDE 4   (CP-60 cross-ref N/A)
-  C. <span class="k">Entity:</span>    WRONG-TIN/ENTITY 4   WRONG-BILLING-PROVIDER 2</pre>
-          </div>
-          <p class="skill-demo-note">A single skill ingests a raw EOB, resolves the plan path, reconciles totals, and surfaces routing/entity mismatches automatically — now shipped as part of Nellie's EOB toolkit.</p>
-        </div>
-
-        <ul class="brief-list">
-          <li><strong>Phase 1 — skill files.</strong> Run on any Claude (or ChatGPT) account; dependency is scanning and downloading the EOBs. <span class="pill done">Done</span></li>
-          <li><strong>Phase 2 — PMS sync.</strong> Dashboard synced into Open Dental, running locally to stay off HIPAA-exposed servers. <span class="pill done">Done</span></li>
-          <li><strong>Phase 3 — testing.</strong> Now live with Heather (Nellie next) — gathering real-use feedback before we extend it. <span class="pill live">In Progress</span></li>
-          <li><strong>Phases 4–5 — write-back &amp; agent harness.</strong> Research what the Open Dental API safely allows via write-back keys, then build the agent harness with guardrails and the front-end dashboard.</li>
-          <li><strong>Phases 6–7 — harden &amp; deploy.</strong> Test, then sync HIPAA-compliant servers to run anywhere remotely — multi-platform API key sync, plug-and-play, VPS for remote data access.</li>
+          <li><strong>Contractors.</strong> All available 7/31 — the date holds on their side. <span class="pill on-track">Confirmed</span></li>
+          <li><strong>GC bid.</strong> Still outstanding. Nothing signs until it lands. <span class="pill action">Waiting</span></li>
+          <li><strong>Purchases.</strong> A short list of remaining items to buy.</li>
+          <li><strong>Contracts.</strong> Ready to send once the bid is in.</li>
+          <li><strong>Bonus incentive.</strong> Creating it now.</li>
         </ul>
         <!-- /DATA -->
       </div>
@@ -1759,37 +1607,44 @@ Flags:
     <!-- NEXT WEEK -->
     <section class="report-section reveal" data-section="forward">
       <div class="wrap">
-        <!-- DATA: 08 Forward -->
-        <div class="next-week" id="nextWeek" data-wk="WK 27">
-          <div class="section-eyebrow"><span class="num">08</span><span class="slash">/</span>Forward</div>
+        <!-- DATA: 06 Forward -->
+        <div class="next-week" id="nextWeek" data-wk="WK 30">
+          <div class="section-eyebrow"><span class="num">06</span><span class="slash">/</span>Forward</div>
           <h2 class="section-title">Next Week Focus</h2>
           <div class="nw-list">
             <div class="nw-item">
               <div class="nw-num">01</div>
               <div>
-                <div class="nw-title">STS credentialing — continue</div>
-                <div class="nw-desc">Keep the STS credentialing moving, building on the Delta Dental Bowling Green and Somerset submissions and pushing the remaining payer connections forward.</div>
+                <div class="nw-title">Phase 2 — bid, buy, sign</div>
+                <div class="nw-desc">Contractors are available 7/31, so the date is ours to lose. Land the GC bid, clear the remaining purchases, and get contracts plus the bonus incentive out with runway to spare.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">02</div>
               <div>
-                <div class="nw-title">UHC legacy contract + EOB review</div>
-                <div class="nw-desc">Follow up on the UHC legacy contract and run an EOB review with Nellie and Heather — reconciling the latest batch and checking current standing.</div>
+                <div class="nw-title">Careington — Rasmussen &amp; Thomas</div>
+                <div class="nw-desc">Two pending files are suppressing roughly 896 lines of Careington-routed volume. Getting Aleksey on the phone to force a status and an effective date.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">03</div>
               <div>
-                <div class="nw-title">Phase 2 renovation — prep for July 10</div>
-                <div class="nw-desc">Lock the Roofcred signature and written quotes from Brian and Dwayne, then prep for the July 10 kickoff focused on patient check-in.</div>
+                <div class="nw-title">Close the master files</div>
+                <div class="nw-desc">Final line-by-line accuracy pass on both the STS and FDC Cynthiana master files, then lock them as the reference of record.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">04</div>
               <div>
-                <div class="nw-title">Google Business account — set up</div>
-                <div class="nw-desc">Stand up a Google Business account for STS so it surfaces in local search and maps.</div>
+                <div class="nw-title">Blue Book decision</div>
+                <div class="nw-desc">Finish the evaluation with Nellie and enable it if it holds up. Target the four UCR-billed carriers first, where the estimate gap is widest.</div>
+              </div>
+            </div>
+            <div class="nw-item">
+              <div class="nw-num">05</div>
+              <div>
+                <div class="nw-title">STS GBP verification</div>
+                <div class="nw-desc">Watch for Google's approval inside the 4–7 day window. If it stalls past 7/24, re-submit rather than wait it out.</div>
               </div>
             </div>
           </div>
@@ -1798,115 +1653,281 @@ Flags:
       </div>
     </section>
 
-    <!-- OPEN DECISIONS -->
-    <section class="report-section reveal" data-section="asks">
-      <div class="wrap">
-        <!-- DATA: 09 Asks -->
-        <div class="section-eyebrow"><span class="num">09</span><span class="slash">/</span>Asks</div>
-        <h2 class="section-title">Open Decisions</h2>
-        <div class="decisions">
-          <p class="timeoff-note"><strong>Time off — could you confirm you've seen these?</strong> Just making sure the family-vacation dates I requested came through on your end: <strong>July 16 (half day), July 17, and July 23–24</strong>. Let me know if anything conflicts.</p>
-        </div>
-        <!-- /DATA -->
-      </div>
-    </section>
-
-    <div class="signoff" id="signoff">FDC Cynthiana · WK 27 · 2026</div>
+    <div class="signoff" id="signoff">FDC Cynthiana · WK 30 · 2026</div>
 
   </div><!-- /tab-brief -->
 
-  <!-- ============ TAB: BUDGET SNAPSHOT ============ -->
-  <div class="tab-pane" id="tab-budget" role="tabpanel">
-    <section class="report-section" data-section="budget">
+  <!-- ============ TAB: ROUTING DETAIL ============ -->
+  <div class="tab-pane" id="tab-routing" role="tabpanel">
+    <section class="report-section" data-section="routing-detail">
       <div class="wrap">
-        <!-- DATA: Budget Snapshot -->
-        <div class="section-eyebrow"><span class="num">P2</span><span class="slash">/</span>Budget</div>
-        <h2 class="section-title">Phase 2 Snapshot</h2>
-        <p class="lead">Budget v15 (updated 6/24): Phase 2 now lands at <strong>$57,220.63</strong> against the <strong>$68,669.94</strong> cap — an <strong>$11,449.31 buffer (16.7%)</strong>, up from last week's $10,089.94 / 14.7%. The lift came from the equipment confirming well under allowance — the monitor at <strong>$81.99</strong> (vs a $1,250 allowance) and two mini PCs at <strong>$921.18</strong> (vs $2,700), most of it bought through Amazon — about <strong>$1,360 saved</strong>. The first <strong>$3,200.63 of confirmed costs</strong> are now on the books (was $0). Furniture &amp; décor ($4,800) was re-bucketed from Renovation into Technology &amp; Equipment per BofA. Roofcred Quote #633 (rev. 6/16) is still the largest single line at <strong>$45,000</strong> and awaiting signature. Scope is ~90% set, with the July 10 kickoff focused on patient check-in.</p>
+        <!-- DATA: Routing Detail -->
+        <div class="section-eyebrow"><span class="num">RD</span><span class="slash">/</span>Routing</div>
+        <h2 class="section-title">Routing Detail — Provider &amp; Carrier</h2>
+        <p class="lead">Every EOB line with a date of service on or after 5/1, scored two ways. <strong>Classified in-network</strong> is what the carrier treated as par. <strong>Paid at contract</strong> is whether the allowed amount actually landed within $10 of the schedule it should have. A provider can score high on the first and low on the second — Bechtel does — which is why both are tracked.</p>
 
-        <div class="scope-banner">
-          <div class="sb-left">
-            <div class="sb-label">Phase 2 Total</div>
-            <div class="sb-value">$57,221</div>
+        <div class="table-wrap">
+          <div class="table-head">
+            <div class="th-title">By Provider</div>
+            <div class="th-sub">Careington status · line counts · both lenses · <span class="wk-ref">WK 30</span></div>
           </div>
-          <div class="sb-meta">Cap $68,669.94<br>Buffer $11,449.31 · 16.7%<br>Snapshot <span class="wk-ref">WK 27</span></div>
-        </div>
-
-        <div class="scope-grid">
-          <div class="scope-card lead-item">
-            <div class="scope-head">
-              <div class="scope-name">Renovation &amp; Construction</div>
-              <div class="scope-price">$45,000</div>
-            </div>
-            <ul>
-              <li>Roofcred Quote #633 (rev. 6/16) — $45,000: Intake $18,660 · Checkout $11,300 · Painting $8,640 · Back reframing $5,200 · Doctors rooms $1,200 (electrician absorbed)</li>
-              <li>Furniture &amp; décor ($4,800) re-bucketed to Technology &amp; Equipment per BofA</li>
-              <li>Four items stay deferred at $0 (see Deferred)</li>
-            </ul>
-          </div>
-          <div class="scope-card">
-            <div class="scope-head">
-              <div class="scope-name">Contingency (vs cap)</div>
-              <div class="scope-price">$11,449.31</div>
-            </div>
-            <ul>
-              <li>Remaining headroom against the cap — 16.7%, not part of the $57,221 total</li>
-            </ul>
-          </div>
-          <div class="scope-card">
-            <div class="scope-head">
-              <div class="scope-name">Infrastructure Compliance</div>
-              <div class="scope-price">$2,030</div>
-            </div>
-            <ul>
-              <li>Electrician — outlets &amp; cabling — $2,000</li>
-              <li>HVAC scent diffuser — $30</li>
-            </ul>
-          </div>
-          <div class="scope-card">
-            <div class="scope-head">
-              <div class="scope-name">Technology &amp; Equipment</div>
-              <div class="scope-price">$10,190.63</div>
-            </div>
-            <ul>
-              <li>Confirmed (Amazon): monitor $81.99 · 2 mini PCs $921.18 · 2× 50&Prime; + 1× 65&Prime; Hisense TVs $2,149.97 · LED counter strip $47.49</li>
-              <li>Allowances: IT install — Brian $2,000 · 2 TV mounts $140 · LED splitter $50</li>
-              <li>Furniture &amp; décor package $4,800 (moved from Renovation)</li>
-            </ul>
-          </div>
-          <div class="scope-card">
-            <div class="scope-head">
-              <div class="scope-name">Cost Basis</div>
-              <div class="scope-price">—</div>
-            </div>
-            <ul>
-              <li>Estimated (vendor working quotes) — $49,800</li>
-              <li>Allowance (TBD / placeholder) — $4,220</li>
-              <li>Confirmed (priced &amp; in cart) — $3,200.63</li>
-            </ul>
-          </div>
-          <div class="scope-card">
-            <div class="scope-head">
-              <div class="scope-name">Deferred</div>
-              <div class="scope-price">$0</div>
-            </div>
-            <ul>
-              <li>Front-area flooring</li>
-              <li>Espresso bar counter + machine</li>
-              <li>Coffee machine plumber</li>
-              <li>Operatory back walls / HEX (7 ops)</li>
-            </ul>
-          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Careington</th>
+                <th class="num">Lines</th>
+                <th class="num">In</th>
+                <th class="num">Out</th>
+                <th class="num">Review</th>
+                <th class="num">% In-Net</th>
+                <th class="num">Paid at Contract</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-name">Lief Rasmussen <span style="font-size:11px;color:var(--ink-faint);">· NPI 1750134664</span></td>
+                <td><span class="net-tag review">Pending</span></td>
+                <td class="num">592</td><td class="num">350</td><td class="num">235</td><td class="num">7</td>
+                <td class="num"><span class="pct bad">59%</span></td>
+                <td class="num"><span class="pct warn">65%</span> <span style="font-size:11px;color:var(--ink-faint);">379/584</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Neil Rush <span style="font-size:11px;color:var(--ink-faint);">· NPI 1063516607</span></td>
+                <td><span class="net-tag in">Active</span></td>
+                <td class="num">309</td><td class="num">196</td><td class="num">4</td><td class="num">109</td>
+                <td class="num"><span class="pct bad">63%</span></td>
+                <td class="num"><span class="pct bad">53%</span> <span style="font-size:11px;color:var(--ink-faint);">160/303</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Josh Thomas <span style="font-size:11px;color:var(--ink-faint);">· NPI 1649943036</span></td>
+                <td><span class="net-tag review">Pending</span></td>
+                <td class="num">304</td><td class="num">172</td><td class="num">131</td><td class="num">1</td>
+                <td class="num"><span class="pct bad">57%</span></td>
+                <td class="num"><span class="pct warn">71%</span> <span style="font-size:11px;color:var(--ink-faint);">215/303</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">William Faulkner <span style="font-size:11px;color:var(--ink-faint);">· NPI 1063514792</span></td>
+                <td><span class="net-tag in">Active</span></td>
+                <td class="num">298</td><td class="num">238</td><td class="num">2</td><td class="num">58</td>
+                <td class="num"><span class="pct warn">80%</span></td>
+                <td class="num"><span class="pct warn">78%</span> <span style="font-size:11px;color:var(--ink-faint);">227/291</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Friend Bechtel <span style="font-size:11px;color:var(--ink-faint);">· NPI 1255903175</span></td>
+                <td><span class="net-tag in">Active</span></td>
+                <td class="num">259</td><td class="num">230</td><td class="num">8</td><td class="num">21</td>
+                <td class="num"><span class="pct good">89%</span></td>
+                <td class="num"><span class="pct bad">24%</span> <span style="font-size:11px;color:var(--ink-faint);">58/246</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Jonathan Rich <span style="font-size:11px;color:var(--ink-faint);">· NPI 1881778652</span></td>
+                <td><span class="net-tag in">Active</span></td>
+                <td class="num">97</td><td class="num">75</td><td class="num">1</td><td class="num">21</td>
+                <td class="num"><span class="pct warn">77%</span></td>
+                <td class="num"><span class="pct warn">66%</span> <span style="font-size:11px;color:var(--ink-faint);">64/97</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div class="callout">
-          <div class="callout-label">Context &amp; open items</div>
-          <p>Phase 2 draws from the <strong>$295,000</strong> operations budget — the $68,669.94 cap is what remains after Phase 1's actual spend ($226,330.06). The first <strong>$3,200.63</strong> of equipment is now confirmed at firm prices; the rest is vendor working estimates (final could move ±10–20%) and allowances, and Roofcred isn't signed yet. Scenario range: best case <strong>$42,221</strong> · target <strong>$57,221</strong> · worst case <strong>$82,221</strong> if every estimate runs high — the worst case is the only one that breaks the cap (by ~$13,551). One structural watch-item: re-bucketing furniture into Equipment leaves the Construction loan bucket about $21.8K over its headroom while Equipment has ~$33K of slack — the total fits the cap only if BofA lets the two buckets flex, so I'll confirm fungibility with Jenna. <span class="hl">Scope is ~90% set; the schedule locks once Roofcred is signed.</span></p>
+          <div class="callout-label">My Read</div>
+          <p>Read the matrix below down the two pending columns. Rasmussen and Thomas post <span class="hl">zero in-network lines on every single Careington-routed carrier</span> — Anthem, Humana, MetLife, Cigna, Optum, Aetna, Guardian, all of it. Every in-network line they have comes from Delta or UHC Medicaid, which we hold directly and which don't care about Careington. That isn't a posting error or a carrier quirk. That is two credentialing files, and it is the single highest-dollar item on this report.</p>
         </div>
+
+        <div class="table-wrap">
+          <div class="table-head">
+            <div class="th-title">Carrier × Provider — In-Network Lines / Total Lines</div>
+            <div class="th-sub">Classification lens · a dash means no lines in the window</div>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th>Carrier</th>
+                <th class="num">Rasmussen<br><span style="font-weight:400;text-transform:none;">pending</span></th>
+                <th class="num">Rush</th>
+                <th class="num">Thomas<br><span style="font-weight:400;text-transform:none;">pending</span></th>
+                <th class="num">Faulkner</th>
+                <th class="num">Bechtel</th>
+                <th class="num">Rich</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-name">Delta Dental</td>
+                <td class="num"><span class="pct good">303/313</span></td>
+                <td class="num"><span class="pct good">121/126</span></td>
+                <td class="num"><span class="pct good">154/156</span></td>
+                <td class="num"><span class="pct good">181/185</span></td>
+                <td class="num"><span class="pct good">14/16</span></td>
+                <td class="num"><span class="pct good">55/55</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Medicaid UHC</td>
+                <td class="num"><span class="pct good">47/49</span></td>
+                <td class="num"><span class="pct good">51/53</span></td>
+                <td class="num"><span class="pct good">18/18</span></td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct good">215/225</span></td>
+                <td class="num"><span class="pct good">6/6</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Anthem</td>
+                <td class="num"><span class="pct bad">0/68</span></td>
+                <td class="num"><span class="pct warn">14/30</span></td>
+                <td class="num"><span class="pct bad">0/36</span></td>
+                <td class="num"><span class="pct good">37/39</span></td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct warn">12/15</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Humana — Medicare (CI-3 reprice)</td>
+                <td class="num"><span class="pct bad">0/61</span></td>
+                <td class="num"><span class="pct bad">0/30</span></td>
+                <td class="num"><span class="pct bad">0/24</span></td>
+                <td class="num"><span class="pct bad">0/25</span></td>
+                <td class="num"><span class="pct bad">0/2</span></td>
+                <td class="num"><span class="pct bad">0/13</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">MetLife</td>
+                <td class="num"><span class="pct bad">0/28</span></td>
+                <td class="num"><span class="pct bad">0/5</span></td>
+                <td class="num"><span class="pct bad">0/20</span></td>
+                <td class="num"><span class="pct bad">2/10</span></td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td class="row-name">Cigna — Zelis</td>
+                <td class="num"><span class="pct bad">0/21</span></td>
+                <td class="num"><span class="pct bad">1/25</span></td>
+                <td class="num"><span class="pct bad">0/5</span></td>
+                <td class="num"><span class="pct bad">1/6</span></td>
+                <td class="num"><span class="pct bad">0/1</span></td>
+                <td class="num"><span class="pct bad">0/4</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">UHC Optum Dental</td>
+                <td class="num"><span class="pct bad">0/18</span></td>
+                <td class="num"><span class="pct bad">0/12</span></td>
+                <td class="num"><span class="pct bad">0/9</span></td>
+                <td class="num"><span class="pct good">8/8</span></td>
+                <td class="num"><span class="pct warn">1/2</span></td>
+                <td class="num"><span class="pct bad">0/1</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Humana — Commercial (Care Platinum PPO)</td>
+                <td class="num"><span class="pct bad">0/21</span></td>
+                <td class="num"><span class="pct good">9/9</span></td>
+                <td class="num"><span class="pct bad">0/14</span></td>
+                <td class="num"><span class="pct warn">2/3</span></td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct good">2/2</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Ameritas</td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct bad">0/4</span></td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct bad">0/13</span></td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td class="row-name">Aetna Commercial</td>
+                <td class="num"><span class="pct bad">0/2</span></td>
+                <td class="num"><span class="pct bad">0/6</span></td>
+                <td class="num"><span class="pct bad">0/2</span></td>
+                <td class="num"><span class="pct bad">0/2</span></td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct bad">0/1</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">The Guardian Life Insurance Company</td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct bad">0/3</span></td>
+                <td class="num"><span class="pct bad">0/10</span></td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td class="row-name">United HealthCare Commercial</td>
+                <td class="num"><span class="pct bad">0/5</span></td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct good">3/3</span></td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td class="row-name">United Healthcare Community Plan</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct bad">0/8</span></td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td class="row-name">United Concordia — UCCI</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num"><span class="pct bad">0/5</span></td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              <tr>
+                <td class="row-name">Careington Benefit Solutions</td>
+                <td class="num"><span class="pct bad">0/4</span></td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="scope-grid">
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Window</div>
+              <div class="scope-price">DOS ≥ 5/1</div>
+            </div>
+            <ul>
+              <li>Every line with a date of service on or after 2026-05-01; older lines live in the EOB Audit</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Clean EOB</div>
+              <div class="scope-price">100% in-net</div>
+            </div>
+            <ul>
+              <li>A check where every line lands in-network</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Fee Basis</div>
+              <div class="scope-price">±$10</div>
+            </div>
+            <ul>
+              <li>The schedule the allowed amounts track within $10</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="micro-note">In/Out for the two direct-contract carriers (<strong>Delta Dental, UHC Medicaid</strong>) is measured against their own schedule, not CP-60 — so those rows are not comparable to the leased-network rows above them. Disputes stay phone-only.</p>
         <!-- /DATA -->
       </div>
     </section>
-  </div><!-- /tab-budget -->
+  </div><!-- /tab-routing -->
 
   </main>
 
@@ -1965,7 +1986,7 @@ Flags:
         const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
         let val = target * eased;
         if (decimal) { el.textContent = (val / decimal).toFixed(places) + suffix; }
-        else { el.textContent = Math.round(val) + suffix; }
+        else { el.textContent = Math.round(val).toLocaleString('en-US') + suffix; }
         if (p < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
@@ -2009,22 +2030,19 @@ Flags:
        Bump REPORT_ID each week so every report keeps its own comment thread.
        Leave the URL/key blank to ship the report with comments turned off.
        ===================================================================== */
-    const REPORT_ID = "wk27";
+    const REPORT_ID = "wk30";
     const SUPABASE_URL = "https://lpsfjyveqikhtwjkayqu.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxwc2ZqeXZlcWlraHR3amtheXF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODQ0NTcsImV4cCI6MjA5NjE2MDQ1N30.r_xSQmipSJCtWcjoDx2He0ZjfM4OLoKXd2ZTDtmn1jI";  // anon / public key (safe to commit; RLS-limited)
 
     // Friendly names for each section (keyed by data-section)
     const SECTION_LABELS = {
-      insurance: "Insurance",
-      operations: "Operations",
-      renovation: "Renovation",
-      patient: "Patient Feedback",
-      team: "Team Feedback",
-      marketing: "Marketing & Growth",
-      "ai-tools": "AI & Tools",
+      insurance: "Routing & Fee Evidence",
+      "master-files": "Master Crucial-Data Files",
+      "blue-book": "Insurance Blue Book",
+      sts: "Southern Travel Surgery",
+      renovation: "Phase 2 Renovations",
       forward: "Next Week Focus",
-      asks: "Open Decisions",
-      budget: "Budget Snapshot"
+      "routing-detail": "Routing Detail"
     };
     const PRESET_AUTHORS = ["Joshua Moon", "Dr. Friend"];
 

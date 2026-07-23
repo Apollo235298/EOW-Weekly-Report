@@ -1358,14 +1358,14 @@
     </div>
     <div class="wrap">
       <div class="masthead-head">
-        <div class="masthead-eyebrow eyebrow" id="mhEyebrow">End of Week Report · Volume 30</div>
+        <div class="masthead-eyebrow eyebrow" id="mhEyebrow">End of Week Report · Volume 31</div>
         <h1 class="masthead-title">
           Weekly<br>Brief
           <span class="underbar"></span>
         </h1>
       </div>
       <div class="masthead-meta">
-        <div class="m-date" id="mhDate">Friday, July 17, 2026</div>
+        <div class="m-date" id="mhDate">Friday, July 24, 2026</div>
         <div class="m-line">Prepared by <strong id="mhPrepared">Joshua Moon</strong></div>
         <div class="m-line">For <strong id="mhFor">Friend</strong></div>
       </div>
@@ -1378,6 +1378,9 @@
       <button class="tab-btn active" data-tab="brief" role="tab" aria-selected="true">Weekly Brief</button>
       <button class="tab-btn" data-tab="routing" role="tab" aria-selected="false">
         Routing Detail <span class="badge">144</span>
+      </button>
+      <button class="tab-btn" data-tab="budget" role="tab" aria-selected="false">
+        Budget Snapshot <span class="badge">$64K</span>
       </button>
     </div>
   </nav>
@@ -1393,7 +1396,7 @@
         <!-- DATA: 01 Insurance -->
         <div class="section-eyebrow"><span class="num">01</span><span class="slash">/</span>Insurance</div>
         <h2 class="section-title">Routing &amp; Fee Evidence — Quick Overview</h2>
-        <p class="lead">The tracker now scores the full <strong>144-carrier roster</strong> against every EOB line since 5/1 through two lenses: what gets <strong>classified in-network</strong>, and whether the money actually <strong>landed on the contracted schedule</strong>.</p>
+        <p class="lead">The tracker scores the full <strong>144-carrier roster</strong> against every EOB line since 5/1 through two lenses: what gets <strong>classified in-network</strong>, and whether the money actually <strong>landed on the contracted schedule</strong>. No new sync this week — the hours went to renovation prep and STS — so every number below stands <strong>as of the last EOB on 7/15</strong>.</p>
 
         <div class="kpi-block">
           <div class="kpi-row cols-4">
@@ -1441,7 +1444,7 @@
         <div class="table-wrap">
           <div class="table-head">
             <div class="th-title">Carrier Roster — Lines by Network Result</div>
-            <div class="th-sub">DOS 2026-05-01 → today · 144 carriers tracked · last EOB 2026-07-15 · <span class="wk-ref">WK 30</span></div>
+            <div class="th-sub">DOS 2026-05-01 → today · 144 carriers tracked · last EOB 2026-07-15 · <span class="wk-ref">WK 31</span></div>
           </div>
           <table class="data">
             <thead>
@@ -1534,7 +1537,7 @@
         <ul class="brief-list">
           <li><strong>The two direct contracts are the only clean books.</strong> Delta Premier runs 97.3% in-network across 851 lines with allowed amounts tracking the contracted schedule (265 of 279 checks fully clean). UHC Medicaid runs 96.0% across 351. Everything leased through Careington sits between 3% and 34%.</li>
           <li><strong>Humana Medicare still isn't repricing.</strong> 0 of 155 lines paid at CI-3 — across all six providers, no exceptions. That pattern is carrier-level, not provider-level, and it hasn't moved.</li>
-          <li><strong>The tool now sorts to provider level, not just entity.</strong> Every line is scored against the rendering provider's own NPI, so what used to read as one FDC Cynthiana number now resolves to a named doctor. The full per-provider breakdown is on the <strong>Routing Detail</strong> tab. <span class="pill done">New</span></li>
+          <li><strong>Provider-level detail lives on the Routing Detail tab.</strong> Every line is scored against the rendering provider's own NPI, so entity-level numbers resolve to a named doctor. Unchanged from last week.</li>
         </ul>
         <!-- /DATA -->
       </div>
@@ -1546,11 +1549,9 @@
         <!-- DATA: 02 Master Files -->
         <div class="section-eyebrow"><span class="num">02</span><span class="slash">/</span>Master Files</div>
         <h2 class="section-title">Master Crucial-Data Files</h2>
-        <p class="lead">Both master files are uploaded to the Drive and roughly <strong>90% built</strong> against your 7/13 directive — one authoritative file per business.</p>
+        <p class="lead">Carried over — the closing accuracy pass didn't happen this week. Both files sit on the Drive at roughly <strong>90% built</strong>, exactly where they were.</p>
         <ul class="brief-list">
-          <li><strong>STS Master File.</strong> Uploaded, ~90% complete. <span class="pill on-track">On Track</span></li>
-          <li><strong>FDC Cynthiana Master File.</strong> Uploaded, ~90% complete. <span class="pill on-track">On Track</span></li>
-          <li><strong>What's left.</strong> A line-by-line accuracy review, not more building. These become the single source of truth for entity, credentialing and billing data — so they don't go final on a skim. Targeting close next week.</li>
+          <li><strong>What's left is unchanged.</strong> A line-by-line accuracy review before the STS and FDC Cynthiana files lock as the single source of truth for entity, credentialing and billing data — they don't go final on a skim.</li>
         </ul>
         <!-- /DATA -->
       </div>
@@ -1566,7 +1567,7 @@
         <ul class="brief-list">
           <li><strong>What it does.</strong> Reads what each carrier has historically allowed on our own posted EOBs and turns that history into a carrier-specific schedule inside Open Dental — so OON estimates come off evidence rather than a UCR guess.</li>
           <li><strong>Why it matters now.</strong> The tracker just flagged four carriers pricing off billed fees with no contracted schedule behind them. Those are precisely the carriers where we have EOB history and no schedule — the exact case Blue Book was built for.</li>
-          <li><strong>Status.</strong> Investigating with Nellie. Enabling is a settings change under Setup &gt; Family/Insurance, not a build. <span class="pill action">Needs Green Light</span></li>
+          <li><strong>Status.</strong> Carried over — not actioned this week, no decision yet. The evaluation with Nellie is still open; enabling remains a settings change under Setup &gt; Family/Insurance, not a build. <span class="pill action">Needs Green Light</span></li>
         </ul>
         <!-- /DATA -->
       </div>
@@ -1578,10 +1579,51 @@
         <!-- DATA: 04 STS -->
         <div class="section-eyebrow"><span class="num">04</span><span class="slash">/</span>STS</div>
         <h2 class="section-title">Southern Travel Surgery</h2>
+        <p class="lead">Big week on the STS side: the website shipped its provider tools, the RFA grant package moved, and <strong>Juniper Health is a live, hot lead</strong> off your 7/22 call with Lisa Hall.</p>
         <ul class="brief-list">
-          <li><strong>Google Business Profile.</strong> Set up and submitted — now sitting in Google's verification queue on a 4–7 day window. Once it clears, STS has its own review pathway, fully separate from FDC. <span class="pill live">In Queue</span></li>
-          <li><strong>RFA grant.</strong> Materials updated inside the STS folder following our 7/16 conversation. <span class="pill done">Updated</span></li>
+          <li><strong>Website.</strong> Providers now have a password-protected login to download the branded documents. A location-map pop-up is live at the bottom of the site and fine-tuned, email forwarding is set up, and the forms are updated and downloadable — including a post-op download right on the front page. <span class="pill done">Shipped</span></li>
+          <li><strong>RFA grant.</strong> Still cleaning up the files and the FQHCs in the map, and prefilled endorsement letters are created and ready for the host practices. <span class="pill on-track">On Track</span></li>
+          <li><strong>Juniper Health.</strong> You spoke with Lisa Hall (Dental Director) on 7/22 — very receptive: recent shoulder surgery limits her extractions and she has Medicaid patients she can't place, with <strong>two empty Juniper dental offices</strong> on the table. The pitch holds at no cost to the host site — STS pays ~$3,000/day chair rental, brings its own team, and handles all billing. Derek Hamilton (CFO, the decision-maker) has your cell and is due to call back; the tracker has follow-up at ~7/29 if he doesn't. <span class="pill live">Hot</span></li>
+          <li><strong>Google Business Profile.</strong> Carried over — no verification update logged this week; last week's plan stands (re-submit rather than wait it out if it's still stuck).</li>
         </ul>
+
+        <div class="table-wrap">
+          <div class="table-head">
+            <div class="th-title">Outreach — Traveling Oral Surgery Leads</div>
+            <div class="th-sub">Lead tracker · updated 7/22 · six active locations already running · <span class="wk-ref">WK 31</span></div>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th>Organization</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Next Step</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-name">Juniper Health Dental — Breathitt Co.</td>
+                <td>Jackson, KY</td>
+                <td><span class="net-tag in">Hot</span></td>
+                <td>Sit-down with Derek Hamilton + Lisa Hall · follow-up ~7/29</td>
+              </tr>
+              <tr>
+                <td class="row-name">Juniper Health Dental — Elliott Co.</td>
+                <td>Sandy Hook, KY</td>
+                <td><span class="net-tag in">Hot</span></td>
+                <td>Bundled with Jackson — same Derek Hamilton decision</td>
+              </tr>
+              <tr>
+                <td class="row-name">Grace Health (Community Health Center)</td>
+                <td>Corbin, KY</td>
+                <td><span class="net-tag review">Not Contacted</span></td>
+                <td>Identify decision-maker + which site needs oral-surgery support</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="micro-note">Context: STS already runs <strong>six active locations</strong> — Bowling Green, Louisville, Somerset, Dry Ridge, Cynthiana and Richmond. Cold and research-stage leads (Maysville ×2, Faith network, Danville / Carlisle / Winchester) stay in the tracker.</p>
         <!-- /DATA -->
       </div>
     </section>
@@ -1592,13 +1634,85 @@
         <!-- DATA: 05 Renovation -->
         <div class="section-eyebrow"><span class="num">05</span><span class="slash">/</span>Renovation</div>
         <h2 class="section-title">Phase 2 Renovations</h2>
-        <p class="lead">Checkout build is targeting <strong>7/31</strong>, and <strong>all contractors are available that date</strong>. The GC bid is the gating item — everything else is sequenced behind it.</p>
+        <p class="lead">The schedule is real now. The <strong>Vendor Coordination Brief went out 7/20</strong> — checkout build is <strong>set for Jul 31 – Aug 2</strong>, vendors confirm their dates by <strong>Friday 7/25</strong>, and the phases are staggered through a <strong>Dec 31 finish</strong>. Joey's GC bid is the one open item in front of it.</p>
+
+        <div class="table-wrap">
+          <div class="table-head">
+            <div class="th-title">Master Schedule — Seven Phases + Buffer</div>
+            <div class="th-sub">Vendor Coordination Brief · issued 7/20 · office opens for patients the next business day after each phase · <span class="wk-ref">WK 31</span></div>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Area</th>
+                <th>Window</th>
+                <th>On Site</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-name">1</td>
+                <td>Checkout Area</td>
+                <td>Jul 31 – Aug 2 · Fri–Sun <span class="pill on-track">Set</span></td>
+                <td>Joey · Dwayne · Brian</td>
+              </tr>
+              <tr>
+                <td class="row-name">2</td>
+                <td>Check-In / Front Desk + sign install</td>
+                <td>Aug 21–23 · to confirm (alt Aug 14–16)</td>
+                <td>Joey · Dwayne · Brian</td>
+              </tr>
+              <tr>
+                <td class="row-name">6A</td>
+                <td>Painting — front of house</td>
+                <td>Sep 4–6 · Labor Day wknd</td>
+                <td>Joey</td>
+              </tr>
+              <tr>
+                <td class="row-name">3</td>
+                <td>Waiting Room / Fireplace</td>
+                <td>Sep 11–18 · week-long window</td>
+                <td>Joey · Dwayne · Brian</td>
+              </tr>
+              <tr>
+                <td class="row-name">4</td>
+                <td>Storage + Sterilization / Back Area</td>
+                <td>Oct 1–16 · flexible (sterilization wall on a weekend)</td>
+                <td>Joey · Brian</td>
+              </tr>
+              <tr>
+                <td class="row-name">5</td>
+                <td>Doctor Rooms</td>
+                <td>Oct 26–30 · weekday week</td>
+                <td>Joey · Dwayne · Brian</td>
+              </tr>
+              <tr>
+                <td class="row-name">6B</td>
+                <td>Painting — clinical + back areas</td>
+                <td>Nov 6–8 · reserve Nov 13–15</td>
+                <td>Joey</td>
+              </tr>
+              <tr>
+                <td class="row-name">7</td>
+                <td>Final IT verification + punch list</td>
+                <td>Dec 4–6</td>
+                <td>Brian · Joey &amp; Dwayne on call</td>
+              </tr>
+              <tr>
+                <td class="row-name">—</td>
+                <td>Buffer — held for slip only</td>
+                <td>Dec 11–13 / Dec 18–20</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <ul class="brief-list">
-          <li><strong>Contractors.</strong> All available 7/31 — the date holds on their side. <span class="pill on-track">Confirmed</span></li>
-          <li><strong>GC bid.</strong> Still outstanding. Nothing signs until it lands. <span class="pill action">Waiting</span></li>
-          <li><strong>Purchases.</strong> A short list of remaining items to buy.</li>
-          <li><strong>Contracts.</strong> Ready to send once the bid is in.</li>
-          <li><strong>Bonus incentive.</strong> Creating it now.</li>
+          <li><strong>The crew.</strong> Joey Preston (GC — buildouts, framing, counters, paint), Dwayne Florence (Florence Electric — outlets, lighting, LED, sign), Brian Trippett (IT/AV — computers, network, TVs, phones). Individual contracts are being sent out.</li>
+          <li><strong>GC bid.</strong> Still waiting on Joey's bid — carried over from last week. Nothing signs until it lands. <span class="pill action">Waiting</span></li>
+          <li><strong>Built into the schedule.</strong> Sterilization-area work lands on weekends only, dust containment is required in clinical areas, data drops happen while framing is open, and the December buffer weekends are held for slip — the office opens for patients the next business day after every phase.</li>
         </ul>
         <!-- /DATA -->
       </div>
@@ -1608,43 +1722,29 @@
     <section class="report-section reveal" data-section="forward">
       <div class="wrap">
         <!-- DATA: 06 Forward -->
-        <div class="next-week" id="nextWeek" data-wk="WK 30">
+        <div class="next-week" id="nextWeek" data-wk="WK 31">
           <div class="section-eyebrow"><span class="num">06</span><span class="slash">/</span>Forward</div>
           <h2 class="section-title">Next Week Focus</h2>
           <div class="nw-list">
             <div class="nw-item">
               <div class="nw-num">01</div>
               <div>
-                <div class="nw-title">Phase 2 — bid, buy, sign</div>
-                <div class="nw-desc">Contractors are available 7/31, so the date is ours to lose. Land the GC bid, clear the remaining purchases, and get contracts plus the bonus incentive out with runway to spare.</div>
+                <div class="nw-title">Lock the start</div>
+                <div class="nw-desc">Vendor date confirmations are due Friday 7/25, Joey's bid needs to land, and the individual contracts go out. Everything that has to be true before demolition is true by end of week.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">02</div>
               <div>
-                <div class="nw-title">Careington — Rasmussen &amp; Thomas</div>
-                <div class="nw-desc">Two pending files are suppressing roughly 896 lines of Careington-routed volume. Getting Aleksey on the phone to force a status and an effective date.</div>
+                <div class="nw-title">Phase 1 build weekend</div>
+                <div class="nw-desc">Checkout area, Jul 31 – Aug 2 — Joey frames and finishes the two stations, Dwayne runs the electrical, Brian drops data lines while the walls are open. Office opens for patients Monday.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">03</div>
               <div>
-                <div class="nw-title">Close the master files</div>
-                <div class="nw-desc">Final line-by-line accuracy pass on both the STS and FDC Cynthiana master files, then lock them as the reference of record.</div>
-              </div>
-            </div>
-            <div class="nw-item">
-              <div class="nw-num">04</div>
-              <div>
-                <div class="nw-title">Blue Book decision</div>
-                <div class="nw-desc">Finish the evaluation with Nellie and enable it if it holds up. Target the four UCR-billed carriers first, where the estimate gap is widest.</div>
-              </div>
-            </div>
-            <div class="nw-item">
-              <div class="nw-num">05</div>
-              <div>
-                <div class="nw-title">STS GBP verification</div>
-                <div class="nw-desc">Watch for Google's approval inside the 4–7 day window. If it stalls past 7/24, re-submit rather than wait it out.</div>
+                <div class="nw-title">RFA grant + research</div>
+                <div class="nw-desc">Keep cleaning the files and FQHCs in the map, and get the prefilled endorsement letters moving to host practices.</div>
               </div>
             </div>
           </div>
@@ -1653,7 +1753,7 @@
       </div>
     </section>
 
-    <div class="signoff" id="signoff">FDC Cynthiana · WK 30 · 2026</div>
+    <div class="signoff" id="signoff">FDC Cynthiana · WK 31 · 2026</div>
 
   </div><!-- /tab-brief -->
 
@@ -1669,7 +1769,7 @@
         <div class="table-wrap">
           <div class="table-head">
             <div class="th-title">By Provider</div>
-            <div class="th-sub">Careington status · line counts · both lenses · <span class="wk-ref">WK 30</span></div>
+            <div class="th-sub">Careington status · line counts · both lenses · <span class="wk-ref">WK 31</span></div>
           </div>
           <table class="data">
             <thead>
@@ -1929,6 +2029,100 @@
     </section>
   </div><!-- /tab-routing -->
 
+  <!-- ============ TAB: BUDGET SNAPSHOT ============ -->
+  <div class="tab-pane" id="tab-budget" role="tabpanel">
+    <section class="report-section" data-section="budget">
+      <div class="wrap">
+        <!-- DATA: Budget Snapshot -->
+        <div class="section-eyebrow"><span class="num">P2</span><span class="slash">/</span>Budget</div>
+        <h2 class="section-title">Phase 2 Snapshot</h2>
+        <p class="lead">Budget v24 (updated 7/20): Phase 2 lands at <strong>$63,720.63</strong> against the <strong>$68,669.94</strong> cap — a <strong>$4,949.31 buffer (7.2%)</strong>. The last published snapshot (WK 27, v15) showed $57,221 with an $11,449 buffer; the move since is scope, not drift: <strong>Florence Electric booked at $5,100</strong> as the all-electric line (outlets and cabling, sign install and power, and the light rewiring formerly inside Roofcred #633), a <strong>$2,000 sign purchase</strong> added, the $1,200 sign-install allowance zeroed, and $600 of Roofcred electrician overlap backed out — Roofcred owes a revised quote at <strong>$44,400</strong> (was $45,000). The first <strong>$7,110.92 of actual spend</strong> (TVs, mini PCs, Overstock décor) is on the books, all pending BofA reimbursement.</p>
+
+        <div class="scope-banner">
+          <div class="sb-left">
+            <div class="sb-label">Phase 2 Total</div>
+            <div class="sb-value">$63,721</div>
+          </div>
+          <div class="sb-meta">Cap $68,669.94<br>Buffer $4,949.31 · 7.2%<br>Snapshot <span class="wk-ref">WK 31</span></div>
+        </div>
+
+        <div class="scope-grid">
+          <div class="scope-card lead-item">
+            <div class="scope-head">
+              <div class="scope-name">Renovation &amp; Construction</div>
+              <div class="scope-price">$33,035</div>
+            </div>
+            <ul>
+              <li>Roofcred Quote #633: Intake $10,945 · Painting $8,640 · Checkout $7,650 · Back reframing $5,200 · Doctors rooms $1,200 — unsigned, revised quote pending</li>
+              <li>−$600 electrician credit — that scope moved to Florence Electric</li>
+              <li>Roofcred FF&amp;E ($11,365) sits in Technology &amp; Equipment per the BofA breakout</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Infrastructure Compliance</div>
+              <div class="scope-price">$5,130</div>
+            </div>
+            <ul>
+              <li>Florence Electric — all-electric soft quote $5,100 (outlets/cabling, sign install + power, light rewiring)</li>
+              <li>HVAC scent diffuser — $30</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Technology &amp; Equipment</div>
+              <div class="scope-price">$25,555.63</div>
+            </div>
+            <ul>
+              <li>Roofcred FF&amp;E reclass $11,365 (Intake $7,715 + Checkout $3,650) — pending Jenna's OK on the $8,095 quartz</li>
+              <li>Sign purchase $2,000 (vendor TBD; install lives in the Florence line)</li>
+              <li>Confirmed gear $3,200.63: monitor, 2 mini PCs, 3 Hisense TVs, LED strip</li>
+              <li>Furniture &amp; décor $4,800 (Overstock order consumed most — ~$801 left) · IT install $2,000 · tip-out bins $2,000 · small allowances $190</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Contingency (vs cap)</div>
+              <div class="scope-price">$4,949.31</div>
+            </div>
+            <ul>
+              <li>Remaining headroom against the cap — 7.2%, not part of the $63,721 total</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Cost Basis</div>
+              <div class="scope-price">—</div>
+            </div>
+            <ul>
+              <li>Estimated (vendor working quotes) — $54,300</li>
+              <li>Allowance (TBD / placeholder) — $6,220</li>
+              <li>Confirmed (priced &amp; bought) — $3,200.63</li>
+            </ul>
+          </div>
+          <div class="scope-card">
+            <div class="scope-head">
+              <div class="scope-name">Deferred</div>
+              <div class="scope-price">$0</div>
+            </div>
+            <ul>
+              <li>Front-area flooring</li>
+              <li>Espresso bar counter + machine</li>
+              <li>Coffee machine plumber</li>
+              <li>Operatory back walls / HEX (7 ops)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-label">Context &amp; open items</div>
+          <p>Phase 2 draws from the <strong>$295,000</strong> operations budget — the $68,669.94 cap is what remains after Phase 1's actual spend ($226,330.06). Only $3,200.63 is confirmed at firm prices; the rest is working estimates (±10–20%) and allowances, with both Roofcred and Florence unsigned. Scenario range: best case <strong>$48,721</strong> · target <strong>$63,721</strong> · worst case <strong>$88,721</strong> — the worst case breaks the cap by about $20,051. The structural watch-item is the BofA split: Construction-bucket work is planned at <strong>$38,165</strong> against <strong>$25,266.31</strong> of remaining bucket headroom — <span class="hl">$12,898.69 over, and Jenna ruled 6/30 that Construction is hard-capped</span>: Equipment headroom can't cover it and there's no loan increase. The gap closes through value-engineering, deferral, or self-funding — that's a decision headed your way, no rush this week. If Jenna rejects the $8,095 quartz reclass, the overage swings back toward ~$21K.</p>
+        </div>
+        <!-- /DATA -->
+      </div>
+    </section>
+  </div><!-- /tab-budget -->
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -2030,7 +2224,7 @@
        Bump REPORT_ID each week so every report keeps its own comment thread.
        Leave the URL/key blank to ship the report with comments turned off.
        ===================================================================== */
-    const REPORT_ID = "wk30";
+    const REPORT_ID = "wk31";
     const SUPABASE_URL = "https://lpsfjyveqikhtwjkayqu.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxwc2ZqeXZlcWlraHR3amtheXF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODQ0NTcsImV4cCI6MjA5NjE2MDQ1N30.r_xSQmipSJCtWcjoDx2He0ZjfM4OLoKXd2ZTDtmn1jI";  // anon / public key (safe to commit; RLS-limited)
 
@@ -2042,7 +2236,8 @@
       sts: "Southern Travel Surgery",
       renovation: "Phase 2 Renovations",
       forward: "Next Week Focus",
-      "routing-detail": "Routing Detail"
+      "routing-detail": "Routing Detail",
+      budget: "Phase 2 Snapshot"
     };
     const PRESET_AUTHORS = ["Joshua Moon", "Dr. Friend"];
 

@@ -780,6 +780,18 @@
   }
 
   /* ============ PHOTO GALLERY ============ */
+  .link-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin: 4px 0 28px;
+    padding: 12px 22px;
+    background: var(--navy); color: #fff;
+    font-family: var(--font-display); font-weight: 500; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border-radius: 4px; border: 1px solid var(--navy);
+    transition: background .25s var(--ease-soft), transform .25s var(--ease-soft);
+  }
+  .link-btn:hover { background: var(--copper-deep); border-color: var(--copper-deep); transform: translateY(-2px); }
+  .link-btn .arrow { font-family: var(--font-mono); font-size: 14px; }
+  .link-btn-note { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.08em; margin: -20px 0 28px; }
   .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1358,14 +1370,14 @@
     </div>
     <div class="wrap">
       <div class="masthead-head">
-        <div class="masthead-eyebrow eyebrow" id="mhEyebrow">End of Week Report · Volume 39</div>
+        <div class="masthead-eyebrow eyebrow" id="mhEyebrow">End of Week Report · Volume 43</div>
         <h1 class="masthead-title">
           Weekly<br>Brief
           <span class="underbar"></span>
         </h1>
       </div>
       <div class="masthead-meta">
-        <div class="m-date" id="mhDate">Friday, September 18, 2026</div>
+        <div class="m-date" id="mhDate">Friday, October 16, 2026</div>
         <div class="m-line">Prepared by <strong id="mhPrepared">Joshua Moon</strong></div>
         <div class="m-line">For <strong id="mhFor">Friend</strong></div>
       </div>
@@ -1380,7 +1392,7 @@
         Routing Detail <span class="badge">144</span>
       </button>
       <button class="tab-btn" data-tab="budget" role="tab" aria-selected="false">
-        Budget Snapshot <span class="badge">$68K</span>
+        Budget Snapshot <span class="badge">$71K</span>
       </button>
     </div>
   </nav>
@@ -1395,13 +1407,13 @@
       <div class="wrap">
         <!-- DATA: 01 Renovation -->
         <div class="section-eyebrow"><span class="num">01</span><span class="slash">/</span>Renovation</div>
-        <h2 class="section-title">Phase 2 Renovations</h2>
-        <p class="lead">The build is finished, so this week was about the money. Budget v40 (9/14) puts Phase 2 at <strong>$67,879.52</strong> against the <strong>$69,466.87</strong> cap — <strong>$1,587.35 of room (2.3%)</strong>. The only change to the plan since last week is Roofcred's separate <strong>$932.32 shelving invoice</strong>. <strong>Joey Preston's bid came in at $2,600</strong> — $800 of it equipment-related, the rest labor and general contracting — and it is not in those totals yet. As it stands that <strong>puts us slightly over</strong>: fully additive, the plan goes to $70,479.52, about <strong>$1,013 past the cap</strong>.</p>
+        <h2 class="section-title">Phase 2 Renovations — Closeout</h2>
+        <p class="lead">The main renovation has reached <strong>operational closeout</strong>, near the planned timeline. Lights and rugs have been swapped, I'm working with <strong>Larry Kelly on relocation and the remaining finishing work</strong>, and <strong>Florence Electric is scheduled to install the sign Friday, October 16</strong>. On the money: the budget now stands at <strong>$71,041.85 against the $69,466.87 cap — $1,574.98 (2.27%) over</strong>. First Class's $4,060.87 is paid; Brian's $2,655.10 is unpaid but already in that number. Financial reconciliation and the bank-closeout paperwork are separate follow-ups and still open.</p>
 
         <div class="table-wrap">
           <div class="table-head">
             <div class="th-title">The Loan Clock — Where the Build and the Bank Stand</div>
-            <div class="th-sub">Per the 9/4 BofA Project Summary and the v40 workbook (9/14) · <span class="wk-ref">WK 39</span></div>
+            <div class="th-sub">Build, payments and bank dates as of this brief · <span class="wk-ref">WK 43</span></div>
           </div>
           <table class="data">
             <thead>
@@ -1414,47 +1426,37 @@
             <tbody>
               <tr>
                 <td class="row-name">Aug 14 – Sep 7</td>
-                <td>Construction — four weekend phases, Roofcred's full $45,000 scope</td>
+                <td>Construction — four Roofcred weekends, the full $45,000 scope</td>
                 <td><span class="pill done">Complete</span></td>
               </tr>
               <tr>
-                <td class="row-name">Aug 21 · Sep 2</td>
-                <td>Draws 1 and 2 paid by BofA — $25,960</td>
+                <td class="row-name">Oct 6</td>
+                <td>BofA disbursement confirmed received from Jenna — budget updated, invoices organized</td>
+                <td><span class="pill done">Received</span></td>
+              </tr>
+              <tr>
+                <td class="row-name">Oct</td>
+                <td>First Class — $4,060.87</td>
                 <td><span class="pill done">Paid</span></td>
               </tr>
               <tr>
-                <td class="row-name">Sep 4</td>
-                <td>Draw 3 ($8,640) on the DocuSign authorization — still not shown as disbursed</td>
-                <td><span class="pill on-track">Authorized</span></td>
+                <td class="row-name">Oct</td>
+                <td>Brian — $2,655.10, in the budget, check not yet cut (Florence Electric and Greater Comfort payments also on the list)</td>
+                <td><span class="pill action">To Pay</span></td>
               </tr>
               <tr>
-                <td class="row-name">Sep 8 · Sep 14</td>
-                <td>Draw 4 ($10,400, final) requested 9/8, followed up 9/14 — payment unconfirmed</td>
-                <td><span class="pill on-track">Followed Up</span></td>
+                <td class="row-name">Oct 16</td>
+                <td>Florence Electric installs the sign</td>
+                <td><span class="pill on-track">Scheduled</span></td>
               </tr>
               <tr>
-                <td class="row-name">Sep 11</td>
-                <td>Extra $3,650 Equipment → Contractor/TI reallocation approved by Jenna — posting still to verify</td>
-                <td><span class="pill on-track">Approved</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Sep 14</td>
-                <td>Florence Electric's corrected W-9 sent with the $5,700 direct-pay request; Roofcred shelving invoice #634 ($932.32) submitted</td>
-                <td><span class="pill on-track">Submitted</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Sep 30</td>
-                <td>All final invoices + closing items due to BofA</td>
-                <td><span class="pill action">Hard Deadline</span></td>
-              </tr>
-              <tr>
-                <td class="row-name">Oct 7</td>
-                <td>Estimated close date on the 9/4 Project Summary</td>
-                <td><span class="pill on-track">Estimate</span></td>
+                <td class="row-name">Ongoing</td>
+                <td>Larry Kelly — relocation and remaining finishing work; operational closeout reached</td>
+                <td><span class="pill live">In Progress</span></td>
               </tr>
               <tr>
                 <td class="row-name">Oct 31</td>
-                <td>Credit expiration — extension status not logged this window</td>
+                <td>Credit expiration on the 9/4 Project Summary — reconciliation and closeout paperwork still open</td>
                 <td><span class="pill action">Watch</span></td>
               </tr>
             </tbody>
@@ -1462,10 +1464,10 @@
         </div>
 
         <ul class="brief-list">
-          <li><strong>Joey Preston — additional doors and framing, $2,600.</strong> This is work that wasn't in Roofcred's contracted scope. Proposed split is $800 Equipment and $1,800 Contractor/TI. Against the room left in each bucket ($506.81 and $1,080.54) that runs <strong>$293.19 over on equipment and $719.46 over on construction</strong>. The only soft money left in the plan is the $2,220 of allowances — IT install $2,000, TV mounts $140, LED splitter $50, diffuser $30. <span class="pill on-track">Bid In</span></li>
-          <li><strong>Draws 3 and 4 are still unconfirmed.</strong> That's $19,040 of the $45,000. Draw 3 has been on the DocuSign authorization since 9/4; Draw 4 was requested 9/8 and I followed up with Jenna on 9/14. Draws 1 and 2 ($25,960) are paid.</li>
-          <li><strong>Reimbursements are in.</strong> $6,416.28 of owner-paid receipts is submitted — nine Amazon receipts ($3,275.85) with the Amex statements, plus the electric signs ($1,314) and the tip-out bins ($1,826.43). $7,110.92 from the earlier batch has already come back. The $500 trailer rental is the one piece held back. <span class="pill done">Submitted</span></li>
-          <li><strong>Still open with the bank.</strong> Acceptance of Florence's corrected W-9 and the $5,700 payment; the $3,650 reallocation posting; the $500 trailer's eligibility (it sits exactly on BofA's "less than $500" line); and the insurance certificate (condition 0865) — agent details went over 9/9, clearance isn't confirmed yet.</li>
+          <li><strong>Over the cap by $1,574.98.</strong> At the 9/18 brief the v40 plan was $67,879.52, $1,587.35 under. The budget is now $71,041.85 — First Class ($4,060.87, paid) and Brian ($2,655.10, unpaid) are both in it. The workbook didn't come with this week's folder, so the Budget tab carries the headline numbers only.</li>
+          <li><strong>Payments to issue.</strong> Brian, Florence Electric and Greater Comfort. <span class="pill action">Open</span></li>
+          <li><strong>Finishing work.</strong> Larry Kelly on relocation and the rest of the finish list; lights and rugs already swapped; sign goes up 10/16.</li>
+          <li><strong>Bank closeout.</strong> The 10/6 disbursement is in. Financial reconciliation and the closeout paperwork are the remaining follow-ups with BofA.</li>
         </ul>
         <!-- /DATA -->
       </div>
@@ -1476,132 +1478,13 @@
       <div class="wrap">
         <!-- DATA: 02 Insurance -->
         <div class="section-eyebrow"><span class="num">02</span><span class="slash">/</span>Insurance</div>
-        <h2 class="section-title">Routing &amp; Fee Evidence — By Provider, and UHC Medicaid Paid vs Contract</h2>
-        <p class="lead">Two new cuts from the EOB tool this week. First, the <strong>provider view</strong> over the full window (DOS 5/1 → today): <strong>3,133 lines across five doctors, 2,273 in-network (73%)</strong>, and 2,190 of 3,033 judged lines paid at contract (72%). Rich and Bechtel lead at 80% and 79% in-network; <strong>Rush trails at 61%</strong> with 194 lines still in review. Second, a new <strong>UHC Medicaid paid-vs-contract</strong> view for July–August dates of service. Medicaid pays 100% of schedule with no patient share, so paid should equal the fee — and on <strong>265 judged lines only 190 (72%) did</strong>. 51 were paid short, 16 were paid $0, and the tool puts <strong>$3,287 as recoverable</strong> — $2,049 of it on Dr. Thomas's lines.</p>
-
-        <div class="kpi-block">
-          <div class="kpi-row cols-4">
-            <div class="kpi">
-              <div class="kpi-label">Lines Since 5/1 · 5 Doctors</div>
-              <div class="kpi-value"><span class="counter" data-target="3133">0</span></div>
-            </div>
-            <div class="kpi">
-              <div class="kpi-label">UHC Medicaid Lines Judged</div>
-              <div class="kpi-value"><span class="counter" data-target="265">0</span></div>
-            </div>
-            <div class="kpi">
-              <div class="kpi-label">Paid at Contract</div>
-              <div class="kpi-value"><span class="counter" data-target="190">0</span></div>
-            </div>
-            <div class="kpi">
-              <div class="kpi-label">Paid Short or $0</div>
-              <div class="kpi-value"><span class="counter" data-target="67">0</span></div>
-            </div>
-          </div>
-          <div class="kpi-breakdown">
-            <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="90" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="90"></div></div>
-              <div class="bd-label">Rich · 18/20 · UHC Medicaid Paid at Contract</div>
-            </div>
-            <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="87" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="87"></div></div>
-              <div class="bd-label">Bechtel · 65/75</div>
-            </div>
-            <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="77" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="77"></div></div>
-              <div class="bd-label">Rush · 30/39 Judged</div>
-            </div>
-            <div class="bd">
-              <div class="bd-count"><span class="counter" data-target="59" data-suffix="%">0</span></div>
-              <div class="bd-track"><div class="bd-fill" data-fill="59"></div></div>
-              <div class="bd-label">Thomas · 77/131 Judged</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="table-wrap">
-          <div class="table-head">
-            <div class="th-title">UHC Medicaid — Paid vs Contract, by Doctor</div>
-            <div class="th-sub">DOS 7/1 → 8/31 · all UHC Medicaid contracts · paid judged against the fee schedule ±$2 · <span class="wk-ref">WK 39</span></div>
-          </div>
-          <table class="data">
-            <thead>
-              <tr>
-                <th>Doctor</th>
-                <th class="num">Lines</th>
-                <th class="num">Paid at Contract</th>
-                <th class="num">Short</th>
-                <th class="num">Paid $0</th>
-                <th class="num">Over</th>
-                <th class="num">Recoverable</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="row-name">Josh Thomas</td>
-                <td class="num">133</td>
-                <td class="num"><span class="pct bad">59%</span> <span style="font-size:11px;color:var(--ink-faint);">77</span></td>
-                <td class="num">41 · −$1,445</td><td class="num">8 · −$604</td><td class="num">5 · +$125</td>
-                <td class="num"><strong>$2,049</strong></td>
-              </tr>
-              <tr>
-                <td class="row-name">Friend Bechtel</td>
-                <td class="num">75</td>
-                <td class="num"><span class="pct warn">87%</span> <span style="font-size:11px;color:var(--ink-faint);">65</span></td>
-                <td class="num">8 · −$304</td><td class="num">2 · −$356</td><td class="num">—</td>
-                <td class="num"><strong>$660</strong></td>
-              </tr>
-              <tr>
-                <td class="row-name">Neil Rush</td>
-                <td class="num">40</td>
-                <td class="num"><span class="pct warn">77%</span> <span style="font-size:11px;color:var(--ink-faint);">30</span></td>
-                <td class="num">2 · −$34</td><td class="num">6 · −$543</td><td class="num">1 · +$25</td>
-                <td class="num"><strong>$578</strong></td>
-              </tr>
-              <tr>
-                <td class="row-name">Jonathan Rich</td>
-                <td class="num">20</td>
-                <td class="num"><span class="pct good">90%</span> <span style="font-size:11px;color:var(--ink-faint);">18</span></td>
-                <td class="num">—</td><td class="num">—</td><td class="num">2 · +$53</td>
-                <td class="num"><strong>$0</strong></td>
-              </tr>
-              <tr>
-                <td class="row-name">All doctors</td>
-                <td class="num">268</td>
-                <td class="num"><span class="pct warn">72%</span> <span style="font-size:11px;color:var(--ink-faint);">190/265</span></td>
-                <td class="num">51 · −$1,783</td><td class="num">16 · −$1,504</td><td class="num">8 · +$203</td>
-                <td class="num"><strong>$3,287</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="photo-grid">
-          <figure class="photo-card wide">
-            <a href="assets/uhc-medicaid-paid-vs-contract.png" target="_blank" rel="noopener">
-              <img src="assets/uhc-medicaid-paid-vs-contract.png" alt="EOB tool — UHC Medicaid paid vs contract for July and August dates of service: 72% of 265 judged lines paid at contract, $3,287 recoverable, broken out by doctor" loading="lazy">
-            </a>
-            <figcaption>UHC Medicaid · Paid vs Contract · DOS 7/1–8/31 · captured 9/18</figcaption>
-          </figure>
-          <figure class="photo-card wide">
-            <a href="assets/eob-provider-view.png" target="_blank" rel="noopener">
-              <img src="assets/eob-provider-view.png" alt="EOB tool — provider cards with line counts, in-network and paid-at-contract rates since 5/1, above a carrier-by-provider grid" loading="lazy">
-            </a>
-            <figcaption>EOB Tool · Provider View · DOS 5/1 → today · captured 9/18</figcaption>
-          </figure>
-        </div>
-
+        <h2 class="section-title">Routing &amp; Fee Evidence</h2>
+        <p class="lead">No new EOB pull in the four weeks since the last brief, so nothing new to report here. The 9/18 read stands: <strong>UHC Medicaid paid at contract on 190 of 265 judged lines (72%)</strong> with <strong>$3,287 recoverable</strong>, $2,049 of it on Dr. Thomas's lines; and across the five doctors, 3,133 lines since 5/1 at 73% in-network. One administrative item this window: I emailed out the information needed for the <strong>EIN error on FDC and Anthem</strong>.</p>
         <ul class="brief-list">
-          <li><strong>UHC Medicaid is the cleanest test we have.</strong> It's a direct contract with no patient share and a known fee, so any gap between paid and fee is UHC's. Last week's carrier list had it at 96% classified in-network — but classified right and paid right aren't the same thing. Paid at contract is 72%.</li>
-          <li><strong>Dr. Thomas carries most of the shortfall.</strong> Half the lines (133 of 268) and $2,049 of the $3,287: 41 lines paid short (−$1,445) and 8 paid $0 (−$604), for 59% at contract. Rich is at 90% with nothing short; Bechtel 87%; Rush 77%, where the gap is six $0 lines (−$543).</li>
-          <li><strong>The grid finally splits by provider.</strong> Last week's carrier list couldn't. Dr. Thomas's Anthem cell reads 123/162 (76%) and MetLife 28/33 (85%), against the all-provider 61% and 41% on last week's list. Different lens and denominator than that list, so it's directional — not yet a verdict on the test claims.</li>
-          <li><strong>Humana Medicare is 0 for 224</strong> across all five doctors — the CI-3 reprice row. Liberty is 3 of 90. Delta stays clean for everyone: 1,332 of 1,374.</li>
-          <li><strong>Dr. Moran is set up but not yet in the numbers.</strong> Careington active from 8/1, Delta Premier and UHC Medicaid from 8/1 — no paid claim lines in the window yet.</li>
+          <li><strong>EIN error — FDC / Anthem.</strong> Information sent 10/6. <span class="pill on-track">Sent</span></li>
+          <li><strong>UHC Medicaid shortfall and the Anthem / MetLife test claims.</strong> Not actioned this window. <span class="pill on-track">Carried Over</span></li>
         </ul>
-        <p class="micro-note">The tool showed its last sync at 169 hours before the capture — about a week — so this is last week's EOB set cut a new way, not a week of new EOBs. "Recoverable" is the tool's figure: what it would take to bring every short and $0 line up to the fee schedule. The full provider table and carrier × provider grid are on the Routing Detail tab.</p>
+        <p class="micro-note">The 9/18 provider table and carrier × provider grid are unchanged on the Routing Detail tab. Anthem Medicare stays OON-benefits-only per the July decision.</p>
         <!-- /DATA -->
       </div>
     </section>
@@ -1611,8 +1494,17 @@
       <div class="wrap">
         <!-- DATA: 03 Operations -->
         <div class="section-eyebrow"><span class="num">03</span><span class="slash">/</span>Operations</div>
-        <h2 class="section-title">Operations &amp; Vendors</h2>
-        <p class="lead">Nothing new on the operations side this week. Last week's two closeouts — the phones moving to Brian's system and the Graybar Financial lease coming off our books — are in the 9.11 brief.</p>
+        <h2 class="section-title">Operations, Admin &amp; Systems</h2>
+        <p class="lead">Two leases moved. <strong>John Hampton's parking lease is finalized</strong> — I sent the agreement 10/7 and closed it 10/8; we need to cut a check for the first month. The <strong>Hometown Dental lease</strong> is with Rick (details under STS). On the admin side I sent Rachael and Bryan Taylor the documents for the <strong>IRS exemption</strong>, revised the <strong>budget pro forma</strong> for Rachael, and put routine meetings with Jon Harris on your calendar ahead of the CEO meeting. On systems: <strong>Obsidian is now our shared information source for AI retrieval</strong> — you're connected into the vault as of 10/9.</p>
+        <ul class="brief-list">
+          <li><strong>John Hampton — parking lease.</strong> Finalized 10/8. First month's check to cut. <span class="pill done">Signed</span></li>
+          <li><strong>IRS exemption.</strong> Documents and information emailed to Rachael and Bryan Taylor 10/6. <span class="pill on-track">With Rachael</span></li>
+          <li><strong>Pro forma.</strong> Revised budget pro forma sent to Rachael 10/8.</li>
+          <li><strong>Jon Harris / CEO meeting.</strong> Routine meetings scheduled on your calendar. I also checked that the Apps Script is still syncing your Open Dental schedule to Google Calendar.</li>
+          <li><strong>Obsidian + AI.</strong> Shared vault is live and you're connected; the vault plugin works in chat, though there's no workspace plugin, so you'll set that side up manually. PC hosting, the always-on server and the MCP integrations are ongoing. I've held calls with AI companies (including Fluent) to understand what we can build and how AI could sit on top of Open Dental. <span class="pill live">In Progress</span></li>
+          <li><strong>Also this window.</strong> Sent you an editable HOA project folder; routine scheduled work on the Tesla task.</li>
+        </ul>
+        <p class="micro-note">Running list, not actioned yet: High Point LLC · Kaitlyn's Cavitron reimbursement · Fluent for Business follow-up · find an AI course.</p>
         <!-- /DATA -->
       </div>
     </section>
@@ -1623,7 +1515,7 @@
         <!-- DATA: 04 Patient -->
         <div class="section-eyebrow"><span class="num">04</span><span class="slash">/</span>Patients</div>
         <h2 class="section-title">Live Satisfaction</h2>
-        <p class="lead">No survey export this week, so there are no new numbers to report. The last read (9.11 brief) was <strong>3 responses at a 5.00 average</strong> for the week and zero callback requests.</p>
+        <p class="lead">No survey export in this window, so no new numbers. The last read (9.11 brief) was <strong>3 responses at a 5.00 average</strong> for the week and zero callback requests.</p>
         <p class="micro-note">All-time as of the last export: 141 responses since the 5/18 launch, ~4.54 average, one callback request ever. NPS still reads −100 — the known scale artifact, not a loyalty signal.</p>
         <!-- /DATA -->
       </div>
@@ -1635,11 +1527,12 @@
         <!-- DATA: 05 Marketing -->
         <div class="section-eyebrow"><span class="num">05</span><span class="slash">/</span>Marketing</div>
         <h2 class="section-title">Marketing &amp; Reputation</h2>
-        <p class="lead">The one date to know: your next <strong>WYCN radio talk show is this coming Wednesday, September 23, at 8 AM</strong>. Nothing else new on marketing this week.</p>
+        <p class="lead">I reviewed <strong>CallRail, the blogs and Market My Market's performance</strong> this week. The next step is to go through the leads and <strong>attribute dollar amounts</strong> so we can judge the results properly. I also have an integration plan for potentially <strong>bringing marketing in-house</strong> down the road.</p>
         <ul class="brief-list">
-          <li><strong>WYCN radio — Wed Sep 23, 8 AM.</strong> <span class="pill on-track">Next Week</span></li>
-          <li><strong>Sample hat.</strong> On order from last week; no update yet. <span class="pill on-track">On Order</span></li>
-          <li><strong>Carried over.</strong> The new Market My Market monthly attribution report still needs to be pulled and cross-referenced against our new-patient list — not covered this week. June's read (7.1× at Cynthiana, 96.6× at Dry Ridge) and the Google profile (4.8 stars, 41 reviews) are in the 8.07 brief.</li>
+          <li><strong>Lead attribution.</strong> CallRail, blogs and MMM reviewed; dollar attribution on the leads is next. <span class="pill live">In Progress</span></li>
+          <li><strong>In-house marketing.</strong> Integration plan drafted for a possible future move. <span class="pill on-track">Plan</span></li>
+          <li><strong>Rush shoot — 10/27.</strong> Date still to confirm. <span class="pill on-track">Confirm</span></li>
+          <li><strong>Shirts and hats.</strong> Working on marketing uses for them. <span class="pill on-track">Ideas</span></li>
         </ul>
         <!-- /DATA -->
       </div>
@@ -1650,18 +1543,26 @@
       <div class="wrap">
         <!-- DATA: 06 STS -->
         <div class="section-eyebrow"><span class="num">06</span><span class="slash">/</span>STS</div>
-        <h2 class="section-title">Southern Travel Surgery — Grant &amp; Workgroup</h2>
-        <p class="lead">The <strong>grant application has been submitted</strong>. I'm also now part of the <strong>data workgroup</strong>, which kicks off in October, and I connected with John about getting the <strong>501(c)(3) question</strong> answered in writing.</p>
+        <h2 class="section-title">Southern Travel Surgery — Hometown Dental &amp; Site Readiness</h2>
+        <p class="lead">The meeting with Rick at Hometown clarified two things. <strong>Sedation is the unmet need</strong>: their doctors already do extractions but can't offer sedation at that office, many prospective patients want it, and so our proposed extraction-only, no-sedation trial is proving hard to fill. And <strong>the proposed Delta billing arrangement isn't workable as it stands</strong> — Rick was hesitant about another provider's treatment being billed under their doctors' NPIs, so we can't run Delta patients through that host-office route until the credentialing and billing arrangement is resolved. <strong>November 6 remains tentative, with no patients lined up.</strong></p>
+        <a class="link-btn" href="https://sts-service-map-10-2026.netlify.app" target="_blank" rel="noopener">Open the STS Service Map <span class="arrow">→</span></a>
+        <div class="link-btn-note">UPDATED OCTOBER 2026 · OPENS IN A NEW TAB</div>
         <ul class="brief-list">
-          <li><strong>Grant application.</strong> Submitted. <span class="pill done">Submitted</span></li>
-          <li><strong>Data workgroup — kickoff in October.</strong> I connected with Jennifer. She said my participation would include giving input on program design and implementation, as well as helping to support external stakeholder engagement — it sounds like more than just crunching data. Approximately <strong>2–3 hours per month</strong>. <span class="pill on-track">October</span></li>
-          <li><strong>501(c)(3) letter.</strong> I connected with John. He said it may take time if the State has to refer back to CMS — all communications have a process that must be followed at both the state and federal level. I told him that even a very narrow letter, simply confirming that formal 501(c)(3) status is required for certain future opportunities, would be helpful. <span class="pill on-track">With the State</span></li>
+          <li><strong>STS service map — updated.</strong> I rebuilt the map with the current site information; use the button above to open it. <span class="pill done">Live</span></li>
+          <li><strong>Sedation feasibility.</strong> We need to establish whether and when we can offer sedation at Hometown to meet that demand. This is the one I need to work through with you. <span class="pill action">Discuss</span></li>
+          <li><strong>Delta / host-office billing.</strong> Resolve the payer and agreement questions before any Delta patients go through Hometown. <span class="pill action">Unresolved</span></li>
+          <li><strong>November 6.</strong> Tentative. Plan is to use the first day to assess workflow and fit, review patient readiness 7–10 days beforehand, and confirm a realistic patient schedule before committing. Rick showed the secondary sterilization area and said sterilization help would be available. <span class="pill on-track">Tentative</span></li>
+          <li><strong>Dentrix Ascend.</strong> STS access has been added; Arjay hasn't tested it yet. <span class="pill on-track">Untested</span></li>
+          <li><strong>Credentialing.</strong> STS paperwork for Dry Ridge and Cynthiana submitted 10/9; Delta Dental credentialing continuing. <span class="pill on-track">Submitted</span></li>
+          <li><strong>Lease.</strong> Hometown lease emailed to Rick 10/7, with a follow-up owed. <span class="pill on-track">Sent</span></li>
+          <li><strong>Site portal.</strong> Still building the portal for onboarding information, forms, support documents and scheduling requests — each site gets its own login, sees available dates from your Google Calendar, and requests a booking we then confirm. I'm using what I learn at Hometown to refine it. <span class="pill live">Building</span></li>
+          <li><strong>KDAI grant.</strong> Follow up with Kevin Rapp on the submission status with Jennifer Harrison. <span class="pill on-track">Follow Up</span></li>
         </ul>
         <div class="callout">
           <div class="callout-label">My Read</div>
-          <p>I think the workgroup would be extremely helpful. It keeps me learning <span class="hl">their terminology, their problems and their implementation challenges before future RFAs are released</span> — and we can use that to fine-tune the future RFPs Jennifer mentioned.</p>
+          <p>My next focus is <span class="hl">building more hands-on STS setup experience and improving the process</span> before broader expansion and contacting more sites. Hometown is the test case — get sedation, billing, access and a real patient schedule settled there first.</p>
         </div>
-        <p class="micro-note">The lead tracker hasn't moved since its 7/22 update and the Google Business Profile is still carried over. Context: STS runs <strong>six active locations</strong> — Bowling Green, Louisville, Somerset, Dry Ridge, Cynthiana and Richmond.</p>
+        <p class="micro-note">Also on the list: using the map to assess potential STS site locations, connecting with Arjay on site setup, and the Hometown checklist / SOPs (AJ's involvement, sedation requirements, assistants per doctor, case spacing, PMS read-only view via Ascend, what files we need from them — malpractice example, signed STS agreement). STS runs <strong>six active locations</strong> — Bowling Green, Louisville, Somerset, Dry Ridge, Cynthiana and Richmond.</p>
         <!-- /DATA -->
       </div>
     </section>
@@ -1670,43 +1571,50 @@
     <section class="report-section reveal" data-section="forward">
       <div class="wrap">
         <!-- DATA: 07 Forward -->
-        <div class="next-week" id="nextWeek" data-wk="WK 39">
+        <div class="next-week" id="nextWeek" data-wk="WK 43">
           <div class="section-eyebrow"><span class="num">07</span><span class="slash">/</span>Forward</div>
           <h2 class="section-title">Next Week Focus</h2>
           <div class="nw-list">
             <div class="nw-item">
               <div class="nw-num">01</div>
               <div>
-                <div class="nw-title">Joey Preston — fit the $2,600 under the cap</div>
-                <div class="nw-desc">The bid is in: $800 equipment, $1,800 labor and general contracting. Fully additive it runs about $1,013 over the cap, and over both bucket limits. The $2,220 of uncommitted allowances is the only soft money left in the plan.</div>
+                <div class="nw-title">Hometown — settle sedation and billing before Nov 6</div>
+                <div class="nw-desc">Work through sedation feasibility with you, resolve the Delta / host-office billing question, get Arjay to test the Ascend access, and confirm a realistic patient schedule. Patient readiness check is 7–10 days out, so the go / no-go on 11/6 lands around 10/27–10/30.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">02</div>
               <div>
-                <div class="nw-title">Land Draws 3 and 4</div>
-                <div class="nw-desc">$19,040 still unconfirmed — Draw 3 ($8,640) on the 9/4 authorization, Draw 4 ($10,400) requested 9/8 and followed up 9/14. The $3,650 reallocation posting still needs verifying too.</div>
+                <div class="nw-title">Issue payments</div>
+                <div class="nw-desc">Brian ($2,655.10), Florence Electric and Greater Comfort. Plus the first month's check on the Hampton parking lease.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">03</div>
               <div>
-                <div class="nw-title">Close out the bank file — everything is due 9/30</div>
-                <div class="nw-desc">Final invoices and closing items go to BofA by Wednesday 9/30. Outstanding: Florence Electric's $5,700 direct pay, Roofcred's $932.32 shelving invoice, the $6,416.28 reimbursement batch, the $500 trailer's eligibility, and the insurance certificate.</div>
+                <div class="nw-title">Finish the Cynthiana closeout</div>
+                <div class="nw-desc">Larry Kelly on relocation and finishing; sign install 10/16. Then reconciliation and the bank-closeout paperwork — credit expiration is 10/31.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">04</div>
               <div>
-                <div class="nw-title">Wednesday 9/23, 8 AM — WYCN radio</div>
-                <div class="nw-desc">Your next talk-show slot.</div>
+                <div class="nw-title">STS credentialing and the portal</div>
+                <div class="nw-desc">Keep Delta Dental credentialing moving, follow up with Rick on the lease, and keep building the site portal and the Hometown checklist / SOPs.</div>
               </div>
             </div>
             <div class="nw-item">
               <div class="nw-num">05</div>
               <div>
-                <div class="nw-title">Looking ahead: data workgroup kickoff in October</div>
-                <div class="nw-desc">About 2–3 hours a month. The 501(c)(3) letter may take a while if the State has to go back to CMS.</div>
+                <div class="nw-title">Marketing — put dollars on the leads</div>
+                <div class="nw-desc">Go through the CallRail / MMM leads and attribute dollar amounts. Confirm the 10/27 Rush shoot date.</div>
+              </div>
+            </div>
+            <div class="nw-item">
+              <div class="nw-num">06</div>
+              <div>
+                <div class="nw-title">KDAI grant status</div>
+                <div class="nw-desc">Follow up with Kevin Rapp on the submission to Jennifer Harrison.</div>
               </div>
             </div>
           </div>
@@ -1715,7 +1623,7 @@
       </div>
     </section>
 
-    <div class="signoff" id="signoff">FDC Cynthiana · WK 39 · 2026</div>
+    <div class="signoff" id="signoff">FDC Cynthiana · WK 43 · 2026</div>
 
   </div><!-- /tab-brief -->
 
@@ -1726,12 +1634,12 @@
         <!-- DATA: Routing Detail -->
         <div class="section-eyebrow"><span class="num">RD</span><span class="slash">/</span>Routing</div>
         <h2 class="section-title">Routing Detail — Provider &amp; Carrier</h2>
-        <p class="lead">New this week: the tool's provider view over the <strong>full window — every line with a date of service since 5/1</strong> — replaces the July-only tables that had been carried here since WK 33. Each provider is scored two ways. <strong>Classified in-network</strong> is what the carrier treated as par. <strong>Paid at contract</strong> is whether the money actually landed where the schedule says it should. Across the five doctors with lines it's 3,133 lines, 73% in-network and 72% paid at contract. The July-only read had Bechtel at 3% paid at contract; the full window now reads 81% (302/372), and his UHC Medicaid lines read 87% in the paid-vs-contract view on the brief tab.</p>
+        <p class="lead">Carried over from WK 39 — no new EOB pull since the 9/18 capture. The tool's provider view over the <strong>full window — every line with a date of service since 5/1</strong>. Each provider is scored two ways. <strong>Classified in-network</strong> is what the carrier treated as par. <strong>Paid at contract</strong> is whether the money actually landed where the schedule says it should. Across the five doctors with lines it's 3,133 lines, 73% in-network and 72% paid at contract.</p>
 
         <div class="table-wrap">
           <div class="table-head">
             <div class="th-title">By Provider — DOS 5/1 → Today</div>
-            <div class="th-sub">Careington status · line counts · both lenses · tool last synced ~9/11 · <span class="wk-ref">WK 39</span></div>
+            <div class="th-sub">Careington status · line counts · both lenses · captured 9/18, carried over · <span class="wk-ref">WK 43</span></div>
           </div>
           <table class="data">
             <thead>
@@ -1934,69 +1842,62 @@
         <!-- DATA: Budget Snapshot -->
         <div class="section-eyebrow"><span class="num">P2</span><span class="slash">/</span>Budget</div>
         <h2 class="section-title">Phase 2 Snapshot</h2>
-        <p class="lead">Budget v40 (updated 9/14): Phase 2 lands at <strong>$67,879.52</strong> against the <strong>$69,466.87</strong> cap — a <strong>$1,587.35 buffer (2.3%)</strong>. That's up from last week's $66,947.20 and its $2,519.67 (3.6%) buffer, and the whole difference is one line: Roofcred's <strong>$932.32 shelving invoice (#634)</strong>, separate from the $45,000 contract and coded to Equipment. Logged commitments are now <strong>$65,659.52</strong> — $14,027.20 of owner purchases, all four Roofcred draws, the shelving, and Florence Electric's $5,700 — which leaves only <strong>$2,220 of allowances</strong> uncommitted. Paid so far: Draws 1 and 2 ($25,960) and $7,110.92 of owner reimbursements. Draws 3 and 4 ($19,040) are unconfirmed and $6,416.28 of receipts is submitted. <strong>Joey Preston's $2,600 is not in these totals</strong> — fully additive it takes the plan to $70,479.52, $1,012.65 over the cap.</p>
+        <p class="lead">The budget now stands at <strong>$71,041.85</strong> against the <strong>$69,466.87</strong> cap — <strong>$1,574.98 over (2.27%)</strong>. At the 9/18 brief the v40 workbook had the plan at $67,879.52 with $1,587.35 of room, so the swing since is about $3,160. What's in the new number that wasn't before: <strong>First Class, $4,060.87, paid</strong>, and <strong>Brian, $2,655.10, unpaid but included</strong>. The 10/6 BofA disbursement is confirmed received and the invoices are organized. No workbook came with this week's folder, so this tab carries the headline figures from my notes rather than a category breakdown; the last full breakdown is in the 9.18 brief.</p>
 
         <div class="scope-banner">
           <div class="sb-left">
             <div class="sb-label">Phase 2 Total</div>
-            <div class="sb-value">$67,880</div>
+            <div class="sb-value">$71,042</div>
           </div>
-          <div class="sb-meta">Cap $69,466.87<br>Buffer $1,587.35 · 2.3%<br>Snapshot <span class="wk-ref">WK 39</span></div>
+          <div class="sb-meta">Cap $69,466.87<br>Over $1,574.98 · 2.27%<br>Snapshot <span class="wk-ref">WK 43</span></div>
         </div>
 
         <div class="scope-grid">
           <div class="scope-card lead-item">
             <div class="scope-head">
-              <div class="scope-name">Renovation &amp; Construction</div>
-              <div class="scope-price">$33,635</div>
+              <div class="scope-name">Position vs Cap</div>
+              <div class="scope-price">−$1,574.98</div>
             </div>
             <ul>
-              <li>Roofcred Quote #633: Intake $10,945 · Painting $8,640 · Checkout $7,650 · Back reframing $5,200 · Doctors rooms $1,200</li>
-              <li>Draws 1 and 2 paid ($25,960) · Draw 3 authorized 9/4, not disbursed ($8,640) · Draw 4 requested 9/8, followed up 9/14 ($10,400)</li>
-              <li>Roofcred FF&amp;E ($11,365) sits in Technology &amp; Equipment per the BofA breakout</li>
+              <li>$71,041.85 budget against the $69,466.87 hard-cost cap</li>
+              <li>Was $1,587.35 under at v40 (9/14); Joey Preston's $2,600 bid was the known pressure then</li>
             </ul>
           </div>
           <div class="scope-card">
             <div class="scope-head">
-              <div class="scope-name">Infrastructure Compliance</div>
-              <div class="scope-price">$5,730</div>
+              <div class="scope-name">First Class</div>
+              <div class="scope-price">$4,060.87</div>
             </div>
             <ul>
-              <li>Florence Electric — all-electrical scope $5,700, base only (no bonus, no card fee). Corrected W-9 sent 9/14 with the direct-pay request; waiting on bank acceptance</li>
-              <li>HVAC scent diffuser — $30</li>
+              <li>Paid</li>
             </ul>
           </div>
           <div class="scope-card">
             <div class="scope-head">
-              <div class="scope-name">Technology &amp; Equipment</div>
-              <div class="scope-price">$28,514.52</div>
+              <div class="scope-name">Brian</div>
+              <div class="scope-price">$2,655.10</div>
             </div>
             <ul>
-              <li>Roofcred FF&amp;E reclass $11,365 (Intake $7,715 + Checkout $3,650) — Draw 1's $3,650 is what the extra reallocation covers</li>
-              <li>Furniture, décor &amp; shelving $7,551.38 — owner purchases $6,619.06 plus the new $932.32 Roofcred shelving; $2,751.38 over the former $4,800 allowance</li>
-              <li>Bought: tip-out bins $1,826.43 · 3 Hisense TVs $2,278.97 · electric signs $1,314 · 2 mini PCs $976.46 · 2 monitors $315.44 · LED strips $196.84 · trailer rental $500</li>
-              <li>Allowances left: IT install (Brian) $2,000 · TV mounts $140 · LED splitter $50</li>
+              <li>Unpaid — already included in the $71,041.85</li>
             </ul>
           </div>
           <div class="scope-card">
             <div class="scope-head">
-              <div class="scope-name">Contingency (vs cap)</div>
-              <div class="scope-price">$1,587.35</div>
+              <div class="scope-name">Still to Pay</div>
+              <div class="scope-price">3 vendors</div>
             </div>
             <ul>
-              <li>Remaining headroom against the cap — 2.3%, not part of the $67,880 total. By bucket: $1,080.54 Contractor/TI · $506.81 Equipment</li>
-              <li>Joey Preston's $2,600 would land here — and it's $1,012.65 more than what's left</li>
+              <li>Brian · Florence Electric · Greater Comfort</li>
             </ul>
           </div>
           <div class="scope-card">
             <div class="scope-head">
-              <div class="scope-name">Cost Basis</div>
-              <div class="scope-price">—</div>
+              <div class="scope-name">Bank</div>
+              <div class="scope-price">Oct 6</div>
             </div>
             <ul>
-              <li>Confirmed (firm price / bought) — $65,659.52, up from $64,727.20 with the shelving invoice</li>
-              <li>Estimated (vendor working quotes) — $0</li>
-              <li>Allowance (TBD / placeholder) — $2,220: IT install, TV mounts, LED splitter, diffuser</li>
+              <li>Disbursement from Jenna confirmed received; budget updated and invoices organized</li>
+              <li>Reconciliation and closeout paperwork still open</li>
             </ul>
           </div>
           <div class="scope-card">
@@ -2005,18 +1906,14 @@
               <div class="scope-price">$0</div>
             </div>
             <ul>
-              <li>Front-area flooring</li>
-              <li>Espresso bar counter + machine</li>
-              <li>Coffee machine plumber</li>
-              <li>Operatory back walls / HEX (7 ops)</li>
-              <li>All four still held at $0 by choice — the build closed without needing them</li>
+              <li>Front-area flooring · espresso bar · coffee plumber · operatory back walls — still held at $0</li>
             </ul>
           </div>
         </div>
 
         <div class="callout">
           <div class="callout-label">Context &amp; open items</div>
-          <p>Phase 2 draws from the <strong>$295,000</strong> operations budget; the $69,466.87 cap is what's left after $225,533.13 disbursed per the 8/4 BofA statement. $65,659.52 is confirmed at firm prices; only $2,220 of allowances is still soft. Scenario range: minimum <strong>$65,659.52</strong> (allowances unused, $3,807.35 buffer) · target <strong>$67,879.52</strong> · no downside case defined in v40. Owner purchases total $14,027.20 against BofA's $15,000 reimbursement control — $7,110.92 reimbursed, $6,416.28 submitted, the $500 trailer pending. Open with the bank: the $3,650 posting (approved 9/11), Draw 3 and 4 disbursement, acceptance of Florence's corrected W-9, the shelving invoice's Equipment coding, the trailer's eligibility, and insurance condition 0865. Dates: closing items due <strong>9/30</strong>, estimated close 10/7, credit expiration 10/31; the $5,796.33 interest reserve sits outside the hard-cost cap. <span class="hl">Joey Preston's bid is $2,600 — $800 Equipment, $1,800 Contractor/TI. Added as-is it exceeds the Equipment limit by $293.19 and the Contractor limit by $719.46, so as it stands it puts us slightly over.</span></p>
+          <p>Phase 2 draws from the <strong>$295,000</strong> operations budget; the $69,466.87 cap is what was left after $225,533.13 disbursed per the 8/4 BofA statement. Dates from the 9/4 Project Summary: closing items were due 9/30, estimated close 10/7, <strong>credit expiration 10/31</strong>; the $5,796.33 interest reserve sits outside the hard-cost cap. <span class="hl">We're $1,574.98 over the cap with Brian, Florence Electric and Greater Comfort still to be paid — reconciliation and the bank-closeout paperwork are the next steps.</span></p>
         </div>
         <!-- /DATA -->
       </div>
@@ -2124,7 +2021,7 @@
        Bump REPORT_ID each week so every report keeps its own comment thread.
        Leave the URL/key blank to ship the report with comments turned off.
        ===================================================================== */
-    const REPORT_ID = "wk39";
+    const REPORT_ID = "wk43";
     const SUPABASE_URL = "https://lpsfjyveqikhtwjkayqu.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxwc2ZqeXZlcWlraHR3amtheXF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODQ0NTcsImV4cCI6MjA5NjE2MDQ1N30.r_xSQmipSJCtWcjoDx2He0ZjfM4OLoKXd2ZTDtmn1jI";  // anon / public key (safe to commit; RLS-limited)
 
@@ -2132,7 +2029,7 @@
     const SECTION_LABELS = {
       renovation: "Phase 2 Renovations",
       insurance: "Routing & Fee Evidence",
-      operations: "Operations & Vendors",
+      operations: "Operations, Admin & Systems",
       patient: "Live Satisfaction",
       marketing: "Marketing & Reputation",
       sts: "Southern Travel Surgery",
